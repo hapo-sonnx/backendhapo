@@ -20,6 +20,7 @@ class UpdateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->text('about')->nullable();
             $table->integer('gender')->default(0)->comment("0: female, 1: male;");
+            $table->softDeletes();
         });
     }
 
@@ -31,12 +32,13 @@ class UpdateUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('role')->default(0)->comment('1: teacher, 0: student,');
-            $table->string('phone')->nullable();
-            $table->date('brithday')->nullable();
-            $table->string('address')->nullable();
-            $table->text('about')->nullable();
-            $table->integer('gender')->default(0)->comment("0: female, 1: male");
+            $table->dropColumn('role');
+            $table->dropColumn('phone');
+            $table->dropColumn('brithday');
+            $table->dropColumn('address');
+            $table->dropColumn('aboutMe');
+            $table->dropColumn('gender');
+            $table->dropSoftDeletes();
         });
     }
 }
