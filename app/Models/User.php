@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, SoftDeletes;
+    use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -41,30 +40,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    const GENDER = [
-        'male' => 1,
-        'female' => 0,
-    ];
-
-    const ROLE = [
-        'mentor' => 1,
-        'student' => 0,
-    ];
-
-    
-    public function courses()
-    {
-        return $this->belongsToMany(Course::class, 'user_courses', 'lesson_id', 'user_id');
-    }
-
-    public function lessons()
-    {
-        return $this->belongsToMany(Lesson::class, 'users_lessons', 'lesson_id', 'user_id');
-    }
-
-    public function feedback()
-    {
-        return $this->hasMany(Feedback::class, 'user_id');
-    }
 }
