@@ -14,6 +14,7 @@ class CreateTagCoursesTable extends Migration
     public function up()
     {
         Schema::create('tag_courses', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('course_id');
             $table->unsignedInteger('tag_id');
             $table->softDeletes();

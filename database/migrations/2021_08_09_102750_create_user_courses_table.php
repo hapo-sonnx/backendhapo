@@ -14,6 +14,7 @@ class CreateUserCoursesTable extends Migration
     public function up()
     {
         Schema::create('user_courses', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('course_id');
             $table->unsignedInteger('user_id');
             $table->softDeletes();

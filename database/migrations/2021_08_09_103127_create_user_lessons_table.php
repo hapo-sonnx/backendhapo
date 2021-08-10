@@ -14,6 +14,7 @@ class CreateUserLessonsTable extends Migration
     public function up()
     {
         Schema::create('user_lessons', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('lesson_id');
             $table->integer('learned')->default(0)->nullable()->comment("1: learned; 2: did not learned");
