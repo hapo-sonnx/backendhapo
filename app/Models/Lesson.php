@@ -32,5 +32,4 @@ class Lesson extends Model
     {
         return $this->hasMany(Feedback::class, 'lesson_id');
     }
-
 }

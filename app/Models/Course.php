@@ -20,26 +20,26 @@ class Course extends Model
         'tag',
         'price',
         'description'
-    ];
+       ];
 
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'user_courses', 'user_id', 'course_id');
-    }
+       public function users()
+       {
+           return $this->belongsToMany(User::class, 'user_courses', 'user_id', 'course_id');
+       }
 
-    public function lessons()
-    {
-        return $this->hasMany(Lesson::class);
-    }
+       public function lessons()
+       {
+           return $this->hasMany(Lesson::class);
+       }
 
 
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class, 'tag_courses', 'tag_id', 'course_id');
-    }
+       public function tags()
+       {
+           return $this->belongsToMany(Tag::class, 'tag_courses', 'tag_id', 'course_id');
+       }
 
-    public function feedback()
-    {
-        return $this->hasMany(Feedback::class);
-    }
+       public function feedback()
+       {
+           return $this->hasMany(Feedback::class);
+       }
 }
