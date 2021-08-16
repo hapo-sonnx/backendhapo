@@ -1883,6 +1883,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
+
+__webpack_require__(/*! ./popover */ "./resources/js/popover.js");
+
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -1947,6 +1951,53 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/popover.js":
+/*!*********************************!*\
+  !*** ./resources/js/popover.js ***!
+  \*********************************/
+/***/ (() => {
+
+$(function () {
+  $('[data-toggle="popover"]').popover();
+});
+$(document).ready(function () {
+  $(".close-button").click(function () {
+    $(".text-mess").hide();
+  });
+  $(".img-mess").click(function () {
+    $(".text-mess").show();
+  });
+});
+
+function showheader() {
+  document.getElementById("hideheader").style.display = "block";
+  document.getElementById("hideheader").style.width = "5px";
+  document.getElementById("showheader").style.display = "none";
+  document.getElementById("navbarSupportedContent").style.display = "block";
+}
+
+function hideheader() {
+  document.getElementById("hideheader").style.display = "none";
+  document.getElementById("showheader").style.display = "block";
+  document.getElementById("navbarSupportedContent").style.display = "none";
+}
+
+$(document).ready(function () {
+  $('.btn-x').click(function () {
+    if ($('.collapse').hasClass("show")) {
+      $(".collapse").removeClass("show");
+      $(".navbar-toggler-icon").css({
+        "display": "inline-block"
+      });
+      $(".img-close-header").css({
+        "display": "none"
+      });
+    }
+  });
+});
 
 /***/ }),
 

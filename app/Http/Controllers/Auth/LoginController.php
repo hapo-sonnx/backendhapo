@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -26,15 +28,25 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/hapo';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+
+    public function authenticate(Request $request)
     {
-        $this->middleware('guest')->except('logout');
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+
+        $isLoginend = Auth::attempt($credentials);
+        if (!$isLoginend) {
+            $error = "Email or password you entered is incorrect";
+            return redirect()->back()->withErrors($error);
+        }
     }
 }

@@ -1,19 +1,30 @@
-// Body
-$body-bg: #f8fafc;
-
-// Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
-
-// Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@font-face {
+    font-family: "utm_bryantlgregular";
+    src: url(/fonts/utm_bryantlg_webfont.woff) format("woff2"),
+      url(/fonts/utm_bryantlg_webfont.woff2) format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+$font_UTM_BryantLG: "utm_bryantlgregular";
+$ag-color: aliceblue;
+$bg-color: azure;
+$cg-color: #b2d235;
+$txt-color: #505353;
+$w-color: White;
+$h-color: #3f6185;
+$lara-color: #dc594c;
+$php-color: #556598;
+$bl-color: #11114e;
+$hover-color: #748b18;
+$ck-color: #f2c54f;
+$bl-color: black;
+$bt-color: #454545;
+$mess-color: #3184f7;
+$chat-color: #b3b3b3;
+$close-color: #c4c4c4;
+$user-color: #f2f2f2;
+$gg-color: #dc4e41;
+$face-color: #3b5999;
+$textmess-color: black;
+$font-Opensans: "Open Sans", sans-serif;

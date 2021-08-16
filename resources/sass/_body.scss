@@ -1,0 +1,1112 @@
+.content-banner {
+    background-image: url("/image/hapo_learn_banner.png");
+    background-repeat: no-repeat;
+    height: 655px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0px;
+  }
+  
+  .banner-text {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 88px;
+  }
+  
+  .text-learn {
+    font-family: $font_UTM_BryantLG;
+    font-size: 45px;
+    line-height: 61px;
+    letter-spacing: -0.05em;
+    color: #11114e;
+  }
+  
+  .background-linear-gradient {
+    background-image: linear-gradient(0deg, #e5e5e5, white);
+    height: 130px;
+  }
+  
+  .text-at {
+    font-family: $font_UTM_BryantLG;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 61px;
+    -webkit-text-stroke-width: 2px;
+    color: #11114e;
+  }
+  
+  .text-inter {
+    margin-top: 17px;
+    color: #505353;
+    display: block;
+    font-size: 25px;
+    line-height: 39px;
+    letter-spacing: -0.05em;
+    font-weight: 400;
+    font-family: $font_UTM_BryantLG;
+  }
+  
+  .text-inter-practice {
+    color: #505353;
+    display: block;
+    font-size: 25px;
+    line-height: 39px;
+    letter-spacing: -0.05em;
+    font-weight: 400;
+    font-family: $font_UTM_BryantLG;
+  }
+  
+  .text-start {
+    cursor: pointer;
+    width: 60%;
+    padding: 8px 46px;
+    margin-top: 35px;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 51px;
+    letter-spacing: -0.05em;
+    color: $ag-color;
+    border: 0.3px solid $ag-color;
+    background: $cg-color;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    font-family: $font_UTM_BryantLG;
+    &:hover {
+      color: black;
+    }
+  }
+  
+  .group {
+    padding: 87px 0px;
+    margin-top: -147px;
+  }
+  
+  .text-ruby {
+    padding: 0px;
+    margin-top: 41px;
+  }
+  
+  .btn-primary {
+    color: #fff;
+    border-radius: 35px;
+    background-color: #b2d235;
+    border-color: white;
+  }
+  
+  .text-take {
+    box-shadow: inset 0px 1.5px 2px #6f8710;
+    height: 40px;
+  }
+  
+  .card {
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    text-align: center;
+  }
+  
+  .laravel-logo {
+    background-color: $lara-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: 200px;
+  }
+  
+  .logo {
+    border-radius: 15px 15px 0px 0px;
+    margin: 0;
+  }
+  
+  .html {
+    background-color: $h-color;
+  }
+  
+  .html-css {
+    background-color: #24abe2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: 200px;
+  }
+  
+  .col-text {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  .laravel {
+    background-color: $lara-color;
+  }
+  
+  .php {
+    background-color: $php-color;
+  }
+  
+  .php-java {
+    background: #1b75bb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: 200px;
+  }
+  
+  .card-img-top {
+    width: 66%;
+    margin-bottom: 23px;
+    margin-top: 23px;
+  }
+  
+  .card-text {
+    font-family: $font_UTM_BryantLG;
+    color: #505353;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1140px;
+  }
+  
+  .card-text-new {
+    font-family: $font_UTM_BryantLG;
+    color: #505353;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .card-img-left {
+    width: 54%;
+    margin-bottom: 23px;
+    margin-top: 23px;
+  }
+  
+  .card-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 37px;
+    letter-spacing: -0.05em;
+    color: $cg-color;
+    font-family: $font_UTM_BryantLG;
+  }
+  
+  .other {
+    text-align: center;
+    margin-top: -14px;
+    color: #11114e;
+  }
+  
+  .other-feed {
+    text-align: center;
+    margin-top: 50px;
+    color: #11114e;
+  }
+  
+  .text-other {
+    -webkit-text-stroke-width: 3px;
+    font-weight: 700;
+    width: 100%;
+    margin-top: 106px;
+    font-size: 80px;
+    text-align: center;
+    display: inline;
+    border-bottom: 5px $cg-color solid;
+    border-radius: 3px;
+    font-family: $font_UTM_BryantLG;
+  }
+  
+  .card-img-css {
+    width: 66%;
+  }
+  
+  .card-img-laravel {
+    width: 66%;
+    margin-bottom: 59px;
+    margin-top: 69px;
+  }
+  
+  .card-img-java {
+    width: 66%;
+  }
+  
+  .view {
+    text-align: center;
+    margin-top: 39px;
+  }
+  
+  .btn-text-view {
+    font-size: 40px;
+    color: $hover-color;
+    text-decoration: blink;
+    font-family: $font_UTM_BryantLG;
+    -webkit-text-stroke-width: 2px;
+    &:hover {
+      color: $hover-color;
+    }
+  }
+  
+  .arrow {
+    width: 3%;
+    margin-top: -10px;
+  }
+  
+  .why-hapo {
+    background-size: cover;
+    background-image: url("/image/rectangle_17.png");
+    height: 730px;
+    margin-top: 90px;
+  
+    .col-hapo {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+      margin-top: -35px;
+    }
+  }
+  
+  .col-right {
+    align-items: initial !important;
+    margin-top: 16rem !important;
+  }
+  
+  .card-body .text-take {
+    background: #b2d235;
+    box-shadow: inset 0px 1.5px 2px #6f8710;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 6px 32px;
+    margin: 10px 0;
+    color: white;
+    font-family: "utm_bryantlgregular";
+    &:hover {
+      color: black;
+      border-color: white;
+    }
+  }
+  
+  .col-left {
+    justify-content: flex-end;
+    margin-bottom: 50px;
+  }
+  
+  .cotainer-laptop {
+    position: relative;
+  }
+  
+  .img-laptop {
+    position: absolute;
+    top: -12rem;
+    left: 0px;
+  }
+  
+  .img-mobi {
+    width: 75%;
+  }
+  
+  .img {
+    width: 100%;
+  }
+  
+  .text-why {
+    color: $ag-color;
+    font-size: 65px;
+    font-family: $font_UTM_BryantLG;
+    font-weight: 700;
+  }
+  
+  .text-interactive {
+    color: $ag-color;
+    font-size: 20px;
+    font-family: $font_UTM_BryantLG;
+  }
+  
+  .text-what {
+    font-weight: 600;
+    color: #505353;
+    text-align: center;
+    font-size: 25px;
+    font-family: $font_UTM_BryantLG;
+  }
+  
+  .text-feed {
+    -webkit-text-stroke-width: 3px;
+    width: 100%;
+    font-size: 80px;
+    text-align: center;
+    display: inline;
+    border-bottom: 5px $cg-color solid;
+    border-radius: 3px;
+    font-family: $font_UTM_BryantLG;
+    font-weight: 800;
+    color: #11114e;
+  }
+  
+  .row-feedback {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-top: 20px;
+    position: relative;
+  }
+  
+  .feedback-content-row {
+    padding: 0 40px;
+    border: 0.5px solid #e2e2e2;
+    border-radius: 15px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+  
+  .feedback-content {
+    font-size: 20px;
+    color: #505353;
+    font-weight: 600;
+    border-left: 2px #707575 solid;
+    padding-left: 15px;
+    margin: 30px 0;
+    font-family: $font_UTM_BryantLG;
+  }
+  
+  .seed {
+    position: absolute;
+    width: 89px;
+    bottom: 100px;
+    left: 33px;
+  }
+  
+  .user-feedback {
+    margin-top: 50px;
+  }
+  
+  .name-feedback {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 12px;
+    color: #11114e;
+    -webkit-text-stroke-width: 0.5px;
+    font-family: $font_UTM_BryantLG;
+  }
+  
+  .img-feedback {
+    margin-left: 18px;
+  }
+  
+  .checked {
+    color: $ck-color;
+  }
+  
+  .icon-feedback {
+    top: 23%;
+    margin-left: -16px;
+    font-weight: 300;
+    z-index: 999;
+    height: 1em;
+    color: #969494;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      color: #969494;
+    }
+  }
+  
+  .img-become {
+    background-image: url("/image/img_become.png");
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+  }
+  
+  .icon-feedbackright {
+    display: contents;
+    font-weight: 300;
+    height: 1em;
+    color: #969494;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      color: #969494;
+    }
+  }
+  
+  .fa-chevron-circle-right:before {
+    margin-top: 62px;
+    margin-left: -29px;
+    z-index: 999;
+    background: white;
+    height: 30px;
+  }
+  
+  .become {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .text-become {
+    font-size: 60px;
+    color: $ag-color;
+    width: 100%;
+    text-align: center;
+    margin-top: 75px;
+    font-family: $font_UTM_BryantLG;
+    font-weight: 800;
+    -webkit-text-stroke-width: 2px;
+  }
+  
+  .text-startlearning {
+    cursor: pointer;
+    padding: 10px 35px;
+    background-color: white;
+    font-family: "utm_bryantlgregular";
+    color: #b2d235;
+    text-decoration: none;
+    border-radius: 40px;
+    box-shadow: inset 0px 2px 2px #e3e7e7;
+    font-size: 25px;
+    font-weight: 900;
+    &:hover {
+      color: black;
+    }
+  }
+  
+  .learning {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .static {
+    text-align: center;
+    margin-top: 55px;
+  }
+  
+  .text-static {
+    width: 100%;
+    font-size: 80px;
+    display: inline;
+    border-bottom: 5px $cg-color solid;
+    border-radius: 3px;
+    font-family: $font_UTM_BryantLG;
+    font-weight: 800;
+    color: #11114e;
+  }
+  
+  .row-statistic-index {
+    margin-top: 30px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .col-statistic {
+    text-align: center;
+    font-size: 29px;
+  }
+  
+  .text-index {
+    color: $cg-color;
+  }
+  
+  .text-courses {
+    font-family: $font_UTM_BryantLG;
+    font-weight: 800;
+    color: #505353;
+    font-size: 60px;
+  }
+  
+  .text-index {
+    font-family: $font_UTM_BryantLG;
+    font-weight: 800;
+    font-size: 60px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .content-banner {
+      height: 337px;
+    }
+  
+    .text-learn {
+      font-size: 27px;
+      line-height: 18px;
+    }
+  
+    .banner-text {
+      margin-left: 41px;
+    }
+  
+    .text-at {
+      font-size: 31px;
+    }
+  
+    .text-inter {
+      font-size: 17px;
+      margin: 0;
+    }
+  
+    .text-inter-practice {
+      font-size: 17px;
+      line-height: 9px;
+    }
+  
+    .all {
+      width: 119px;
+    }
+  
+    .text-start {
+      font-size: 21px;
+      margin-top: 19px;
+      padding: 0;
+      width: 50%;
+    }
+  
+    .text-row {
+      margin: 0;
+      display: flex;
+      flex-wrap: initial;
+    }
+  
+    .ruby {
+      margin: 0;
+      display: flex;
+      flex-wrap: initial;
+    }
+  
+    .row > * {
+      width: 33%;
+    }
+  
+    .card-body .text-take {
+      padding: 5px 32px;
+      font-size: 13px;
+      margin: 0px;
+      height: 33px;
+    }
+  
+    .take {
+      margin-top: 10px;
+    }
+  
+    .card-text-new {
+      font-size: 14px;
+      margin-bottom: 0px;
+      line-height: 19px;
+    }
+  
+    .card-title {
+      font-size: 18px;
+      overflow: hidden;
+      width: 100%;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      line-height: 22px;
+    }
+  
+    .card-text {
+      font-size: 14px;
+      overflow: hidden;
+      width: 100%;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  
+    .group {
+      padding: 0px;
+      margin-top: -71px;
+      max-width: 712px;
+    }
+  
+    .col-text {
+      padding-right: 3px;
+      padding-left: 11px;
+    }
+  
+    .other {
+      margin-top: 40px;
+    }
+  
+    .text-other {
+      font-size: 48px;
+      -webkit-text-stroke-width: 2px;
+      font-weight: unset;
+    }
+  
+    .card-img-laravel {
+      margin-bottom: 59px;
+      margin-top: 57px;
+    }
+  
+    .btn-text-view {
+      font-size: 29px;
+    }
+  
+    .card-img-java {
+      width: 66%;
+      margin-bottom: 37px;
+      margin-top: 32px;
+    }
+  
+    .html-css {
+      height: 130px;
+    }
+  
+    .laravel-logo {
+      height: 130px;
+    }
+  
+    .php-java {
+      height: 130px;
+    }
+  
+    .view {
+      margin-top: 39px;
+    }
+  
+    .text-ruby {
+      padding: 0px;
+      margin-top: 47px;
+      max-width: 712px;
+    }
+  
+    .why-hapo {
+      height: 446px;
+    }
+  
+    .img-laptop {
+      width: 57%;
+      top: -17rem;
+    }
+  
+    .fa-chevron-circle-right:before {
+      margin-top: 72px;
+    }
+  
+    .img-mobi {
+      width: 100%;
+    }
+  
+    .row-why {
+      .col-hapo {
+        width: 50%;
+        margin-top: 137px !important;
+      }
+    }
+  
+    .text-interactive {
+      font-size: 13px;
+    }
+  
+    .inner {
+      margin-top: 55px;
+    }
+  
+    .text-why {
+      font-size: 50px;
+      position: absolute;
+      top: -2em;
+      right: -5em;
+    }
+  
+    .feedback-left {
+      width: 89%;
+    }
+  
+    .feedback-content {
+      width: 90%;
+    }
+  
+    .feedback-right {
+      display: none;
+    }
+  
+    .seed {
+      width: 89px;
+    }
+  
+    .text-static {
+      font-size: 45px;
+    }
+  
+    .text-courses {
+      font-size: 40px;
+    }
+  
+    .text-index {
+      font-size: 40px;
+    }
+  
+    .col-img {
+      width: 10%;
+    }
+  
+    .carousel-control-prev {
+      margin-left: 8px;
+      margin-top: 60px;
+    }
+  
+    .carousel-control-next {
+      margin-right: 8px;
+      margin-top: 60px;
+    }
+  
+    .img-become {
+      height: 266px;
+    }
+  
+    .text-become {
+      font-size: 29px;
+    }
+  
+    .text-startlearning {
+      font-size: 23px;
+      margin-top: 0px;
+    }
+  
+    .icon-feedbackright {
+      margin-left: 43.5rem;
+    }
+  
+    .icon-feedback {
+      margin-left: -16px;
+    }
+  
+    .col-button {
+      width: 34%;
+    }
+  
+    .col-name {
+      margin-left: 25px;
+    }
+  }
+  
+  @media screen and (max-width: 414px) {
+    .content-banner {
+      height: 433px;
+      justify-content: flex-end;
+      background-size: 476px;
+      background-position-x: -100px;
+    }
+  
+    .btn-text-view {
+      font-size: 26px;
+    }
+  
+    .arrow {
+      width: 9%;
+      margin-top: -4px;
+    }
+  
+    .banner-text {
+      width: 94%;
+      position: absolute;
+      top: 43%;
+      margin-left: 19px;
+    }
+  
+    .text-learn {
+      font-size: 25px;
+      margin-top: 41px;
+      margin-left: 37px;
+    }
+  
+    .text-at {
+      font-size: 25px;
+      margin-left: 37px;
+    }
+  
+    .card-title {
+      font-size: 20px;
+    }
+  
+    .card-body .text-take {
+      padding: 2px 33px;
+      font-size: 18px;
+    }
+  
+    .take {
+      margin-top: 10px !important;
+    }
+  
+    .text-start {
+      width: 79%;
+      margin-left: 31px;
+    }
+  
+    .text-inter {
+      font-size: 17px;
+      margin: 0;
+      margin-left: 31px;
+    }
+  
+    .text-inter-practice {
+      margin-left: 31px;
+    }
+  
+    .inner {
+      margin-top: 22px;
+    }
+  
+    .navbar {
+      position: absolute;
+      z-index: 1;
+      width: 95%;
+      padding: 0;
+    }
+  
+    .banner {
+      padding-top: 52px;
+    }
+  
+    .logo {
+      margin: 0;
+    }
+  
+    .group {
+      padding-top: 0px;
+      width: 79%;
+      margin-top: -60px;
+    }
+  
+    .text-ruby {
+      width: 79%;
+    }
+  
+    .text-row {
+      margin: 0;
+      display: block;
+    }
+  
+    .ruby {
+      margin: 0;
+      display: block;
+    }
+  
+    .card {
+      margin-bottom: 30px;
+  
+      .card-text {
+        -webkit-box-orient: initial;
+      }
+    }
+  
+    .row > * {
+      width: 100%;
+    }
+  
+    .text-other {
+      font-size: 50px;
+    }
+  
+    .img-laptop {
+      width: 50%;
+      top: -7rem;
+    }
+  
+    .why-hapo {
+      margin-top: 352px;
+      height: 621px;
+    }
+  
+    .row-why {
+      display: block;
+    }
+  
+    .row-why {
+      .col-hapo {
+        width: 100%;
+        margin-top: -280px !important;
+      }
+    }
+  
+    .text-why {
+      margin-left: 130px;
+      font-size: 41px;
+      margin-top: 22px;
+      position: relative;
+      top: 0;
+      right: 0;
+    }
+  
+    .img-mobi {
+      margin-top: 242px;
+    }
+  
+    .other {
+      margin-top: 60px;
+    }
+  
+    .text-interactive {
+      font-size: 13px;
+    }
+  
+    .feedback-left {
+      width: 95%;
+    }
+  
+    .feedback-content {
+      width: 100%;
+      font-size: 14px;
+    }
+  
+    .feedback-right {
+      display: none;
+    }
+  
+    .seed {
+      width: 89px;
+    }
+  
+    .col-name {
+      width: 17%;
+    }
+  
+    .col-img {
+      width: 20%;
+    }
+  
+    .name-feedback {
+      font-size: 16px;
+    }
+  
+    .text-feed {
+      font-size: 40px;
+    }
+  
+    .text-what {
+      font-size: 16px;
+      padding: 22px;
+    }
+  
+    .carousel-control-prev {
+      margin-left: 0px;
+      margin-top: 117px;
+    }
+  
+    .carousel-control-next {
+      margin-right: 0px;
+      margin-top: 117px;
+    }
+  
+    .img-be come {
+      height: 130px;
+    }
+  
+    .text-become {
+      font-size: 23px;
+      margin-top: 13px;
+      -webkit-text-stroke-width: 1px;
+    }
+  
+    .become {
+      margin-top: 33px;
+    }
+  
+    .text-startlearning {
+      font-size: 18px;
+      margin-top: 0px;
+      padding: 8px 25px;
+    }
+  
+    .icon-feedback {
+      margin-left: -16px;
+      top: 23%;
+    }
+  
+    .fa-chevron-circle-right:before {
+      margin-top: 74px;
+    }
+  
+    .html-css {
+      height: 164px;
+    }
+  
+    .laravel-logo {
+      height: 164px;
+    }
+  
+    .php-java {
+      height: 164px;
+    }
+  }
+  
+  @media (min-width: 1056px) and (max-width: 1435px) {
+    .img-mobi {
+      width: 100%;
+    }
+    .fa-chevron-circle-right:before {
+      margin-top: 85px;
+    }
+  }
+  @media (min-width: 950px) and (max-width: 1047px) {
+    .img-mobi {
+      width: 100%;
+    }
+    .text-why {
+      color: aliceblue;
+      font-size: 61px;
+      font-family: "utm_bryantlgregular";
+      font-weight: 700;
+    }
+    .text-interactive {
+      color: aliceblue;
+      font-size: 16px;
+    }
+    .fa-chevron-circle-right:before {
+      margin-top: 95px;
+    }
+  }
+  @media (min-width: 1040px) and (max-width: 1064px) {
+    .text-interactive {
+      color: aliceblue;
+      font-size: 19px;
+    }
+    .fa-chevron-circle-right:before {
+      margin-top: 90px;
+    }
+  }
+  
+  @media (min-width: 800px) and (max-width: 945px) {
+    .text-interactive {
+      color: aliceblue;
+      font-size: 15px;
+    }
+    .img-mobi {
+      width: 107%;
+    }
+    .text-why {
+      color: aliceblue;
+      font-size: 48px;
+    }
+  
+  }
+  
+  @media (min-width: 1750px) and (max-width: 1920px) {
+    
+    .img-mobi {
+      margin-top: -64px;
+    }
+  }
+  

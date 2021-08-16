@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomehapoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +23,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/hapo', [App\Http\Controllers\HomehapoController::class, 'index'])->name('home');
+Route::get('logout', [LogoutController::class, 'getLogout'])->name('logout');
