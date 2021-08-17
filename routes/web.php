@@ -18,10 +18,10 @@ use App\Http\Controllers\HomehapoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
 
-Route::get('/hapo', [App\Http\Controllers\HomehapoController::class, 'index'])->name('home');
+// Route::get('/hapo', [App\Http\Controllers\HomehapoController::class, 'index'])->name('home');
 Route::get('logout', [LogoutController::class, 'getLogout'])->name('logout');

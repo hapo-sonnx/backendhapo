@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/hapo';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -47,6 +47,8 @@ class LoginController extends Controller
         if (!$isLoginend) {
             $error = "Email or password you entered is incorrect";
             return redirect()->back()->withErrors($error);
+        } else {
+            return redirect('/');
         }
     }
 }
