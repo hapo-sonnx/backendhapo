@@ -24,4 +24,4 @@ Route::get('/', function () {
 Auth::routes();
 
 // Route::get('/hapo', [App\Http\Controllers\HomehapoController::class, 'index'])->name('home');
-Route::get('logout', [LogoutController::class, 'getLogout'])->name('logout');
+Route::get('logout', [LogoutController::class, 'logout'])->name('logout');

@@ -21,7 +21,9 @@
 </head>
 <body>
         <main class="py-4">
+            @include('layouts.header')
             @yield('content')
+            @include('layouts.footer')
         </main>
            <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

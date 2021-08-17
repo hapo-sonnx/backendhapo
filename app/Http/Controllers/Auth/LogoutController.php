@@ -14,7 +14,7 @@ class LogoutController extends Controller
         $this->middleware('auth');
     }
 
-    public function getLogout(Request $request)
+    public function logout()
     {
         Auth::logout();
         return redirect('/');
