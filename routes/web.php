@@ -20,8 +20,5 @@ use App\Http\Controllers\HomehapoController;
 Route::get('/', function () {
     return view('home');
 });
-
 Auth::routes();
-
-// Route::get('/hapo', [App\Http\Controllers\HomehapoController::class, 'index'])->name('home');
 Route::get('logout', [LogoutController::class, 'logout'])->name('logout');

@@ -44,5 +44,3 @@
         </div>
     </nav>
 </header>
-
-@include('layouts.model')

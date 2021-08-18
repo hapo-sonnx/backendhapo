@@ -25,7 +25,6 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
     /**
      * Where to redirect users after registration.
      *
@@ -45,7 +44,7 @@ class RegisterController extends Controller
  
     public function register(RegisterRequest $request)
     {
-        $user = $this -> create($request->all());
+        $user = $this->create($request->all());
 
         Auth::login($user);
 

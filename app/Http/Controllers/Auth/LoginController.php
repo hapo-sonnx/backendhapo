@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
@@ -22,7 +23,6 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-
     /**
      * Where to redirect users after login.
      *
@@ -40,8 +40,8 @@ class LoginController extends Controller
     {
     }
 
-    public function authenticate(Request $request)
-    {
+    public function authenticate(LoginRequest $request)
+    {   
         $credentials = [
             'email' => $request->email,
             'password' => $request->password,
