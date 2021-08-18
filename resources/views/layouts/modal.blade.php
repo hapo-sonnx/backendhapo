@@ -6,10 +6,10 @@
             </button>
             <ul class="nav nav-pills" role="tablist">
                 <li class="nav-item text-login">
-                    <a class="nav-link active login-text" data-toggle="pill" href="#home">LOGIN</a>
+                    <a class="nav-link active login-text" id="nav-login"  data-toggle="pill" href="#home">LOGIN</a>
                 </li>
                 <li class="nav-item text-login">
-                    <a class="nav-link login-text" data-toggle="pill" href="#menu">REGISTER</a>
+                    <a class="nav-link login-text" id="nav-register" data-toggle="pill" href="#menu">REGISTER</a>
                 </li>
             </ul>
             <div class="tab-content">
@@ -20,7 +20,7 @@
                             @csrf
                             <label class="label-username">Username:</label>
                             <br>
-                            <input class="text-username" placeholder="E-mail" name="email" type="email">
+                            <input class="text-username input-login @error('email') check-login @enderror" placeholder="E-mail" name="email" type="email">
                             @error('email')
                                 <span class="text-danger">
                                     {{ $message }}
@@ -28,7 +28,7 @@
                             @enderror
                             <label class="label-password pass">Password:</label>
                             <br>
-                            <input class="text-username" placeholder="Password" name="password" type="password">
+                            <input class="text-username input-login  @error('password') check-login @enderror" placeholder="Password" name="password" type="password">
                             @error('password')
                                 <span class="text-danger">
                                     {{ $message }}
@@ -59,7 +59,7 @@
                         @csrf
                         <div class="form-group">
                             <label class="label-usernamee">Username:</label>
-                            <input class="text-usernamee input-register @error('name') is-invalid @enderror" id="name"
+                            <input class="text-usernamee input-register @error('name') check-register  @enderror" id="name"
                                 name="name" type="text">
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -70,7 +70,7 @@
                         <div class="form-group">
                             <label class="label-usernamee">Email:</label>
                             <br>
-                            <input class="text-usernamee  input-register @error('email_user') is-invalid @enderror"
+                            <input class="text-usernamee  input-register @error('email_user') check-register  @enderror"
                                 id="email" name="email_user" type="text">
                             @error('email_user')
                                 <span class="invalid-feedback" role="alert">
