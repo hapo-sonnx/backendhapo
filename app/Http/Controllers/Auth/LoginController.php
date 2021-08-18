@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Http\Requests\RequestLogin;
+use App\Http\Requests\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -40,15 +40,11 @@ class LoginController extends Controller
     {
     }
 
-    public function login(Requestlogin $request)
-    {
-    }
-
-    public function authenticate(Request $request)
+    public function login(LoginRequest $request)
     {
         $credentials = [
-            'email' => $request->email,
-            'password' => $request->password,
+        'email' => $request->email,
+        'password' => $request->password,
         ];
 
         $isLoginend = Auth::attempt($credentials);

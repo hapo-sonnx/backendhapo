@@ -24,7 +24,7 @@
             @include('layouts.header')
             @yield('content')
             @include('layouts.footer')
-            @include('layouts.model')
+            @include('layouts.modal')
         </main>
            <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
