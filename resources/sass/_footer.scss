@@ -1,0 +1,584 @@
+.footer {
+    background-color: $txt-color;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .row-footer {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .logo-sub {
+    color: $ag-color;
+  }
+  
+  .text-footer {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .logo-text {
+    width: 62%;
+    text-align: left;
+    font-size: 20px;
+    color: $ag-color;
+    float: right;
+    font-family: $font_UTM_BryantLG;
+  }
+  
+  .contact {
+    margin-top: 50px;
+  }
+  
+  .text-home {
+    font-size: 20px;
+    color: $ag-color;
+    text-align: left;
+    font-family: $font_UTM_BryantLG;
+    cursor: pointer;
+    margin-left: 110px;
+    -webkit-text-stroke-width: 0.3px;
+    &:hover {
+      // font-size: 110%;
+      text-decoration: underline;
+    }
+  }
+  
+  .text-terms {
+    font-size: 20px;
+    color: $ag-color;
+    text-align: left;
+    font-family: $font_UTM_BryantLG;
+    cursor: pointer;
+    margin-left: 33px;
+    -webkit-text-stroke-width: 0.3px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .col-button {
+    text-align: center;
+    margin-top: 81px;
+  }
+  
+  .btn-secondary {
+    background-color: $txt-color;
+    border-color: $txt-color;
+  }
+  
+  .footer-bottom {
+    background-color: $bt-color;
+  }
+  
+  .text-all {
+    color: $ag-color;
+    text-align: center;
+    font-size: 19px;
+    font-family: $font_UTM_BryantLG;
+    padding: 7px 0;
+  }
+  
+  .img-mess {
+    z-index: 50;
+    position: fixed;
+    width: 360px;
+    bottom: 24px;
+    right: -15rem;
+    cursor: pointer;
+  }
+  
+  .text-mess {
+    display: none;
+    height: 185px;
+    padding: 1em 2em 1em 2em;
+    background: white;
+    border-radius: 23px;
+    box-shadow: 0px 0px 8px $textmess-color;
+    z-index: 50;
+    position: fixed;
+    bottom: 110px;
+    right: 68px;
+  }
+  
+  .hapolearn-text {
+    color: #7f7f7f;
+    line-height: 36px;
+    font-weight: 600;
+    font-size: 13px;
+    margin-left: 24px;
+    margin-top: -7px;
+  }
+  
+  .hapo-text-message {
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #505353;
+    padding: 12px 15px;
+    line-height: 17px;
+    background: #f1f0f0;
+    display: flex;
+    justify-content: center;
+    margin-left: 19px;
+  }
+  
+  .hapo-logo {
+    position: absolute;
+    margin-top: 2px;
+    margin-left: -20px;
+  }
+  
+  .button-messenger {
+    color: white;
+    font-size: 12px;
+    padding: 10px 40px;
+    background: #3184f7;
+    border-radius: 15px;
+    text-align: center;
+    width: fit-content;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: block;
+    font-weight: 600;
+    margin-left: 12px;
+    margin-top: 14px;
+    text-decoration: none;
+  }
+  
+  .chat-with-txt {
+    color: #707575;
+    font-family: "Open Sans", sans-serif;
+    margin: 5px 0;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+  }
+  
+  .button-messenger {
+    &:hover {
+      color: black;
+      text-decoration: none;
+    }
+  }
+  
+  .close-button {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: $close-color;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    right: 10px;
+    top: 10px;
+    margin-left: 21rem;
+  }
+  
+  .modalcontent {
+    border: $ag-color;
+    border-radius: inherit;
+  }
+  
+  .text-login {
+    width: 50%;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+  }
+  
+  .login-text {
+    text-align: center;
+    height: 58px;
+    font-weight: 600;
+    font-family: "utm_bryantlgregular";
+    font-size: 25px;
+    padding: 19px 0;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  
+  .nav-pills .nav-link.active,
+  .nav-pills .show > .nav-link {
+    background-color: $cg-color;
+    border-radius: inherit;
+    text-align: center;
+  }
+  
+  .text-username {
+    width: 96%;
+    background-color: $user-color;
+    border: 1px solid #e2e2e2;
+    line-height: 40px;
+  }
+  
+  .text-usernamee {
+    width: 83%;
+    background-color: #f2f2f2;
+    border: 1px solid #e2e2e2;
+    line-height: 40px;
+    margin-left: 27px;
+  }
+  
+  .form-check-input:checked {
+    background-color: #b2d235;
+    border-color: #b2d235;
+  }
+  
+  .form-check-label {
+    cursor: pointer;
+    font-size: 18px;
+    color: #505353;
+    font-family: "utm_bryantlgregular";
+    font-weight: 600;
+  }
+  
+  .forgot-pass {
+    font-weight: 600;
+  }
+  
+  .option-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+  
+    .forgot-pass {
+      color: $cg-color;
+    }
+  }
+  
+  .btn-login {
+    text-transform: uppercase;
+    color: white;
+    padding: 7px 20px;
+    margin: 25px auto;
+    background-color: #b2d235;
+    box-shadow: inset 0px 1.5px 2px #6f8710;
+    display: block;
+    text-align: center;
+    border-radius: 35px;
+    width: 35%;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: "utm_bryantlgregular";
+    &:hover {
+      color: black;
+      text-decoration: none;
+    }
+  }
+  
+  .label-username {
+    width: 100%;
+    margin: 5px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #505353;
+    font-family: "utm_bryantlgregular";
+  }
+  
+  .label-usernamee {
+    width: 100%;
+    margin: 5px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #505353;
+    font-family: "utm_bryantlgregular";
+    margin-left: 27px;
+  }
+  
+  .label-password {
+    width: 100%;
+    margin: 5px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #505353;
+    font-family: "utm_bryantlgregular";
+    margin-left: 27px;
+  }
+  
+  .text-with {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "utm_bryantlgregular";
+    color: #505353;
+    text-align: center;
+  }
+  
+  .login-with {
+    margin-bottom: 0.5rem;
+  }
+  
+  .text-with {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  .text-with::before,
+  .text-with::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #000;
+  }
+  .text-with::before {
+    margin-right: 0.25em;
+  }
+  .text-with::after {
+    margin-left: 0.25em;
+  }
+  
+  .text-gg,
+  .text-face {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+  
+    .icon-gg,
+    .icon-face {
+      padding: 10px;
+    }
+  }
+  
+  .text-gg {
+    margin-top: 20px;
+    background-color: $gg-color;
+    padding: 9px 0;
+    border-radius: 5px;
+  }
+  
+  .text-face {
+    background-color: $face-color;
+    padding: 9px 0;
+    border-radius: 5px;
+    margin-bottom: 40px;
+  }
+  
+  .btn-close {
+    background: $ag-color;
+    color: $cg-color;
+    opacity: 1;
+    margin-left: 30rem;
+    margin-top: -7px;
+    height: 0.3em;
+  }
+  
+  .nav-pills {
+    display: flex;
+    flex-wrap: nowrap;
+    border-bottom: 2px solid #b2d235;
+    box-sizing: border-box;
+  }
+  
+  .logo-footer {
+    margin-left: 100px;
+    width: 56%;
+  }
+  
+  .img-but {
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: -18px;
+    margin-top: -15px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .text-footer {
+      margin-top: 54px;
+    }
+  
+    .logo-text {
+      width: 100%;
+      font-size: 15px;
+      float: left;
+      margin-left: 35px;
+    }
+  
+    .text-home {
+      font-size: 18px !important;
+      margin-left: 13px !important;
+    }
+  
+    .text-terms {
+      font-size: 18px !important;
+      margin-left: -11px !important;
+    }
+  
+    .logo-footer {
+      width: 75%;
+      margin-left: 4px;
+    }
+  
+    .contact {
+      width: 16%;
+    }
+  
+    .text-all {
+      font-size: 15px;
+    }
+  
+    .img-mess {
+      right: -36%;
+      bottom: 239px;
+    }
+  
+    .text-mess {
+      width: 43%;
+      bottom: 38%;
+      right: 31px;
+    }
+  
+    .img-icon {
+      width: 100%;
+    }
+  
+    .btn-secondary {
+      width: 64px;
+      height: 40px;
+    }
+  
+    .button-messenger {
+      margin-left: 18px;
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 0px;
+    }
+  
+    .chat-with-txt {
+      margin-left: 16px;
+      margin-bottom: 0;
+      margin-top: 10px;
+    }
+  
+    .pass {
+      margin-left: 0px;
+    }
+  }
+  
+  @media screen and (max-width: 414px) {
+    .footer {
+      height: 400px;
+    }
+  
+    .text-footer {
+      text-align: left;
+      position: absolute;
+      margin-top: 219px;
+    }
+  
+    .logo-text {
+      width: 55%;
+      font-size: 16px;
+      float: left;
+      margin-left: 0px;
+    }
+  
+    .logo-footer {
+      width: 47%;
+      margin-top: 25px;
+    }
+  
+    .contact {
+      width: 34%;
+    }
+  
+    .col-button {
+      text-align: end;
+      margin-top: 41px;
+      margin-left: 0px;
+    }
+  
+    .img-mess {
+      right: -73%;
+      bottom: 63px;
+    }
+  
+    .text-mess {
+      width: 90%;
+      bottom: 150px;
+      right: 18px;
+    }
+  
+    .close-button {
+      margin-left: 19rem;
+    }
+  
+    .btn-secondary {
+      width: 58px;
+    }
+  
+    .modalcontent {
+      margin-top: 51px;
+      margin-left: 17px;
+      width: 90%;
+    }
+  
+    .btn-close {
+      margin-left: 19rem;
+    }
+  
+    .login-text {
+      margin-top: 0px;
+      font-size: 21px;
+    }
+  
+    .terms {
+      margin-left: 66px;
+    }
+  
+    .form-check-label {
+      font-size: 14px;
+    }
+  
+    .text-login a:hover {
+      color: white !important;
+    }
+  
+    .label-username {
+      font-size: 19px;
+    }
+    
+    .pass {
+      font-size: 19px;
+    }
+  
+    .text-username {
+      width: 98%;
+      line-height: 30px;
+    }
+  
+    .text-gg {
+      margin-top: 15px;
+      padding: 4px 0;
+    }
+  
+    .text-face {
+      padding: 4px 0;
+    }
+  
+    .label-usernamee {
+      font-size: 19px;
+    }
+  
+    .label-password {
+      font-size: 19px;
+    }
+  
+    .login-with {
+      margin-top: -11px;
+    }
+  }
