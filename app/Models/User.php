@@ -49,14 +49,14 @@ class User extends Authenticatable
     ];
 
     const ROLE = [
-        'mentor' => 1,
+        'teacher' => 1,
         'student' => 0,
     ];
 
     
     public function courses()
     {
-        return $this->belongsToMany(Course::class, 'user_courses', 'lesson_id', 'user_id');
+        return $this->belongsToMany(Course::class, 'user_courses', 'user_id', 'course_id');
     }
 
     public function lessons()

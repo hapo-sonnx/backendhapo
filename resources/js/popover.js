@@ -52,3 +52,19 @@ $(function () {
     $("#nav-login").addClass("active");
   }
 });
+
+$(function() {
+  $('.js-states').select2({
+    placeholder: 'Select an option',
+    theme: 'bootstrap4',
+  });
+});
+
+$(function () {
+  $("#btn-reset-filter").on('click', function () {
+    $("#filter-search").val("");
+    $(".input-filter").val("");
+    $(".btn-latest").prop("checked", false);
+    $(".btn-oldest").prop("checked", false);
+  });
+});

@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\HomehapoController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CoursesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,9 @@ use App\Http\Controllers\HomehapoController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+
+Route::get('/', [HomeController::class, 'index']);
 Auth::routes();
 Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
+Route::get('allcourses', [CoursesController::class, 'index']);
+Route::get('search', [CoursesController::class, 'search'])->name('search');
