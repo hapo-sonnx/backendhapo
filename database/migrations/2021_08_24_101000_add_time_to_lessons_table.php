@@ -26,7 +26,7 @@ class AddTimeToLessonsTable extends Migration
     public function down()
     {
         Schema::table('lessons', function (Blueprint $table) {
-            //
+            Schema::dropIfExists('lessons');
         });
     }
 }

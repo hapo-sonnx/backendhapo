@@ -27,7 +27,6 @@ class Course extends Model
         return $this->belongsToMany(User::class, 'user_courses', 'user_id', 'course_id');
     }
 
-
     public function getNumberUserStudentAttribute()
     {
         return $this->users()->where('role', User::ROLE['student'])->count();
@@ -42,7 +41,6 @@ class Course extends Model
     {
         return $this->lessons()->count();
     }
-
 
     public function tags()
     {
