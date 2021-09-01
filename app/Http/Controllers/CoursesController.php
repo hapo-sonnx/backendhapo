@@ -13,7 +13,7 @@ class CoursesController extends Controller
     {
         $courses = Course::orderBy('id')->paginate(config('constants.pagination'));
         $tags = Tag::all();
-        return view('allcourses.index', compact('courses', 'tags'));
+        return view('courses.index', compact('courses', 'tags'));
     }
 
     public function search(Request $request)
@@ -25,6 +25,6 @@ class CoursesController extends Controller
         }
         $tags = Tag::all();
         $courses = Course::filter($request->all())->paginate(config('constants.pagination'));
-        return view('allcourses.index', compact('courses', 'tags', 'keyword'));
+        return view('courses.index', compact('courses', 'tags', 'keyword'));
     }
 }

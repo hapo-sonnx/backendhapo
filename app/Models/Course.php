@@ -74,7 +74,7 @@ class Course extends Model
                         $subquery->where('role', User::ROLE['student']);
                     }
                 ])->orderBy('users_count');
-            } elseif ($data['learner'] == config('constants.options.decrease')) {
+            } else {
                 $query->withCount([
                     'users' => function ($subquery) {
                         $subquery->where('role', User::ROLE['student']);
@@ -88,7 +88,7 @@ class Course extends Model
                 $query->addSelect(['time' => Lesson::selectRaw('sum(time) as total')
                     ->whereColumn('course_id', 'courses.id')])
                     ->orderBy('time');
-            } elseif ($data['times'] == config('constants.options.decrease')) {
+            } else {
                 $query->addSelect(['time' => Lesson::selectRaw('sum(time) as total')
                     ->whereColumn('course_id', 'courses.id')])
                     ->orderByDesc('time');
@@ -98,7 +98,7 @@ class Course extends Model
         if (isset($data['lessons'])) {
             if ($data['lessons'] == config('constants.options.ascending')) {
                 $query->withCount(['lessons'])->orderBy('lessons_count')->get();
-            } elseif ($data['lessons'] == config('constants.options.decrease')) {
+            } else {
                 $query->withCount(['lessons'])->orderByDesc('lessons_count')->get();
             }
         }
@@ -114,7 +114,7 @@ class Course extends Model
                 $query->addSelect(['rating' => Feedback::selectRaw('avg(rate) as total')
                     ->whereColumn('course_id', 'courses.id')])
                     ->orderBy('rating');
-            } elseif ($data['feedback'] == config('constants.options.decrease')) {
+            } else {
                 $query->addSelect(['rating' => Feedback::selectRaw('avg(rate) as total')
                     ->whereColumn('course_id', 'courses.id')])
                     ->orderByDesc('rating');

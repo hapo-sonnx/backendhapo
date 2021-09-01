@@ -22,7 +22,7 @@ class UserLessonFactory extends Factory
     public function definition()
     {
         return [
-            //
+            
         ];
     }
 }
