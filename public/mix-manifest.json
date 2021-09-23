@@ -1,12 +1,20 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/image/BÁOCÁOMÔNHỌCEPU.docx": "/image/BÁOCÁOMÔNHỌCEPU.docx",
+    "/image/CSS.png": "/image/CSS.png",
     "/image/Ellipse.png": "/image/Ellipse.png",
+    "/image/Ellipse32.png": "/image/Ellipse32.png",
+    "/image/filter.png": "/image/filter.png",
+    "/image/Group.png": "/image/Group.png",
+    "/image/Group85.png": "/image/Group85.png",
     "/image/Group_3.png": "/image/Group_3.png",
     "/image/Group_4.png": "/image/Group_4.png",
     "/image/Group_5.png": "/image/Group_5.png",
+    "/image/hapo_learn.png": "/image/hapo_learn.png",
     "/image/hapo_learn_banner.png": "/image/hapo_learn_banner.png",
     "/image/Hapo_Learn_white.png": "/image/Hapo_Learn_white.png",
+    "/image/htmlimage.png": "/image/htmlimage.png",
     "/image/img-but.png": "/image/img-but.png",
     "/image/img-computer.png": "/image/img-computer.png",
     "/image/img-html.png": "/image/img-html.png",
@@ -24,6 +32,5 @@
     "/image/rectangle_17.png": "/image/rectangle_17.png",
     "/image/ten.png": "/image/ten.png",
     "/image/Vector_22.png": "/image/Vector_22.png",
-    "/fonts/utm_bryantlg-webfont.woff": "/fonts/utm_bryantlg-webfont.woff",
-    "/fonts/utm_bryantlg-webfont.woff2": "/fonts/utm_bryantlg-webfont.woff2"
+    "/fonts/UTM_BryantLG.ttf": "/fonts/UTM_BryantLG.ttf"
 }

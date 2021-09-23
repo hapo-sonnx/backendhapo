@@ -2,7 +2,7 @@
 
 @section('content')
 
-  
+
 
     <div class="banner">
         <div class="content-banner">
@@ -19,45 +19,22 @@
 
     <div class="container group">
         <div class="row text-row">
-            <div class="col-lg-4 col-text">
-                <div class="card">
-                    <div class="logo html">
-                        <img src="./images/img-html.png" class="card-img-top" alt="html">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">HTML/CSS/JS Tutorial</h5>
-                        <p class="card-text">I knew hardly anything about HTML, JS, and CSS before entering New Media. I
-                            had coded quite a bit, but never touched anything in regards to web development.</p>
-                        <a href="#" class="btn btn-primary text-take">Take This Course</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-text">
-                <div class="card">
-                    <div class="logo laravel">
-                        <img class="card-img-left" src="./images/img-laravel.png" alt="laravel">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">LARAVEL Tutorial</h5>
-                        <p class="card-text">I knew hardly anything about HTML, JS, and CSS before entering New Media. I
-                            had coded quite a bit, but never touched anything in regards to web development.</p>
-                        <a href="#" class="btn btn-primary text-take">Take This Course</a>
+
+            @foreach ($mainCourses as $mainCourse)
+                <div class="col-lg-4 col-text">
+                    <div class="card">
+                        <div class="logo html">
+                            <img src="{{$mainCourse->logo_path}}" class="card-img-top" alt="html">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{$mainCourse->title}}</h5>
+                            <p class="card-text">{{$mainCourse->description}}</p>
+                            <a href="#" class="btn btn-primary text-take">Take This Course</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-text">
-                <div class="card">
-                    <div class="logo php">
-                        <img class="card-img-top" src="./images/img-php.png" alt="php">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">PHP Tutorial</h5>
-                        <p class="card-text">I knew hardly anything about HTML, JS, and CSS before entering New Media. I
-                            had coded quite a bit, but never touched anything in regards to web development.</p>
-                        <a href="#" class="btn btn-primary text-take">Take This Course</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 
@@ -67,10 +44,11 @@
 
     <div class="container text-ruby">
         <div class="row ruby">
+
             <div class="col-lg-4 col-text">
                 <div class="card">
                     <div class="logo html-css">
-                        <img class="card-img-css" src="./images/CSS.png" alt="css">
+                        <img class="card-img-css" src="{{ asset('image/CSS.png') }}" alt="css">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">CSS Tutorial</h5>
@@ -81,10 +59,11 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-4 col-text">
                 <div class="card">
                     <div class="logo laravel-logo">
-                        <img class="card-img-laravel" src="./images/img-rails.png" alt="rails">
+                        <img class="card-img-laravel" src="{{ asset('image/img-rails.png') }}" alt="rails">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Ruby on rails Tutorial</h5>
@@ -98,7 +77,7 @@
             <div class="col-lg-4 col-text">
                 <div class="card">
                     <div class="logo php-java">
-                        <img class="card-img-java" src="./images/java.png" alt="java">
+                        <img class="card-img-java" src="{{ asset('image/java.png') }}" alt="java">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Java Tutorial</h5>
@@ -114,8 +93,8 @@
 
     <div class="view">
         <span class="all">
-            <a href="#" class="btn-text-view">View All Our Courses</a> <img class="arrow" src="./images/ten.png"
-                alt="arrow">
+            <a href="#" class="btn-text-view">View All Our Courses</a> <img class="arrow"
+                src="{{ asset('image/ten.png') }}" alt="arrow">
         </span>
     </div>
 
@@ -124,7 +103,7 @@
         </div>
         <div class="row row-why">
             <div class="col-sm-6 col-hapo col-left">
-                <img class="img-laptop" src="./images/img-computer.png" alt="computer">
+                <img class="img-laptop" src="{{ asset('image/img-computer.png') }}" alt="computer">
                 <p class="text-why">Why HapoLearn?</p>
                 <p class="text-interactive inner">
                     <span><i class="fas fa-check-circle"></i></span>
@@ -148,7 +127,7 @@
                 </p>
             </div>
             <div class="col-sm-6 col-hapo col-right">
-                <img class="img-mobi" src="./images/img-mobile.png" alt="mobile">
+                <img class="img-mobi" src="{{ asset('image/img-mobile.png') }}" alt="mobile">
             </div>
         </div>
     </section>
@@ -171,11 +150,11 @@
                                 becoming a good Angular developer. Very glad to have taken this course. Thank you
                                 Eddie Bryan.”
                             </p>
-                            <img src="./images/img-but.png" class="seed" alt="feedback">
+                            <img src="{{ asset('image/img-but.png') }}" class="seed" alt="feedback">
                         </div>
                         <div class="row user-feedback">
                             <div class="col-2 col-img">
-                                <img src="./img/Ellipse.png" class="img-feedback" alt="feedback">
+                                <img src="{{ asset('image/Ellipse.png') }}" class="img-feedback" alt="feedback">
                             </div>
                             <div class="col col-name">
                                 <p class="name-feedback">Hoang Anh Nguyen</p>
@@ -195,11 +174,11 @@
                                 becoming a good Angular developer. Very glad to have taken this course. Thank you
                                 Eddie Bryan.”
                             </p>
-                            <img src="./images/img-but.png" class="seed" alt="feedback">
+                            <img src="{{ asset('image/img-but.png') }}" class="seed" alt="feedback">
                         </div>
                         <div class="row user-feedback">
                             <div class="col-2 col-img">
-                                <img src="./images/Ellipse.png" class="img-feedback" alt="feedback">
+                                <img src="{{ asset('image/Ellipse.png') }}" class="img-feedback" alt="feedback">
                             </div>
                             <div class="col col-name">
                                 <p class="name-feedback">Hoang Anh Nguyen</p>
@@ -225,11 +204,11 @@
                                 becoming a good Angular developer. Very glad to have taken this course. Thank you
                                 Eddie Bryan.”
                             </p>
-                            <img src="./images/img-but.png" class="seed" alt="feedback">
+                            <img src="{{ asset('image/img-but.png') }}" class="seed" alt="feedback">
                         </div>
                         <div class="row user-feedback">
                             <div class="col-2 col-img">
-                                <img src="./images/Ellipse.png" class="img-feedback" alt="feedback">
+                                <img src="{{ asset('image/Ellipse.png') }}" class="img-feedback" alt="feedback">
                             </div>
                             <div class="col col-name">
                                 <p class="name-feedback">Hoang Anh Nguyen</p>
@@ -249,11 +228,11 @@
                                 becoming a good Angular developer. Very glad to have taken this course. Thank you
                                 Eddie Bryan.”
                             </p>
-                            <img src="./images/img-but.png" class="seed" alt="feedback">
+                            <img src="{{ asset('image/img-but.png') }}" class="seed" alt="feedback">
                         </div>
                         <div class="row user-feedback">
                             <div class="col-2 col-img">
-                                <img src="./images/Ellipse.png" class="img-feedback" alt="feedback">
+                                <img src="{{ asset('image/Ellipse.png') }}" class="img-feedback" alt="feedback">
                             </div>
                             <div class="col col-name">
                                 <p class="name-feedback">Hoang Anh Nguyen</p>
@@ -299,12 +278,12 @@
         </div>
     </div>
 
-    <div class="img-mess"><img class="" src="./images/messenger.png" alt="logo mess"></div>
+    <div class="img-mess"><img class="" src=" {{ asset('image/messenger.png') }}" alt="logo mess"></div>
     <div class="text-mess">
         <div class="close-button"><i class="fas fa-times"></i></div>
         <div class="hapolearn-text">HapoLearn</div>
         <div class="message-from-hapolearn">
-            <img class="hapo-logo" src="./images/logo_hapo.png" alt="logo mess">
+            <img class="hapo-logo" src="{{ asset('image/logo_hapo.png') }} " alt="logo mess">
             <div class="hapo-text-message">HapoLearn xin chào bạn. <br>
                 Bạn có cần chúng tôi hỗ trợ gì không? </div>
         </div>

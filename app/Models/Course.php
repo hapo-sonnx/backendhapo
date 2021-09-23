@@ -13,7 +13,7 @@ class Course extends Model
 
     protected $fillable = [
         'title',
-        'img_path',
+        'logo_path',
         'learners',
         'times',
         'quizzes',
@@ -24,7 +24,7 @@ class Course extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'user_courses', 'user_id', 'course_id');
+        return $this->belongsToMany(User::class, 'user_courses', 'course_id', 'user_id');
     }
 
     public function getNumberUserStudentAttribute()
@@ -55,9 +55,24 @@ class Course extends Model
         return $this->belongsToMany(Tag::class, 'tag_courses', 'course_id', 'tag_id');
     }
 
+    public function scopeTagsCourse($query, $id)
+    {
+        $query->leftJoin('tag_courses', 'courses.id', 'tag_courses.course_id')
+            ->leftJoin('tags', 'tag_courses.tag_id', 'tags.id')
+            ->where('tag_courses.course_id', $id);
+    }
+
     public function feedback()
     {
         return $this->hasMany(Feedback::class, 'course_id');
+    }
+
+    public function scopeTeacherOfCourse($query, $id)
+    {
+        $query->leftJoin('user_courses', 'courses.id', 'user_courses.course_id')
+            ->leftJoin('users', 'user_courses.user_id', 'users.id')
+            ->where('users.role', User::ROLE['teacher'])
+            ->where('user_courses.course_id', $id);
     }
 
     public function scopeFilter($query, $data)
@@ -101,5 +116,10 @@ class Course extends Model
         }
 
         return $query;
+    }
+
+    public function scopeShowOtherCourses($query, $courseId)
+    {
+            $query->where('id', '<>', $courseId)->limit(5);
     }
 }

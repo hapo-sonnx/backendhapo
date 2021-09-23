@@ -17,7 +17,7 @@ class Lesson extends Model
         'description',
         'requirement',
     ];
-    
+
     public function courses()
     {
         return $this->belongsTo(Course::class, 'course_id', 'id');
@@ -28,8 +28,34 @@ class Lesson extends Model
         return $this->belongsToMany(User::class, 'user_lessons', 'user_id', 'lesson_id');
     }
 
+    public function scopeCourseOfLesson($query, $id)
+    {
+        $query->leftJoin('courses', 'lessons.course_id', 'courses.id')
+            ->where('lessons.id', $id)
+            ->select('courses.*');
+    }
+
+    public function scopeDocumentsOfLesson($query, $id)
+    {
+        $query->leftJoin('documents', 'lessons.id', 'documents.lesson_id')
+            ->where('documents.lesson_id', $id)
+            ->select('documents.*');
+    }
+
     public function feedback()
     {
         return $this->hasMany(Feedback::class, 'lesson_id');
+    }
+
+    public function scopeSearch($query, $data)
+    {
+        if (isset($data['key_detail_course'])) {
+            $query->where('title', 'like', '%' . $data['key_detail_course'] . '%');
+        }
+    }
+
+    public function documents()
+    {
+        return $this->hasMany(Document::class, 'course_id');
     }
 }

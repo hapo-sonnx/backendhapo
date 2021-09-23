@@ -62,7 +62,7 @@
                             <input class="text-usernamee input-register @error('name') check-register  @enderror" id="name"
                                 name="name" type="text">
                             @error('name')
-                                <span class="invalid-feedback" role="alert">
+                                <span class="check-register " role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -73,7 +73,7 @@
                             <input class="text-usernamee  input-register @error('email_user') check-register  @enderror"
                                 id="email" name="email_user" type="text">
                             @error('email_user')
-                                <span class="invalid-feedback" role="alert">
+                                <span class="check-register " role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -85,7 +85,7 @@
                                 class="text-usernamee  input-register @error('password_register') is-invalid @enderror"
                                 name="password_register" type="text">
                             @error('password_register')
-                                <span class="invalid-feedback" role="alert">
+                                <span class="is-invalid" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -97,7 +97,7 @@
                                 class="text-usernamee  input-register @error('password_confirmation') is-invalid @enderror"
                                 id="password-confirm" name="password_confirmation" type="text">
                             @error('password_confirmation')
-                                <span class="invalid-feedback" role="alert">
+                                <span class="is-invalid" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror

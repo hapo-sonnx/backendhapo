@@ -1,7 +1,7 @@
 <header class="container-fluid home">
     <nav class="navbar navbar-expand-lg navbar-light">
 
-        <div class="logo">
+        <div class="logohapo">
             <a class="img-hapo">
                 <img class="img-hapo" src="{{ asset('image/hapo_learn.png') }}" alt="logo">
             </a>
@@ -31,7 +31,7 @@
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a class="nav-link btn-x" href="#">Profile</a>
+                        <a class="nav-link btn-x" href="/profile">Profile</a>
                     </li>
                     @if (Auth::check())
                         <li class="nav-item">

@@ -14,6 +14,7 @@ require('./resetfilter');
 require('./select2');
 require('./messger');
 require('./menu');
+require('./profile');
 
 /**
  * The following block of code may be used to automatically register your
