@@ -14,7 +14,7 @@ class DocumentController extends Controller
     {
         $data = Document::find($id);
         return view('material.show', compact('data'));
-        dd ($data);
+        dd($data);
     }
 
     // public function learning(Request $request)

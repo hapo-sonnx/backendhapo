@@ -24,10 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $mainCourses = Course::query()->mainCourse()->get();  
-        $otherCourses = Course::query()->otherCourse()->get(); 
+        $mainCourses = Course::query()->mainCourse()->get();
+        $otherCourses = Course::query()->otherCourse()->get();
 
-        return view('home', compact('mainCourses','otherCourses'));
-
+        return view('home', compact('mainCourses', 'otherCourses'));
     }
 }
