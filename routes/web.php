@@ -22,5 +22,5 @@ use App\Http\Controllers\CoursesController;
 Route::get('/', [HomeController::class, 'index']);
 Auth::routes();
 Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
-Route::get('allcourses', [CoursesController::class, 'index']);
-Route::get('search', [CoursesController::class, 'search'])->name('search');
+Route::get('courses', [CoursesController::class, 'index']);
+Route::get('courses/search', [CoursesController::class, 'search'])->name('search');

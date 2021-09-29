@@ -18,12 +18,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active text-text btn-x ">
-
-                        <a class="nav-link texthome btn-x" href="/">HOME</a>
+                    <li class="nav-item btn-x ">
+                        <a class="nav-link btn-x  {{ Request::is('/') ? 'text-text' : ''}}" href="/">HOME</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link  all btn-x"  href="allcourses">ALL COURSES</a>
+                    <li class="nav-item ">
+                        <a class="nav-link  all btn-x {{ Request::is('courses') ? 'text-text' : ''}}"  href="courses">ALL COURSES</a>
                     </li>
                     @if (!Auth::check())
                         <li class="nav-item">
