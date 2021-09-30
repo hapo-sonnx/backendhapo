@@ -68,7 +68,7 @@ class Course extends Model
         }
 
         if (isset($data['sort'])) {
-             ($data['sort'] == config('constants.options.newest')) ? $query->orderByDesc('id') : $query->orderBy('id'); 
+             ($data['sort'] == config('constants.options.newest')) ? $query->orderByDesc('id') : $query->orderBy('id');
         }
 
         if (isset($data['learner'])) {
@@ -77,12 +77,12 @@ class Course extends Model
                     $subquery->where('role', User::ROLE['student']);
                 }
             ]);
-            ($data['learner'] == config('constants.options.ascending')) ? $query->orderBy('users_count') : $query->orderByDesc('users_count'); 
+            ($data['learner'] == config('constants.options.ascending')) ? $query->orderBy('users_count') : $query->orderByDesc('users_count');
         }
 
         if (isset($data['times'])) {
-            $query =  $query->withSum('lessons', 'time');
-             ($data['times'] == config('constants.options.ascending'))  ?  $query->orderBy('lessons_sum_time') : $query->orderByDesc('lessons_sum_time');
+            $query = $query->withSum('lessons', 'time');
+             ($data['times'] == config('constants.options.ascending')) ? $query->orderBy('lessons_sum_time') : $query->orderByDesc('lessons_sum_time');
         }
 
         if (isset($data['lessons'])) {
@@ -96,8 +96,8 @@ class Course extends Model
         }
 
         if (isset($data['feedback'])) {
-            $query =  $query->withSum('feebacks', 'rate');
-            ($data['feedback'] == config('constants.options.ascending')) ? $query->orderBy('feebacks_sum_rate') : $query->orderByDesc('feebacks_sum_rate');  
+            $query = $query->withSum('feebacks', 'rate');
+            ($data['feedback'] == config('constants.options.ascending')) ? $query->orderBy('feebacks_sum_rate') : $query->orderByDesc('feebacks_sum_rate');
         }
     }
 }
