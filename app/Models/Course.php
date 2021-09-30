@@ -99,5 +99,7 @@ class Course extends Model
             $query = $query->withSum('feebacks', 'rate');
             ($data['feedback'] == config('constants.options.ascending')) ? $query->orderBy('feebacks_sum_rate') : $query->orderByDesc('feebacks_sum_rate');
         }
+
+        return $query;
     }
 }

@@ -19,10 +19,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item btn-x ">
-                        <a class="nav-link btn-x  {{ Request::is('home') ? 'text-text' : ''}}" href="/">HOME</a>
+                        <a class="nav-link btn-x  {{ Route::is('home') ? 'text-text' : ''}}" href="/">HOME</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link  all btn-x {{ Request::is('courses') ? 'text-text' : ''}}"  href="courses">ALL COURSES</a>
+                        <a class="nav-link  all btn-x {{ Route::is('courses*') ? 'text-text' : ''}}"  href="courses">ALL COURSES</a>
                     </li>
                     @if (!Auth::check())
                         <li class="nav-item">

@@ -1,6 +1,6 @@
 $(function () {
-    $('.js-states').select2({
-        placeholder: 'Select an option',
-        theme: 'bootstrap4',
-    });
+  $('.js-states').select2({
+    placeholder: 'Select an option',
+    theme: 'bootstrap4',
+  });
 });

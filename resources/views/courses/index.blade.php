@@ -102,7 +102,7 @@
 
         <div class="row row-all-courses">
             @foreach ($courses as $course)
-                @include('courses._courses', $course)
+                @include('courses._course', $course)
             @endforeach
         </div>
 

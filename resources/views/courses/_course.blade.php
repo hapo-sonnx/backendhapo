@@ -3,11 +3,11 @@
         <div class="card-header col-md-12 card-allc-header">
             <div class="row-title row">
                 <div class="col-2 img-course col-sm-2">
-                    <img src="{{$course->logo_path}}" alt="ava-course">
+                    <img src="{{ $course->logo_path }}" alt="ava-course">
                 </div>
                 <div class="col-10 title-course col-sm-10">
                     <p class="title">{{$course->title}}</p>
-                    <p class="description">{{$course->description}}</p>
+                    <p class="description">{{ $course->description }}</p>
                 </div>
             </div>
             <div class="btn-more-rating row justify-content-between">
@@ -20,7 +20,7 @@
             <div class="index-col col-4 col-md-4">
                 <p class="index-title">Learners</p>
                 <p class="main-index" id="learner-index">
-                    {{$course->number_user_student}}
+                    {{ $course->number_user_student }}
                 </p>
             </div>
             <div class="index-col col-4 col-md-4">
@@ -31,7 +31,7 @@
             </div>
             <div class="index-col col-4 col-md-4">
                 <p class="index-title">Times</p>
-                <p class="main-index" id="quizze-index">{{$course->courseTime}}h</p>
+                <p class="main-index" id="quizze-index">{{ $course->courseTime }}h</p>
             </div>
         </div>
     </div>
