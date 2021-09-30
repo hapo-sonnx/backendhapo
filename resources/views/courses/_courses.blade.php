@@ -31,7 +31,7 @@
             </div>
             <div class="index-col col-4 col-md-4">
                 <p class="index-title">Times</p>
-                <p class="main-index" id="quizze-index">{{$course->times}}h</p>
+                <p class="main-index" id="quizze-index">{{$course->courseTime}}h</p>
             </div>
         </div>
     </div>

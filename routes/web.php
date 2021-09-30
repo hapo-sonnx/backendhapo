@@ -19,7 +19,7 @@ use App\Http\Controllers\CoursesController;
 */
 
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Auth::routes();
 Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('courses', [CoursesController::class, 'index']);

@@ -42,6 +42,14 @@ class Course extends Model
         return $this->lessons()->count();
     }
 
+    public function getCourseTimeAttribute()
+    {
+        $totalTimeCourse = $this->lessons()->sum('time');
+        $hour = round($totalTimeCourse / config('constants.hour'));
+
+        return $hour;
+    }
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'tag_courses', 'course_id', 'tag_id');
@@ -60,11 +68,7 @@ class Course extends Model
         }
 
         if (isset($data['sort'])) {
-            if ($data['sort'] == config('constants.options.newest')) {
-                $query->orderByDesc('id');
-            } else {
-                $query->orderBy('id');
-            }
+             ($data['sort'] == config('constants.options.newest')) ? $query->orderByDesc('id') : $query->orderBy('id'); 
         }
 
         if (isset($data['learner'])) {
@@ -73,29 +77,16 @@ class Course extends Model
                     $subquery->where('role', User::ROLE['student']);
                 }
             ]);
-            if ($data['learner'] == config('constants.options.ascending')) {
-                $query->orderBy('users_count');
-            } else {
-                $query->orderByDesc('users_count');
-            }
+            ($data['learner'] == config('constants.options.ascending')) ? $query->orderBy('users_count') : $query->orderByDesc('users_count'); 
         }
 
         if (isset($data['times'])) {
-            $query->addSelect(['time' => Lesson::selectRaw('sum(time) as total')
-                ->whereColumn('course_id', 'courses.id')]);
-            if ($data['times'] == config('constants.options.ascending')) {
-                $query->orderBy('time');
-            } else {
-                $query->orderByDesc('time');
-            }
+            $query =  $query->withSum('lessons', 'time');
+             ($data['times'] == config('constants.options.ascending'))  ?  $query->orderBy('lessons_sum_time') : $query->orderByDesc('lessons_sum_time');
         }
 
         if (isset($data['lessons'])) {
-            if ($data['lessons'] == config('constants.options.ascending')) {
-                $query->withCount(['lessons'])->orderBy('lessons_count')->get();
-            } else {
-                $query->withCount(['lessons'])->orderByDesc('lessons_count')->get();
-            }
+             ($data['lessons'] == config('constants.options.ascending')) ? $query->withCount(['lessons'])->orderBy('lessons_count')->get() : $query->withCount(['lessons'])->orderByDesc('lessons_count')->get();
         }
 
         if (isset($data['tags'])) {
@@ -105,13 +96,8 @@ class Course extends Model
         }
 
         if (isset($data['feedback'])) {
-            $query->addSelect(['rating' => Feedback::selectRaw('avg(rate) as total')
-            ->whereColumn('course_id', 'courses.id')]);
-            if ($data['feedback'] == config('constants.options.ascending')) {
-                $query->orderBy('rating');
-            } else {
-                $query->orderByDesc('rating');
-            }
+            $query =  $query->withSum('feebacks', 'rate');
+            ($data['feedback'] == config('constants.options.ascending')) ? $query->orderBy('feebacks_sum_rate') : $query->orderByDesc('feebacks_sum_rate');  
         }
     }
 }
