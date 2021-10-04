@@ -110,7 +110,7 @@
                         </div>
                         <div id="reviews" class="tab-pane">
                             <h1>Hello</h1>
-                            @include('courses.tab_review')
+                            {{-- @include('courses.tab_review') --}}
                         </div>
                     </div>
                 </div>

@@ -342,3 +342,135 @@
         }
     }
 }
+
+.add-review {
+    font-family: "UTM";
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    color: $txt-color;
+  }
+  
+  .message-add-review {
+    font-family: "UTM";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: $txt-color;
+  }
+  
+  .btn-learn{
+    width: 80px;
+    background: $bg-color;
+  }
+  
+  .rating {
+    float: left;
+  }
+  
+  .rating:not(:checked) > input {
+    position: absolute;
+    display: none;
+  }
+  
+  .rating:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: $body-bg;
+  }
+  
+  .rating:not(:checked) > label:before {
+    content: "★ ";
+  }
+  
+  .rating:not(:checked) .half:before {
+    content: "★ ";
+    position: absolute;
+    width: 8px;
+    margin-left: 18px;
+    overflow: hidden;
+  }
+  
+  .rating > input:checked ~ label {
+    color: yellow;
+  }
+  
+  .rating:not(:checked) > label:hover,
+  .rating:not(:checked) > label:hover ~ label {
+    color: yellow;
+  }
+  
+  .rating > input:checked + label:hover,
+  .rating > input:checked + label:hover ~ label,
+  .rating > input:checked ~ label:hover,
+  .rating > input:checked ~ label:hover ~ label,
+  .rating > label:hover ~ input:checked ~ label {
+    color: $yellow;
+  }
+  
+  .review-content {
+    .review-name-user {
+      font-family: UTM;
+      font-weight: bold;
+      line-height: 22px;
+      font-size: 20px;
+      color: $txt-color;
+    }
+  
+    span {
+      color: yellow;
+    }
+  
+    .review-comment {
+      font-family: UTM;
+      font-size: 18px;
+      line-height: 26px;
+      color: #505353;
+    }
+  }
+  
+  .text-center {
+    left: 24px;
+    width: 244px;
+    height: 176px;
+    background: $txt_color;
+    border-radius: 5px;
+  
+    .rating-num {
+      font-family: UTM;
+      font-weight: bold;
+      font-size: 60px;
+      line-height: 74px;
+      color: white;
+    }
+  
+    .rating-total {
+      span {
+        font-family: UTM;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        color: white;
+      }
+    }
+  }
+  
+  .rating-desc {
+    height: 176px;
+    border: 1px solid #DFDFDF;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  
+  .rating-review {
+      i {
+          color:yellow;
+      }
+  }
+  

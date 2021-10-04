@@ -42,6 +42,13 @@ class Course extends Model
         return $this->lessons()->count();
     }
 
+    public function scopeInforLessons($query, $id)
+    {
+        $query->join('lessons', 'courses.id', '=', 'lessons.course_id')
+            ->select('lessons.*')
+            ->where('lessons.course_id', '=', $id);
+    }
+
     public function getCourseTimeAttribute()
     {
         $totalTimeCourse = $this->lessons()->sum('time');
@@ -62,9 +69,37 @@ class Course extends Model
             ->where('tag_courses.course_id', $id);
     }
 
-    public function feedback()
+    public function reviews()
     {
         return $this->hasMany(Feedback::class, 'course_id');
+    }
+
+    public function getNumberReviewAttribute(){
+        return $this->reviews()->count();
+    }
+
+    public function getTotalRateAttribute(){
+        return ceil( $this->reviews()->avg('rate'));
+    }
+
+    public function getNumberRateFiveAttribute(){
+        return $this->reviews()->where('rate',5)->count();
+    }
+
+    public function getNumberRateFourAttribute(){
+        return $this->reviews()->where('rate',4)->count();
+    }
+
+    public function getNumberRateThreeAttribute(){
+        return $this->reviews()->where('rate',3)->count();
+    }
+
+    public function getNumberRateTwoAttribute(){
+        return $this->reviews()->where('rate',2)->count();
+    }
+
+    public function getNumberRateOneAttribute(){
+        return $this->reviews()->where('rate',1)->count();
     }
 
     public function scopeTeacherOfCourse($query, $id)
@@ -121,5 +156,19 @@ class Course extends Model
     public function scopeShowOtherCourses($query, $courseId)
     {
             $query->where('id', '<>', $courseId)->limit(5);
+    }
+
+    public function scopeMainCourse($query)
+    {
+        $query->withCount(['users' => function ($subquery) {
+            $subquery->where('role', config('constants.role.student'));
+        }
+        ])->orderByDesc('users_count')->limit(3);
+    }
+
+    
+    public function scopeOtherCourse($query)
+    {
+        $query->orderByDesc('id')->limit(3);
     }
 }

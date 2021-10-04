@@ -12,7 +12,7 @@
         @if (Auth::check() && $isJoined == true)
         <a href="#" class="btn-join-course" id="btn-joined-course">Joined the course</a>
         @else
-        <a href="/insert/{{$course->id}}" class="btn-join-course" id="btn-join-course">Join the course</a>
+        <a href="/insert/{{$course->id}}" data-target="#myModal" data-toggle="modal" class="btn-join-course" id="btn-join-course">Join the course</a>
         @endif
     </div>
 </div>

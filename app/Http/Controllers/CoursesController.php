@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Feedback;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Lesson;
@@ -39,7 +40,21 @@ class CoursesController extends Controller
         $teacher = Course::teacherOfCourse($id)->get();
         $lessons = Course::inforLessons($id)->paginate(config('constants.pagination_lessons'));
         $isJoined = UserCourse::joined($id)->first() ? true : false;
-        return view('courses.courses_detail', compact('course', 'lessons', 'teacher', 'tags', 'otherCourses', 'isJoined'));
+        $reviews = Course::find($id)->reviews;
+        $userIds = [];
+        if (!empty($reviews)) {
+            foreach ($reviews as $review) {
+                $userIds[] = $review->user_id;
+            }
+        }
+        $userInfos = User::whereIn('id', $userIds)->select( 'name', 'id')->get();
+        $userInfoMap = [];
+        if (!empty($userInfos)) {
+            foreach ($userInfos as $userInfo) {
+                $userInfoMap[$userInfo->id] = $userInfo;
+            }
+        }
+        return view('courses.courses_detail', compact('course', 'lessons', 'teacher', 'tags', 'otherCourses', 'isJoined' ,'reviews','userInfoMap'));
     }
 
     public function join($id)
@@ -47,6 +62,17 @@ class CoursesController extends Controller
         $course = Course::find($id);
         $course->users()->attach(Auth::id());
         return redirect()->route('coursedetail', [$id]);
+    }
+
+    public function addreview(Request $request)
+    {    
+        return Feedback::create([
+            'content' => $request['content'],
+            'rate' => $request['rate'],
+            'course_id' => $request['course_id'],
+            'date_times' => date("Y-m-d H:i:s"),
+            'user_id' => Auth::id(),
+          ]);
     }
 
     public function leave($id)

@@ -117,7 +117,7 @@
                     </div>
                     @foreach ($otherCourses as $key => $item)
                     <div class="show-other-courses">
-                        <p>{{$key +1}}. {{$item->description}}</p>
+                        <a href="{{ route('courses.detail', $item->id) }}">{{$key +1}}. {{$item->title}}</a>
                     </div>
                     @endforeach
                     <div class="col-kg-12 btn-view-all">

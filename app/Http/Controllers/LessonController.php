@@ -21,7 +21,6 @@ class LessonController extends Controller
         $teacher = Course::teacherOfCourse($course->id)->get();
         $numberStudent = Course::where('courses.id', $course->id)->first();
         $documents = Lesson::documentsOfLesson($id)->get();
-        // dd ($documents);
 
         return view('lesson.index', compact('lessons', 'course', 'otherCourses', 'tags', 'numberStudent', 'teacher', 'documents'));
     }
