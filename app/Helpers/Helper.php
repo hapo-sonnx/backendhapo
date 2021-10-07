@@ -4,7 +4,7 @@ if (!function_exists('getRate')) {
     {
         
         $html = "";
-        if ($number <=5) {
+        if ($number <= 5) {
             for ($i = 0; $i < $number; $i++) {
                 $html .= '<i class="fa fa-star checked"></i>';
             }

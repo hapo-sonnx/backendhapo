@@ -6,7 +6,7 @@
             </button>
             <ul class="nav nav-pills" role="tablist">
                 <li class="nav-item text-login">
-                    <a class="nav-link active login-text" id="nav-login"  data-toggle="pill" href="#home">LOGIN</a>
+                    <a class="nav-link active login-text" id="nav-login" data-toggle="pill" href="#home">LOGIN</a>
                 </li>
                 <li class="nav-item text-login">
                     <a class="nav-link login-text" id="nav-register" data-toggle="pill" href="#menu">REGISTER</a>
@@ -20,7 +20,8 @@
                             @csrf
                             <label class="label-username">Username:</label>
                             <br>
-                            <input class="text-username input-login @error('email') check-login @enderror" placeholder="E-mail" name="email" type="email">
+                            <input class="text-username input-login @error('email') check-login @enderror"
+                                placeholder="E-mail" name="email" type="email">
                             @error('email')
                                 <span class="text-danger">
                                     {{ $message }}
@@ -28,7 +29,8 @@
                             @enderror
                             <label class="label-password pass">Password:</label>
                             <br>
-                            <input class="text-username input-login  @error('password') check-login @enderror" placeholder="Password" name="password" type="password">
+                            <input class="text-username input-login  @error('password') check-login @enderror"
+                                placeholder="Password" name="password" type="password">
                             @error('password')
                                 <span class="text-danger">
                                     {{ $message }}
@@ -59,8 +61,8 @@
                         @csrf
                         <div class="form-group">
                             <label class="label-usernamee">Username:</label>
-                            <input class="text-usernamee input-register @error('name') check-register  @enderror" id="name"
-                                name="name" type="text">
+                            <input class="text-usernamee input-register @error('name') check-register  @enderror"
+                                id="name" name="name" type="text">
                             @error('name')
                                 <span class="check-register " role="alert">
                                     <strong>{{ $message }}</strong>

@@ -23,12 +23,12 @@ class Feedback extends Model
 
     public function courses()
     {
-        return $this->belongsToMany(Course::class, 'feedback_id', 'course_id');
+        return $this->belongsTo(Course::class, 'course_id');
     }
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'feedback_id', 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function lessons()

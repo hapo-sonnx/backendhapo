@@ -44,41 +44,41 @@ class CoursesController extends Controller
         $userIds = [];
         if (!empty($reviews)) {
             foreach ($reviews as $review) {
-                $userIds[] = $review->user_id;
+                $userIds[] = $review['user_id'];
             }
         }
-        $userInfos = User::whereIn('id', $userIds)->select( 'name', 'id')->get();
+        $userInfos = User::whereIn('id', $userIds)->select('name', 'id')->get();
         $userInfoMap = [];
         if (!empty($userInfos)) {
             foreach ($userInfos as $userInfo) {
                 $userInfoMap[$userInfo->id] = $userInfo;
             }
         }
-        return view('courses.courses_detail', compact('course', 'lessons', 'teacher', 'tags', 'otherCourses', 'isJoined' ,'reviews','userInfoMap'));
+        return view('courses.courses_detail', compact('course', 'lessons', 'teacher', 'tags', 'otherCourses', 'isJoined', 'reviews', 'userInfoMap'));
     }
 
     public function join($id)
     {
         $course = Course::find($id);
         $course->users()->attach(Auth::id());
-        return redirect()->route('coursedetail', [$id]);
+        return redirect()->route('courses.detail', [$id]);
     }
 
     public function addreview(Request $request)
-    {    
+    {
         return Feedback::create([
             'content' => $request['content'],
             'rate' => $request['rate'],
             'course_id' => $request['course_id'],
             'date_times' => date("Y-m-d H:i:s"),
             'user_id' => Auth::id(),
-          ]);
+        ]);
     }
 
     public function leave($id)
     {
         $course = Course::find($id);
         $course->users()->detach(Auth::id());
-        return redirect()->route('allcourses');
+        return redirect()->route('courses');
     }
 }

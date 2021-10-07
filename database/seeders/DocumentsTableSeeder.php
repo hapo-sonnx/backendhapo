@@ -15,7 +15,7 @@ class DocumentsTableSeeder extends Seeder
     {
         Document::create([
             'name' => 'demo_video.pdf',
-            'description' => 'File video demo',
+            'description' => 'Down load course',
             'type' => 'mp4'
         ]);
     }

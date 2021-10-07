@@ -6,16 +6,18 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue').default;
+
 
 require('./popover');
 require('./modal');
 require('./resetfilter');
-require('./select2');
 require('./messger');
 require('./menu');
 require('./profile');
-require('./review');
+require('./review')
+require('./document');
+
+window.Vue = require('vue').default;
 
 /**
  * The following block of code may be used to automatically register your

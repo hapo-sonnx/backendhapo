@@ -35,13 +35,6 @@ class Lesson extends Model
             ->select('courses.*');
     }
 
-    public function scopeDocumentsOfLesson($query, $id)
-    {
-        $query->leftJoin('documents', 'lessons.id', 'documents.lesson_id')
-            ->where('documents.lesson_id', $id)
-            ->select('documents.*');
-    }
-
     public function feedback()
     {
         return $this->hasMany(Feedback::class, 'lesson_id');
@@ -57,5 +50,12 @@ class Lesson extends Model
     public function documents()
     {
         return $this->hasMany(Document::class, 'course_id');
+    }
+    
+    public function scopeDocumentsOfLesson($query, $id)
+    {
+        $query->leftJoin('documents', 'lessons.id', 'documents.lesson_id')
+            ->where('documents.lesson_id', $id)
+            ->select('documents.*');
     }
 }

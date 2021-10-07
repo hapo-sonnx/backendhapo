@@ -26,8 +26,8 @@ class Document extends Model
     public function scopeDocumentLearned($query, $lessonId)
     {
         $query->leftJoin('document_users', 'documents.id', 'document_users.document_id')
-        ->select('document_users.user_id', 'document_users.document_id')
-        ->where('document_users.user_id', '=', Auth::user()->id)
-        ->where('documents.lesson_id', '=', $lessonId);
+            ->select('document_users.user_id', 'document_users.document_id')
+            ->where('document_users.user_id', '=', Auth::user()->id)
+            ->where('documents.lesson_id', '=', $lessonId);
     }
 }

@@ -14,22 +14,19 @@ class DocumentController extends Controller
     {
         $data = Document::find($id);
         return view('material.show', compact('data'));
-        dd($data);
     }
 
-    // public function learning(Request $request)
-    // {
-    //     $document = Document::find($request->documentID);
-    //     DocumentUser::learned($document->id)->first() ? true : $document->users()->attach(Auth::id());
+    public function learning(Request $request)
+    {
+        $document = Document::find($request->documentID);
+        DocumentUser::learned($document->id)->first() ? true : $document->users()->attach(Auth::id());
+        $totalDocuments = Lesson::documentsOfLesson($document['lesson_id'])->count();
+        $documentsLearned = Document::documentLearned($document['lesson_id'])->get();
+        $percentage = $documentsLearned->count() / $totalDocuments * 100;
 
-    //     $totalDocuments = Lesson::documentsOfLesson($document->lesson_id)->count();
-    //     $documentsLearned = Document::documentLearned($document->lesson_id)->get();
-    //     $percentage = $documentsLearned->count() / $totalDocuments * 100;
-
-    //     return response()->json([
-    //         'number' => $documentsLearned,
-    //         'percentage' => round($percentage)
-    //     ]);
-
-    // }
+        return response()->json([
+            'number' => $documentsLearned,
+            'percentage' => round($percentage)
+        ]);
+    }
 }
