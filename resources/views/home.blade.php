@@ -67,6 +67,7 @@
 
     <div class="container text-ruby">
         <div class="row ruby">
+<<<<<<< Updated upstream
             <div class="col-lg-4 col-text">
                 <div class="card">
                     <div class="logo html-css">
@@ -106,9 +107,22 @@
                             Media. I
                             had coded quite a bit, but never touched...</p>
                         <a href="#" class="btn btn-primary text-take take">Take This Course</a>
+=======
+            @foreach ($otherCourses as $item)
+            <div class="col-lg-4 col-text">
+                <div class="card">
+                    <div class="logo html-css">
+                        <img class="card-img-css"  src="{{ asset($item->logo_path) }}"  alt="css">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $item->title }}</h5>
+                        <p class="card-text-new">{{ $item->description }}</p>
+                        <a href="/allcourses/coursedetail/{{ $item->id }}"  class="btn btn-primary text-take take">Take This Course</a>
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 
@@ -161,15 +175,14 @@
 
     <div id="demo" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
+            
             <div class="carousel-item active">
+                @foreach($reviews as $review)
                 <div class="row row-feedback">
                     <div class="col-lg-5 feedback-left">
                         <a class="fas fa-chevron-circle-left fa-2x icon-feedback" href="#demo" data-slide="prev"></a>
                         <div class="row feedback-content-row">
-                            <p class="feedback-content">“A wonderful course on how to start. Eddie beautifully
-                                conveys all essentials of a
-                                becoming a good Angular developer. Very glad to have taken this course. Thank you
-                                Eddie Bryan.”
+                            <p class="feedback-content">{{ $review->content }}
                             </p>
                             <img src="./images/img-but.png" class="seed" alt="feedback">
                         </div>
@@ -188,33 +201,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 feedback-right">
-                        <div class="row feedback-content-row">
-                            <p class="feedback-content">“A wonderful course on how to start. Eddie beautifully
-                                conveys all essentials of a
-                                becoming a good Angular developer. Very glad to have taken this course. Thank you
-                                Eddie Bryan.”
-                            </p>
-                            <img src="./images/img-but.png" class="seed" alt="feedback">
-                        </div>
-                        <div class="row user-feedback">
-                            <div class="col-2 col-img">
-                                <img src="./images/Ellipse.png" class="img-feedback" alt="feedback">
-                            </div>
-                            <div class="col col-name">
-                                <p class="name-feedback">Hoang Anh Nguyen</p>
-                                <p class="name-feedback">Python</p>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                            </div>
-                        </div>
-                    </div>
                     <a class="fas fa-chevron-circle-right fa-2x icon-feedbackright" href="#demo" data-slide="next"></a>
                 </div>
+                @endforeach
             </div>
+           
             <div class="carousel-item">
                 <div class="row row-feedback">
                     <div class="col-lg-5 feedback-left">
@@ -287,15 +278,15 @@
     <div class="row row row-statistic-index">
         <div class="col-sm-4 col-statistic">
             <p class="text-courses">Courses</p>
-            <p class="text-index">1,586</p>
+            <p class="text-index">{{$totalCourses}}</p>
         </div>
         <div class="col-sm-4 col-statistic">
             <p class="text-courses">Lessons</p>
-            <p class="text-index">2,689</p>
+            <p class="text-index">{{$totalLessons}}</p>
         </div>
         <div class="col-sm-4 col-statistic">
             <p class="text-courses">Learners</p>
-            <p class="text-index">16,882</p>
+            <p class="text-index">{{$totalUsers}}</p>
         </div>
     </div>
 

@@ -1,0 +1,593 @@
+.course-detail-container {
+  width: 85%;
+  margin: auto;
+
+  .form-search-detail {
+    width: 69%;
+  }
+}
+
+.img-container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  img {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+  }
+}
+
+.description-detail-course {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 15px;
+  border: 1px solid #d1d1d1;
+  height: 500px;
+
+  .title-description-container {
+    padding: 15px;
+
+    .title-description {
+      font-family: $font_UTM_BryantLG;
+      font-weight: 700;
+      font-size: 25px;
+      color: #505353;
+      border-bottom: 1px #b2d235 solid;
+    }
+  }
+
+  .description-container {
+    padding: 15px;
+
+    .description {
+      font-family: $font_UTM_BryantLG;
+      font-weight: 700;
+      font-size: 18px;
+      color: #949292;
+    }
+  }
+}
+
+.nav-course-detail-container {
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+
+  .nav-tabs .nav-link.active,
+  .nav-tabs .nav-item.show .nav-link {
+    border: unset;
+    border-bottom: 2px solid #b2d235;
+    background-color: white;
+    color: $cg-color;
+  }
+
+  .nav-tabs {
+    border: unset;
+    border-bottom: 2px solid #d1d1d1;
+  }
+}
+
+.nav-course-detail {
+  width: 95%;
+  margin: auto;
+  padding: 15px 0;
+
+  .nav-item {
+    border-radius: unset;
+    border: unset;
+
+    &:hover {
+      background-color: unset;
+    }
+  }
+
+  .btn-nav-detail {
+    font-family: $font_UTM_BryantLG;
+    font-weight: 700;
+    font-size: 20px;
+    color: $txt-color;
+    text-decoration: none;
+    padding: 0;
+    display: initial;
+    padding-bottom: 13px;
+
+    &:hover {
+      color: $cg-color;
+      border: unset;
+    }
+  }
+}
+
+.lessons-teacher-reiews-container {
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+
+  .tab-content {
+    width: 95%;
+
+    .tab-pane {
+      padding: 30px 0;
+      margin: 0;
+    }
+  }
+}
+
+.detail-lessons-container {
+  margin-bottom: 30px;
+
+  .detail-lessons {
+    .search-lessons {
+      height: 40px;
+      color: black;
+    }
+  }
+
+  .btn-search-lessons {
+    .btn-search {
+      width: 100px;
+      height: 40px;
+      background: $cg-color;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      font-family: $font_UTM_BryantLG;
+      font-weight: bold;
+      font-size: 18px;
+
+      &:hover {
+        color: #505353;
+      }
+    }
+  }
+
+  .btn-join-container {
+    text-align: right;
+
+    .btn-join-course {
+      padding: 9px 16px;
+      background: $cg-color;
+      box-shadow: inset 0px 1.5px 2px #6f8710;
+      border-radius: 22px;
+      border: unset;
+      color: white;
+      font-family: $font_UTM_BryantLG;
+      font-weight: bold;
+      font-size: 18px;
+
+      &:hover {
+        color: #505353;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.show-lessons-container {
+  .txt-title-lessons {
+    padding: 20px 0;
+    font-family: $font_UTM_BryantLG;
+    font-size: 18px;
+    font-weight: bold;
+    color: #505353;
+    margin: 0;
+    border-top: 1px solid #d1d1d1;
+    cursor: pointer;
+
+    &:hover {
+      color: $cg-color;
+    }
+  }
+
+  .btn-more-lessons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px solid #d1d1d1;
+
+    a {
+      background: $cg-color;
+      box-shadow: inset 0px 1.5px 2px #6f8710;
+      border-radius: 22px;
+      color: white;
+      font-family: $font_UTM_BryantLG;
+      font-size: 15px;
+      font-weight: bold;
+      width: 80px;
+      height: 30px;
+      text-align: center;
+
+      &:hover {
+        text-decoration: none;
+        color: $txt-color;
+      }
+    }
+  }
+}
+
+.pagination-container {
+  nav {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.col-show-other {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid #d1d1d1;
+
+  .row-detail {
+    padding: 15px 0;
+  }
+
+  .col-icon {
+    text-align: center;
+  }
+
+  .col-txt {
+    p {
+      margin: 0;
+      font-family: $font_UTM_BryantLG;
+      font-size: 20px;
+      color: #505353;
+    }
+  }
+
+  .col-txt-main {
+    p {
+      font-weight: 700;
+    }
+  }
+
+  .col-txt-tags {
+    p {
+      color: #5d8bd0;
+    }
+  }
+}
+
+.show-other-courses-container {
+  margin-top: 25px;
+  background: white;
+  border: 1px solid #949292;
+
+  .txt-show-other-courses {
+    text-align: center;
+    background: $cg-color;
+
+    p {
+      padding: 15px;
+      margin: 0;
+      color: white;
+      font-family: $font_UTM_BryantLG;
+      font-weight: bold;
+      font-size: 25px;
+    }
+  }
+
+  .show-other-courses {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    p {
+      padding: 20px 0;
+      margin: 0;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: $font_UTM_BryantLG;
+      border-bottom: 1px solid #949292;
+    }
+  }
+
+  .btn-view-all {
+    text-align: center;
+    margin: 30px 0;
+
+    a {
+      padding: 8px 18px;
+      background: $cg-color;
+      box-shadow: inset 0px 1.5px 2px #6f8710;
+      border-radius: 22px;
+      font-family: $font_UTM_BryantLG;
+      font-size: 18px;
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
+
+.detail-teacher-container {
+  .row-infor-mentor {
+    margin-top: 30px;
+  }
+
+  .txt-main-teacher {
+    p {
+      font-family: $font_UTM_BryantLG;
+      color: #505353;
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+
+  .col-ava-mentor {
+    img {
+      border-radius: 50%;
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  .infor-mentor {
+    .name-mentor {
+      font-family: $font_UTM_BryantLG;
+      font-size: 18px;
+      color: $txt-color;
+      font-weight: bold;
+    }
+
+    .exp-mentor {
+      font-family: $font_UTM_BryantLG;
+      font-size: 14px;
+      color: #949292;
+      padding-bottom: 5px;
+    }
+  }
+
+  .description-mentor {
+    p {
+      font-family: $font_UTM_BryantLG;
+      font-size: 18px;
+      color: #949292;
+    }
+  }
+}
+
+.btn-learn {
+  width: 80px;
+  background: $bg-color;
+}
+
+.rating {
+  float: left;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  display: none;
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: $body-bg;
+}
+
+.rating:not(:checked) > label:before {
+  content: "★ ";
+}
+
+.rating:not(:checked) .half:before {
+  content: "★ ";
+  position: absolute;
+  width: 8px;
+  margin-left: 18px;
+  overflow: hidden;
+}
+
+.rating > input:checked ~ label {
+  color: yellow;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: yellow;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: $yellow;
+}
+
+.review-content {
+
+  span {
+    color: yellow;
+  }
+
+}
+
+.text-center {
+  left: 24px;
+  width: 244px;
+  height: 176px;
+  background: $txt_color;
+  border-radius: 5px;
+
+  .rating-num {
+    font-family: UTM;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 74px;
+    color: white;
+  }
+
+  .rating-total {
+    span {
+      font-family: UTM;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 20px;
+      color: white;
+    }
+  }
+}
+
+.rating-desc {
+  height: 176px;
+  border: 1px solid #dfdfdf;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.rating-review {
+  i {
+    color: yellow;
+  }
+}
+
+.comment-header {
+  .ava-user-cmt {
+    padding: 0 10px;
+
+    img {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  .name-user-cmt {
+    padding: 0 10px;
+
+    p {
+      font-size: 18px;
+      font-weight: bold;
+      font-family: $font_UTM_BryantLG;
+      color: #505353;
+      margin: 0;
+    }
+  }
+
+  .star-user-rating {
+    padding: 0 10px;
+
+    i {
+      font-size: 15px;
+    }
+
+    .checked {
+      color: #ffd567;
+    }
+  }
+
+  .time-user-cmt {
+    padding: 0 10px;
+
+    p {
+      font-size: 14px;
+      font-family: $font_UTM_BryantLG;
+      color: #505353;
+      margin: 0;
+      color: #c4c4c4;
+    }
+  }
+}
+
+.comment-body {
+  padding: 0 15px;
+
+  p {
+    font-size: 18px;
+    font-family: $font_UTM_BryantLG;
+    color: $txt-color;
+    margin: 0;
+    color: #c4c4c4;
+  }
+}
+
+.input-reply-container {
+  .form-reply-comment {
+    text-align: right;
+    display: none;
+
+    .input-reply-comment {
+      color: black;
+    }
+
+    .btn-sent-reply {
+      height: 30px;
+      width: 60px;
+      background-color: #b2d235;
+      box-shadow: inset 0px 1.5px 2px #6f8710;
+      border: unset;
+      border-radius: 22px;
+      color: white;
+      font-family: $font_UTM_BryantLG;
+      font-size: 15px;
+      line-height: 18px;
+      font-weight: bold;
+
+      &:hover {
+        color: #505353;
+      }
+    }
+  }
+}
+
+.btn-send-review {
+  input {
+    height: 30px;
+    width: 80px;
+    background-color: #b2d235;
+    box-shadow: inset 0px 1.5px 2px #6f8710;
+    border: unset;
+    border-radius: 22px;
+    color: white;
+    font-family: $font_UTM_BryantLG;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: bold;
+
+    &:hover {
+      color: #505353;
+    }
+  }
+}
+
+.label-input-review {
+  font-family: $font_UTM_BryantLG;
+  font-size: 18px;
+  color: #707575;
+}
+
+.btn-reply {
+  height: 30px;
+  width: 60px;
+  background-color: #b2d235;
+  box-shadow: inset 0px 1.5px 2px #6f8710;
+  border: unset;
+  border-radius: 22px;
+  color: white;
+  font-family: "utm_bryantlgregular";
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.text-centers {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "utm_bryantlgregular";
+  color: #505353 !important;
+  margin: 0;
+}
+
+.reply-comment-body {
+  margin-left: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "utm_bryantlgregular";
+  color: #505353 !important;
+  margin: 0;
+}
+
+.review-content span {
+  color: #505353 !important;
+}

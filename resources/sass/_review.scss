@@ -1,0 +1,43 @@
+.reviews {
+  padding-left: 11px;
+  font-family: UTM;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 31px;
+  color: #505353;
+}
+
+.star {
+  margin-left: 1rem;
+}
+
+.star-five {
+  left: 60px;
+}
+
+.text-left {
+  padding-left: 0px;
+  .glyphicon-star {
+    font-size: 14px;
+  }
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  overflow: hidden;
+  text-align: center;
+  background-position: center;
+  background-size: cover;
+}
+
+.review-name-user {
+  margin-left: 1rem;
+  margin-bottom: 0;
+}

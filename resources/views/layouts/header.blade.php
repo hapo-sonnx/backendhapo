@@ -14,15 +14,16 @@
                 <span class="navbar-toggler-icon" onclick="showheader()" id="showheader"></span>
                 <span class="my-1 mx-1 close fa fa-times img-close-header" onclick="hideheader()" id="hideheader"
                     style="display:none"></span>
-                    
+
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item btn-x ">
-                        <a class="nav-link btn-x  {{ Route::is('home') ? 'active' : ''}}" href="/">HOME</a>
+                        <a class="nav-link btn-x  {{ Route::is('home') ? 'activer' : '' }}" href="/">HOME</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link  all btn-x {{ Route::is('courses*') ? 'active' : ''}}"  href="courses">ALL COURSES</a>
+                        <a class="nav-link  all btn-x {{ Route::is('courses*') ? 'activer' : '' }}"
+                            href="allcourses">ALL COURSES</a>
                     </li>
                     @if (!Auth::check())
                         <li class="nav-item">
@@ -30,12 +31,19 @@
                                 data-target="#myModal">LOGIN/REGISTER</a>
                         </li>
                     @endif
+<<<<<<< Updated upstream
                     <li class="nav-item">
                         <a class="nav-link btn-x" href="#">Profile</a>
                     </li>
+=======
+
+>>>>>>> Stashed changes
                     @if (Auth::check())
                         <li class="nav-item">
                             <a class="nav-link btn-x" href="/logout">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-x" href="/profile">Profile</a>
                         </li>
                     @endif
                 </ul>

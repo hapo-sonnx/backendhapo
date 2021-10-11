@@ -21,16 +21,23 @@ class Feedback extends Model
 
     public function courses()
     {
-        return $this->belongsToMany(Course::class, 'feedback_id', 'course_id');
+        return $this->belongsTo(Course::class, 'course_id');
     }
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'feedback_id', 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function lessons()
     {
         return $this->belongsToMany(Lesson::class, 'feedback_id', 'lesson_id');
+    }
+    
+    public function scopeReviewUser($query)
+    {
+        $query->leftJoin('users', 'users.id', 'feebacks.user_id')
+            ->leftJoin('courses', 'courses.id', 'feebacks.course_id')
+            ->select('users.name AS user_name', 'courses.title AS course_name', 'users.phone', 'feebacks.rate', 'feebacks.content');
     }
 }
