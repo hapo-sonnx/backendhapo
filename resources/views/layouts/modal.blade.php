@@ -27,7 +27,7 @@
                                     {{ $message }}
                                 </span>
                             @enderror
-                            <label class="label-password pass">Password:</label>
+                            <label class="label-passwords pass">Password:</label>
                             <br>
                             <input class="text-username input-login  @error('password') check-login @enderror"
                                 placeholder="Password" name="password" type="password">
@@ -41,7 +41,7 @@
                                     <input class="form-check-input" type="checkbox" value="true" id="remember-me">
                                     <label class="form-check-label" for="remember-me">Remember me
                                 </div>
-                                <a href="#" class="forgot-pass">Forgot password</a>
+                                <a href="{{route('password.request')}}" class="forgot-pass">Forgot password</a>
                             </div>
                             <div>
                                 <button type="submit" class="btn-login">{{ __('Login') }}</button>
@@ -51,8 +51,11 @@
                         <div class="text-with">
                             <p class="login-with">Login with</p>
                         </div>
-                        <p class="text-gg"><i class="fab fa-google-plus-g fa-lg icon-gg"></i>Google</p>
-                        <p class="text-face"><i class="fab fa-facebook-f fa-lg icon-face"></i></i>Facebook</p>
+                        <a href="{{route('login_google')}}" class="text-gg"><i class="fab fa-google-plus-g fa-lg icon-gg"></i>Google</a>
+                    <br>
+                        <div class="facebook"> 
+                            <a href="{{route('login_facebook')}}" class="text-face"><i class="fab fa-facebook-f fa-lg icon-face"></i></i>Facebook</a>
+                        </div>
                     </div>
                 </div>
 

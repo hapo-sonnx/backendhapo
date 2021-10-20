@@ -173,7 +173,7 @@ class Course extends Model
         ])->orderByDesc('users_count')->limit(3);
     }
 
-    
+        
     public function scopeOtherCourse($query)
     {
         $query->orderByDesc('id')->limit(3);

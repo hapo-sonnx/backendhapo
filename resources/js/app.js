@@ -13,11 +13,17 @@ require('./modal');
 require('./resetfilter');
 require('./messger');
 require('./menu');
-require('./profile');
 require('./review')
 require('./document');
+require('./reply');
+require('./couse');
+// require('./profile');
+
+
 
 window.Vue = require('vue').default;
+
+// import 'jquery-ui/ui/widgets/datepicker.js';
 
 /**
  * The following block of code may be used to automatically register your

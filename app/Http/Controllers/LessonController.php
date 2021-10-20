@@ -6,6 +6,9 @@ use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Document;
 use App\Models\UserCourse;
+use App\Models\Feedback;
+use App\Models\ReplyReview;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -34,10 +37,26 @@ class LessonController extends Controller
     {
         $course = Course::find($id);
         $tags = Course::tagsCourse($id)->get();
+        $teacher = Course::teacherOfCourse($id)->get();
         $otherCourses = Course::showOtherCourses($course->id)->get();
         $lessons = Lesson::search($request->all())->paginate(config('constants.pagination_lessons'));
         $isJoined = UserCourse::joined($id)->first() ? true : false;
+        $replies = ReplyReview::inforReply()->get();
+        $reviews  = Feedback::feedbacksOfCourse($course->id)->get();
         $totalDocuments = !isNull($lessons->first()) ? Lesson::documentsOfLesson($lessons->first()->id)->get() : null;
+        $userIds = [];
+        if (!empty($reviews)) {
+            foreach ($reviews as $review) {
+                $userIds[] = $review['user_id'];
+            }
+        }
+        $userInfos = User::whereIn('id', $userIds)->select('name', 'id')->get();
+        $userInfoMap = [];
+        if (!empty($userInfos)) {
+            foreach ($userInfos as $userInfo) {
+                $userInfoMap[$userInfo->id] = $userInfo;
+            }
+        }
 
         if (Auth::check() && !isNull($lessons->first())) {
             $documentsLearned = Document::documentLearned($lessons->first()->id)->get();
@@ -56,6 +75,18 @@ class LessonController extends Controller
 
         $keyword = $request->has('key_detail_course') ? request()->get('key_detail_course') : null;
 
-        return view('courses.courses_detail', compact('course', 'lessons', 'tags', 'otherCourses', 'keyword', 'isJoined', 'reviews', 'totalRate', 'avgRating', 'learnedPart', 'totalDocuments', 'documentsLearned'));
+        return view('courses.courses_detail', compact('course', 'lessons', 'tags', 'otherCourses', 'reviews', 'teacher', 'keyword', 'isJoined', 'learnedPart', 'replies', 'totalDocuments', 'documentsLearned', 'userInfoMap'));
+    }
+
+    
+    public function addreviewlesson(Request $request)
+    {
+        return Feedback::create([
+            'content' => $request['content'],
+            'rate' => $request['rate'],
+            'lesson_id' => $request['lesson_id'],
+            'date_times' => date("Y-m-d H:i:s"),
+            'user_id' => Auth::id(),
+        ]);
     }
 }

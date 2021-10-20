@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1 col-xs-3 col-md-3 text-left">
-                                <span class="glyphicon glyphicon-star" ">{{ $course->number_rate_four }}</span>
+                                <span class="glyphicon glyphicon-star">{{ $course->number_rate_four }}</span>
                             </div>
                             <!-- end 4 -->
                             <div class=" col-lg-1 col-xs-3 col-md-3 text-right">
@@ -110,8 +110,8 @@
 <div class="m-3">
     <div class="review-content">
         <ul id="commentArea">
-            @foreach ($reviews as $review)
-                <div>
+            {{-- @foreach ($reviews as $review)
+                <li>
                     <div class="user-info">
                         <div class="avatar" style="url('{{ $userInfoMap[$review->user_id]->avatar }}')">
                         </div>
@@ -130,56 +130,15 @@
                         <p class="text-centers">{{ $review->created_at }}</p>
                     </div>
                     <p class="text-centers">{{ $review->content }}</p>
-                </div>
-                <div class="row btn-reply-comment m-0 justify-content-end align-items-center">
-                    <a href="#" class="btn-reply" data-id="{{ $review->id }}" onclick="return false">Reply</a>
-                </div>
-                <div data-id="{{ $review->id }}"
-                    class="row reply-comment-container justify-content-end align-items-center">
-                    @foreach ($replies as $reply)
-                        @if ($reply->feeback_id == $review->id)
-                            <div class="col-lg-11">
-                                <hr>
-                                <div class="comment-header row reply-comment-main align-items-center">
-                                    <div class="name-user-cmt text-centers">
-                                        <p>{{ $reply->name }}</p>
-                                    </div>
-                                    <div class="time-user-cmt text-centers">
-                                        <p>{{ $reply->created_at }}</p>
-                                    </div>
-                                </div>
-                                <div class="row pl-0 comment-body reply-comment-body">
-                                    <p>{{ $reply->content }}</p>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-                <div class="row justify-content-end align-items-center">
-                    <div class="col-lg-11 input-reply-container">
-                        <form class="form-reply-comment {{ $review->id }}">
-                            @csrf
-                            <br>
-                            <textarea name="review" data-id="{{ $review->id }}"
-                                class="form-control input-reply-comment" rows="4"></textarea>
-                            <br>
-                            <input type="hidden" data-id="{{ $review->id }}" value="{{ $review->id }}"
-                                class="review-id-reply">
-                            <input type="hidden" data-id="{{ $review->id }}"
-                                value="{{ Auth::check() ? Auth::user()->id : '' }}" class="user-id-reply">
-                            <input class="btn-sent-reply" data-id="{{ $review->id }}" type="submit" value="Send">
-                        </form>
-                    </div>
-                </div>
-                <hr>
-            @endforeach
+                </li>
+            @endforeach --}}
         </ul>
     </div>
     <div class="add-review my-3 text-centers">Leave a review</div>
-    <form method="POST" action="{{ route('review.course.store') }}" id="reviewForm">
+    <form method="POST" action="{{ route('review.lesson.store') }}" id="reviewForm">
         @csrf
         <div class="message-add-review my-3 text-centers">Message</div>
-        <input type="hidden" name="course_id" value="{{ $course->id }}">
+        <input type="hidden" name="course_id" value="{{ $lessons->id }}">
         <textarea name="content" id="content" cols="30" rows="5" class="form-control mb-3"></textarea>
         @if ($errors->has('content'))
             <error class="text-danger">

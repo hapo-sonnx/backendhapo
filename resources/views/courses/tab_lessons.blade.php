@@ -12,7 +12,7 @@
         @if (Auth::check() && $isJoined == true)
             <a href="#" class="btn-join-course" id="btn-joined-course">Joined the course</a>
         @else
-            <a href="/insert/{{ $course->id }}" class="btn-join-course" id="btn-join-course">Join the course</a>
+            <a href="/insert/{{ $course->id }}" class="btn-join-course"  id="btn-join-course">Join the course</a>
         @endif
     </div>
 </div>
@@ -25,7 +25,23 @@
                 </div>
                 <div class="col-lg-4 pl-0 btn-more-lessons">
                     @if (Auth::check() && $isJoined == true)
-                        <a href="/allcourses/coursedetail/lesson/{{ $lesson->id }}">Learn</a>
+                        @if ($totalDocuments->count() > 0)
+                            @if ($totalDocuments[0]->lesson_id == $lesson->id)
+                                @if ($learnedPart == 0)
+                                    <a href="/allcourses/coursedetail/lesson/{{ $lesson->id }}">Learn</a>
+                                @elseif ($learnedPart > 0 && $learnedPart < 1) 
+                                    <i class="fas fa-check-circle icon-check-learning"></i>
+                                    <a href="/allcourses/coursedetail/lesson/{{ $lesson->id }}">Learning</a>
+                                @elseif ($learnedPart == 1)
+                                    <i class="fas fa-check-circle icon-check-learned"></i>
+                                    <a href="/allcourses/coursedetail/lesson/{{ $lesson->id }}">Learned</a>
+                                @endif
+                            @else
+                                <a href="/allcourses/coursedetail/lesson/{{ $lesson->id }}">Learn</a>
+                            @endif
+                        @else
+                        <a href="/allcourses/coursedetail/lesson/{{ $lesson->id }}" onsubmit="return false">Learn</a>
+                        @endif
                     @endif
                 </div>
             </div>

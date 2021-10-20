@@ -38,13 +38,13 @@
                     <div class="lessons-teacher-reiews-container">
                         <div class="tab-content">
                             <div id="lessons" class="tab-pane active">
-                                @include('courses.tab_lessons', [ $lessons, $course, $isJoined ])
+                                @include('courses.tab_lessons', [ $lessons, $course, $isJoined , $totalDocuments ,$learnedPart ])
                             </div>
                             <div id="teacher" class="tab-pane">
                                 @include('courses.tab_teacher', $teacher)
                             </div>
                             <div id="reviews" class="tab-pane">
-                                @include('courses.tab_review')
+                                @include('courses.tab_review', $replies)
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                     <div class="col-lg-12 col-show-other">
                         <div class="row row-detail">
                             <div class="col-lg-2 align-self-center col-icon">
-                                <img src="{{ asset('images/learner.png') }}" alt="">
+                                <img src="{{ asset('image/learn.png') }}" alt="">
                             </div>
                             <div class="col-lg-3 pr-0 align-self-center col-txt">
                                 <p>Learners :</p>
@@ -65,7 +65,7 @@
                         <hr>
                         <div class="row row-detail">
                             <div class="col-lg-2 align-self-center col-icon">
-                                <img src="{{ asset('images/lessons.png') }}" alt="">
+                                <img src="{{ asset('image/lessons.png') }}" alt="">
                             </div>
                             <div class="col-lg-3 pr-0 align-self-center col-txt">
                                 <p>Lessons :</p>
@@ -77,7 +77,7 @@
                         <hr>
                         <div class="row row-detail">
                             <div class="col-lg-2 align-self-center col-icon">
-                                <img src="{{ asset('images/times.png') }}" alt="">
+                                <img src="{{ asset('image/times.png') }}" alt="">
                             </div>
                             <div class="col-lg-3 pr-0 align-self-center col-txt">
                                 <p>Times :</p>
@@ -89,7 +89,7 @@
                         <hr>
                         <div class="row row-detail">
                             <div class="col-lg-2 align-self-center col-icon">
-                                <img src="{{ asset('images/tags.png') }}" alt="">
+                                <img src="{{ asset('image/tags.png') }}" alt="">
                             </div>
                             <div class="col-lg-3 pr-0 align-self-center col-txt">
                                 <p>Tags :</p>
@@ -101,7 +101,7 @@
                         <hr>
                         <div class="row row-detail">
                             <div class="col-lg-2 align-self-center col-icon">
-                                <img src="{{ asset('images/price.png') }}" alt="">
+                                <img src="{{ asset('image/pirce.png') }}" alt="">
                             </div>
                             <div class="col-lg-3 pr-0 align-self-center col-txt">
                                 <p>Price :</p>
@@ -117,7 +117,7 @@
                         </div>
                         @foreach ($otherCourses as $key => $item)
                             <div class="show-other-courses">
-                                <a href="{{ route('courses.detail', $item->id) }}">{{ $key + 1 }}.
+                                <a href="{{ route('coursesdetail', $item->id) }}">{{ $key + 1 }}.
                                     {{ $item->title }}</a>
                             </div>
                         @endforeach

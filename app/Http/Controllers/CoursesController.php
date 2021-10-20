@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Feedback;
+use App\Models\Document;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Lesson;
+use App\Models\ReplyReview;
 use App\Models\UserCourse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -41,6 +43,7 @@ class CoursesController extends Controller
         $lessons = Course::inforLessons($id)->paginate(config('constants.pagination_lessons'));
         $isJoined = UserCourse::joined($id)->first() ? true : false;
         $reviews = Course::find($id)->reviews;
+        $totalDocuments = Lesson::documentsOfLesson($lessons->first()->id)->get();
         $userIds = [];
         if (!empty($reviews)) {
             foreach ($reviews as $review) {
@@ -54,14 +57,27 @@ class CoursesController extends Controller
                 $userInfoMap[$userInfo->id] = $userInfo;
             }
         }
-        return view('courses.courses_detail', compact('course', 'lessons', 'teacher', 'tags', 'otherCourses', 'isJoined', 'reviews', 'userInfoMap'));
+        if (Auth::check()) {
+            $documentsLearned = Document::documentLearned($lessons->first()->id)->get();
+        } else {
+            $documentsLearned = 0;
+        }
+
+        if (Auth::check() && $documentsLearned->count() != 0 && $totalDocuments->count() != 0) {
+            $learnedPart = $documentsLearned->count() / $totalDocuments->count();
+        } else {
+            $learnedPart = 0;
+        }
+        $replies = ReplyReview::inforReply()->get();
+        return view('courses.courses_detail', compact('course', 'lessons', 'teacher', 'tags', 'otherCourses', 'isJoined', 'reviews', 'userInfoMap', 'replies', 'totalDocuments', 'learnedPart'));
     }
 
     public function join($id)
     {
         $course = Course::find($id);
         $course->users()->attach(Auth::id());
-        return redirect()->route('courses.detail', [$id]);
+
+        return redirect()->route('coursesdetail', [$id]);
     }
 
     public function addreview(Request $request)

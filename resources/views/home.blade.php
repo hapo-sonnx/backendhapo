@@ -24,11 +24,11 @@
                 <div class="col-lg-4 col-text">
                     <div class="card">
                         <div class="logo html">
-                            <img src="{{$mainCourse->logo_path}}" class="card-img-top" alt="html">
+                            <img src="{{ $mainCourse->logo_path }}" class="card-img-top" alt="html">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">{{$mainCourse->title}}</h5>
-                            <p class="card-text">{{$mainCourse->description}}</p>
+                            <h5 class="card-title">{{ $mainCourse->title }}</h5>
+                            <p class="card-text">{{ $mainCourse->description }}</p>
                             <a href="#" class="btn btn-primary text-take">Take This Course</a>
                         </div>
                     </div>
@@ -44,50 +44,21 @@
 
     <div class="container text-ruby">
         <div class="row ruby">
-
-            <div class="col-lg-4 col-text">
-                <div class="card">
-                    <div class="logo html-css">
-                        <img class="card-img-css" src="{{ asset('image/CSS.png') }}" alt="css">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">CSS Tutorial</h5>
-                        <p class="card-text-new">I knew hardly anything about HTML, JS, and CSS before entering New
-                            Media. I
-                            had coded quite a bit, but never touched...</p>
-                        <a href="#" class="btn btn-primary text-take take">Take This Course</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-text">
-                <div class="card">
-                    <div class="logo laravel-logo">
-                        <img class="card-img-laravel" src="{{ asset('image/img-rails.png') }}" alt="rails">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Ruby on rails Tutorial</h5>
-                        <p class="card-text-new">I knew hardly anything about HTML, JS, and CSS before entering New
-                            Media. I
-                            had coded quite a bit, but never touched...</p>
-                        <a href="#" class="btn btn-primary text-take take">Take This Course</a>
+            @foreach ($otherCourses as $item)
+                <div class="col-lg-4 col-text">
+                    <div class="card">
+                        <div class="logo html-css">
+                            <img class="card-img-css" src="{{ asset($item->logo_path) }}" alt="css">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $item->title }}</h5>
+                            <p class="card-text-new">{{ $item->description }}</p>
+                            <a href="/allcourses/coursedetail/{{ $item->id }}"
+                                class="btn btn-primary text-take take">Take This Course</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-text">
-                <div class="card">
-                    <div class="logo php-java">
-                        <img class="card-img-java" src="{{ asset('image/java.png') }}" alt="java">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Java Tutorial</h5>
-                        <p class="card-text-new">I knew hardly anything about HTML, JS, and CSS before entering New
-                            Media. I
-                            had coded quite a bit, but never touched...</p>
-                        <a href="#" class="btn btn-primary text-take take">Take This Course</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
@@ -266,19 +237,20 @@
     <div class="row row row-statistic-index">
         <div class="col-sm-4 col-statistic">
             <p class="text-courses">Courses</p>
-            <p class="text-index">1,586</p>
+            <p class="text-index">{{ $totalCourses }}</p>
         </div>
         <div class="col-sm-4 col-statistic">
             <p class="text-courses">Lessons</p>
-            <p class="text-index">2,689</p>
+            <p class="text-index">{{ $totalLessons }}</p>
         </div>
         <div class="col-sm-4 col-statistic">
             <p class="text-courses">Learners</p>
-            <p class="text-index">16,882</p>
+            <p class="text-index">{{ $totalUsers }}</p>
         </div>
     </div>
 
-    <div class="img-mess"><img class="" src=" {{ asset('image/messenger.png') }}" alt="logo mess"></div>
+    <div class="img-mess"><img class="" src=" {{ asset('image/messenger.png') }}" alt="logo mess">
+    </div>
     <div class="text-mess">
         <div class="close-button"><i class="fas fa-times"></i></div>
         <div class="hapolearn-text">HapoLearn</div>

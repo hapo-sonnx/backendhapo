@@ -36,7 +36,7 @@
                         <hr>
                         <div class="row row-detail">
                             <div class="col-lg-2 align-self-center col-icon">
-                                <img src="{{ asset('image/learner.png') }}" alt="">
+                                <img src="{{ asset('image/learn.png') }}" alt="">
                             </div>
                             <div class="col-lg-3 pr-0 align-self-center col-txt">
                                 <p>Learners :</p>
@@ -72,7 +72,7 @@
                         <hr>
                         <div class="row row-detail">
                             <div class="col-lg-2 align-self-center col-icon">
-                                <img src="{{ asset('image/price.png') }}" alt="">
+                                <img src="{{ asset('image/pirce.png') }}" alt="">
                             </div>
                             <div class="col-lg-3 pr-0 align-self-center col-txt">
                                 <p>Price :</p>
@@ -121,8 +121,7 @@
                                 @include('lesson.document', $documents)
                             </div>
                             <div id="reviews" class="tab-pane">
-                                <h1>Hello</h1>
-                                {{-- @include('courses.tab_review') --}}
+                                @include('lesson.review_lesson')
                             </div>
                         </div>
                     </div>

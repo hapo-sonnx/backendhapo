@@ -23,21 +23,21 @@
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link  all btn-x {{ Route::is('courses*') ? 'activer' : '' }}"
-                            href="allcourses">ALL COURSES</a>
+                            href="{{route('courses')}}">ALL COURSES</a>
                     </li>
                     @if (!Auth::check())
                         <li class="nav-item">
-                            <a class="nav-link btn-x" href="#" data-toggle="modal"
+                            <a class="nav-link btn-x" id="btn-regis-login" href="#" data-toggle="modal"
                                 data-target="#myModal">LOGIN/REGISTER</a>
                         </li>
                     @endif
 
                     @if (Auth::check())
                         <li class="nav-item">
-                            <a class="nav-link btn-x" href="/logout">Logout</a>
+                            <a class="nav-link btn-x" href="/logout">LOGOUT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-x" href="/profile">Profile</a>
+                            <a class="nav-link btn-x" href="/profile">PROFILE</a>
                         </li>
                     @endif
                 </ul>

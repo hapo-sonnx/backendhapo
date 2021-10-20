@@ -17,8 +17,8 @@ $(function () {
       success: function (res) {
         // console.log(res)
         let html = `<li>
-              <p class="">`+ userName + ` <span>` + getRate(dataObj['rate']) + `</span></p>
-              <p>`+ dataObj['content'] + `</p>
+              <p class="name-user-cmt text-centers">`+ userName + ` <span>` + getRate(dataObj['rate']) + `</span></p>
+              <p class="row pl-0 reply-comment-body">`+ dataObj['content'] + `</p>
             </li>`;
         $('#commentArea').append(html);
 

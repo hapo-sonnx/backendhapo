@@ -53,7 +53,7 @@
                     @endforeach
                     <div class="img-your-course">
                         <a href="/allcourses">
-                            <img class="img_add" src="{{ asset('image/Group.png') }}" alt="img_add">
+                            <img class="img_add" src="{{ asset('image/Gruop123.png') }}" alt="img_add">
                         </a>
                     </div>
                 </div>

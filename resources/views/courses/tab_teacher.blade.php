@@ -6,17 +6,17 @@
         @foreach ($teacher as $item)
             <div class="row row-infor-mentor">
                 <div class="col-lg-2 pr-0 col-ava-mentor">
-                    <img src="{{ asset('image/Group.png') }}" alt="anh">
+                    <img src="{{ asset('image/Gruop.png') }}" alt="anh">
                 </div>
-                <div class="col-lg-4 align-self-center infor-mentor">
+                <div class="col-lg-4 align-self-centers infor-mentor">
                     <div class="row name-mentor">{{ $item->name }}</div>
                     <div class="row exp-mentor">{{ $item->email }}</div>
                     <div class="row social-mentor">
                         <div class="col-lg-1 pl-0">
-                            <img src="{{ asset('image/Group.png') }}" alt="fb">
+                            <img src="{{ asset('image/Groupgg.png') }}" alt="fb">
                         </div>
                         <div class="col-lg-1 pl-0">
-                            <img src="{{ asset('image/gg_icon_detail.png') }}" alt="gg">
+                            <img src="{{ asset('image/Groupf.png') }}" alt="gg">
                         </div>
                         <div class="col-lg-1 pl-0">
                             <img src="{{ asset('image/Group85.png') }}" alt="sl">

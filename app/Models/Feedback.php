@@ -35,4 +35,19 @@ class Feedback extends Model
     {
         return $this->belongsToMany(Lesson::class, 'feedback_id', 'lesson_id');
     }
+    
+    public function scopeReviewUser($query)
+    {
+        $query->leftJoin('users', 'users.id', 'feebacks.user_id')
+            ->leftJoin('courses', 'courses.id', 'feebacks.course_id')
+            ->select('users.name AS user_name', 'courses.title AS course_name', 'users.phone', 'feebacks.rate', 'feebacks.content');
+    }
+
+    
+    public function scopeFeedbacksOfCourse($query, $courseId)
+    {
+        $query->leftJoin('users', 'feebacks.user_id', 'users.id')
+            ->select('feebacks.*', 'users.phone', 'users.name')
+            ->where('course_id', '=', $courseId);
+    }
 }
