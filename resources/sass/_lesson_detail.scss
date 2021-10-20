@@ -1,0 +1,107 @@
+.detail-lesson-of-course {
+    padding-top: 15px;
+  
+    .btn-leave-course {
+      text-align: center;
+  
+      a {
+        padding: 8px 18px;
+        background: $cg-color;
+        box-shadow:  inset 0px 1.5px 2px #6f8710;
+        border-radius: 22px;
+        font-family: $font_UTM_BryantLG;
+        font-size: 18px;
+        color: white;
+        font-weight: bold;
+  
+        &:hover {
+          color:  #11114e;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  
+  .descriptions-container {
+    padding-bottom: 30px;
+  
+    .title-container {
+      .title {
+        font-family: $font_UTM_BryantLG;
+        font-size: 25px;
+        font-weight: 700;
+        color: #505353;
+        margin-bottom: 10px;
+      }
+    }
+  
+    .content-container {
+      .content {
+        font-family: $font_UTM_BryantLG;
+        font-size: 18px;
+        color: #949292;
+      }
+  
+      .tags {
+        margin-bottom: 10px;
+        border: 1px solid #d1d1d1;
+        background: #f2f2f2;
+      }
+    }
+  }
+  
+  .document-container {
+    .title-documents {
+      p {
+        font-family: $font_UTM_BryantLG;
+        font-size: 25px;
+        font-weight: 700;
+        color: #505353;
+        margin-bottom: 10px;
+      }
+    }
+  
+    .type-file-container {
+      .pdf {
+        width: 17.5px;
+        height: 24px;
+      }
+    }
+  
+    .name-file-container {
+      a {
+        font-family: $font_UTM_BryantLG;
+        font-size: 18px;
+        font-weight: 700;
+        color: #505353;
+        margin-bottom: 10px;
+  
+        &:hover {
+          text-decoration: none;
+          color: $cg-color;
+        }
+      }
+    }
+  
+    .button-preview-container {
+      text-align: right;
+  
+      a {
+        color: white;
+        background: $cg-color;
+        box-shadow: inset 0px 1.5px 2px #6f8710;
+        border-radius: 22px;
+        padding: 8px 15px;
+        font-family: $font_UTM_BryantLG;
+        font-weight: bold;
+        font-size: 15px;
+  
+        &:hover {
+          color: #505353;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  
+  

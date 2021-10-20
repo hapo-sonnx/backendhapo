@@ -6,14 +6,24 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue').default;
+
 
 require('./popover');
 require('./modal');
 require('./resetfilter');
-require('./select2');
 require('./messger');
 require('./menu');
+require('./review')
+require('./document');
+require('./reply');
+require('./couse');
+// require('./profile');
+
+
+
+window.Vue = require('vue').default;
+
+// import 'jquery-ui/ui/widgets/datepicker.js';
 
 /**
  * The following block of code may be used to automatically register your

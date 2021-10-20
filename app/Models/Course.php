@@ -13,7 +13,7 @@ class Course extends Model
 
     protected $fillable = [
         'title',
-        'img_path',
+        'logo_path',
         'learners',
         'times',
         'quizzes',
@@ -24,7 +24,7 @@ class Course extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'user_courses', 'user_id', 'course_id');
+        return $this->belongsToMany(User::class, 'user_courses', 'course_id', 'user_id');
     }
 
     public function getNumberUserStudentAttribute()
@@ -42,6 +42,13 @@ class Course extends Model
         return $this->lessons()->count();
     }
 
+    public function scopeInforLessons($query, $id)
+    {
+        $query->join('lessons', 'courses.id', '=', 'lessons.course_id')
+            ->select('lessons.*')
+            ->where('lessons.course_id', '=', $id);
+    }
+
     public function getCourseTimeAttribute()
     {
         $totalTimeCourse = $this->lessons()->sum('time');
@@ -55,9 +62,59 @@ class Course extends Model
         return $this->belongsToMany(Tag::class, 'tag_courses', 'course_id', 'tag_id');
     }
 
-    public function feedback()
+    public function scopeTagsCourse($query, $id)
+    {
+        $query->leftJoin('tag_courses', 'courses.id', 'tag_courses.course_id')
+            ->leftJoin('tags', 'tag_courses.tag_id', 'tags.id')
+            ->where('tag_courses.course_id', $id);
+    }
+
+    public function reviews()
     {
         return $this->hasMany(Feedback::class, 'course_id');
+    }
+
+    public function getNumberReviewAttribute()
+    {
+        return $this->reviews()->count();
+    }
+
+    public function getTotalRateAttribute()
+    {
+        return ceil($this->reviews()->avg('rate'));
+    }
+
+    public function getNumberRateFiveAttribute()
+    {
+        return $this->reviews()->where('rate', 5)->count();
+    }
+
+    public function getNumberRateFourAttribute()
+    {
+        return $this->reviews()->where('rate', 4)->count();
+    }
+
+    public function getNumberRateThreeAttribute()
+    {
+        return $this->reviews()->where('rate', 3)->count();
+    }
+
+    public function getNumberRateTwoAttribute()
+    {
+        return $this->reviews()->where('rate', 2)->count();
+    }
+
+    public function getNumberRateOneAttribute()
+    {
+        return $this->reviews()->where('rate', 1)->count();
+    }
+
+    public function scopeTeacherOfCourse($query, $id)
+    {
+        $query->leftJoin('user_courses', 'courses.id', 'user_courses.course_id')
+            ->leftJoin('users', 'user_courses.user_id', 'users.id')
+            ->where('users.role', User::ROLE['teacher'])
+            ->where('user_courses.course_id', $id);
     }
 
     public function scopeFilter($query, $data)
@@ -101,5 +158,24 @@ class Course extends Model
         }
 
         return $query;
+    }
+
+    public function scopeShowOtherCourses($query, $courseId)
+    {
+            $query->where('id', '<>', $courseId)->limit(5);
+    }
+
+    public function scopeMainCourse($query)
+    {
+        $query->withCount(['users' => function ($subquery) {
+            $subquery->where('role', config('constants.role.student'));
+        }
+        ])->orderByDesc('users_count')->limit(3);
+    }
+
+        
+    public function scopeOtherCourse($query)
+    {
+        $query->orderByDesc('id')->limit(3);
     }
 }

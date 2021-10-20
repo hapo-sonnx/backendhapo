@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+// use App\Models\Model;
 use App\Models\Course;
 use App\Models\Feedback;
 use App\Models\User;
@@ -15,7 +15,7 @@ class FeedbackFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Feedback::class;
 
     /**
      * Define the model's default state.
@@ -25,7 +25,7 @@ class FeedbackFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->unique()->numberBetween(6, 1000),
+            'user_id' => User::all()->random()->id,
             'course_id' => $this->faker->numberBetween(1, 50),
             'lesson_id' => null,
             'content' => $this->faker->realText(),

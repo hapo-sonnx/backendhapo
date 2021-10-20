@@ -188,8 +188,8 @@
   .text-login {
     width: 50%;
     margin-right: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
     margin-left: 0px;
   }
   
@@ -200,8 +200,17 @@
     font-family: "utm_bryantlgregular";
     font-size: 25px;
     padding: 19px 0;
-    margin-right: 0px;
-    margin-left: 0px;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+
+  .label-passwords {
+    width: 100%;
+    margin: 5px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #505353;
+    font-family: "utm_bryantlgregular";
   }
   
   .nav-pills .nav-link.active,
@@ -322,6 +331,7 @@
     display: flex;
     align-items: center;
     text-align: center;
+    margin-bottom: 10px;
   }
   .text-with::before,
   .text-with::after {
@@ -352,15 +362,20 @@
   .text-gg {
     margin-top: 20px;
     background-color: $gg-color;
-    padding: 9px 0;
+    padding: 9px 160px;
     border-radius: 5px;
   }
   
   .text-face {
     background-color: $face-color;
-    padding: 9px 0;
+    padding: 9px 159px;
     border-radius: 5px;
     margin-bottom: 40px;
+  }
+
+  .facebook {
+    margin-top: 17px;
+    margin-bottom: 25px;
   }
   
   .btn-close {

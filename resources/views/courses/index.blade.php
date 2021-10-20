@@ -5,7 +5,7 @@
         <form class="form-inline" action="{{ route('search') }}" method="GET">
             <div class="filter-and-search row">
                 <div class="filter-container">
-                    <img class="filter-icon" src="{{ asset('') }}" alt="filter" data-toggle="collapse"
+                    <img class="filter-icon" src="{{ asset('image/filter.png') }} " alt="filter" data-toggle="collapse"
                         href="#multiCollapseExample1" role="button" aria-expanded="false"
                         aria-controls="multiCollapseExample1">
                 </div>
