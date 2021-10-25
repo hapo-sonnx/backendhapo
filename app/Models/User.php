@@ -75,18 +75,4 @@ class User extends Authenticatable
         return $this->belongsToMany(Document::class, 'document_users', 'user_id', 'document_id');
     }
 
-    public function scopeStudents($query)
-    {
-        $query->where('role', User::ROLE['student']);
-    }
-
-    public function scopeCourseAttended($query)
-    {
-        $query->join('user_courses', 'users.id', 'user_courses.user_id')
-            ->join('courses', 'user_courses.course_id', 'courses.id')
-            ->where('users.id', '=', Auth::user()->id)
-            ->limit(5)
-            ->orderByDesc('course_id')
-            ->get('courses.*');
-    }
 }

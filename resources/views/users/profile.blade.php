@@ -7,7 +7,7 @@
             <div class="col-lg-4 profile align-self-center">
                 <div class="avatar-user row justify-content-md-center">
                     @if (isset($user->logo_path))
-                        <img src="{{ asset('image/avatar_user.png/' . $user->logo_path) }}" alt="ava-user">
+                        <img src="{{ $users->logo_path }}" alt="ava-user">
                         <i class="fas fa-camera icon-upload-ava" id="icon-upload-ava"></i>
                         <input type="file" name="favauser" class="input-upload-ava" id="input-upload-ava">
                     @else
@@ -77,7 +77,7 @@
                     <div class="row form-group ">
                         <div class="col-lg-6">
                             <p class="edit-input-label">Date of birthday:</p>
-                            <input placeholder="Select date" type="text" id="datepicker"
+                            <input placeholder="Select date" type="date" id="datepicker"
                                 class="form-control edit-input-profile datepicker" value="{{ $user->brithday }}">
                         </div>
                         <div class="col-lg-6">

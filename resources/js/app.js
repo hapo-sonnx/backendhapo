@@ -17,7 +17,7 @@ require('./review')
 require('./document');
 require('./reply');
 require('./couse');
-// require('./profile');
+require('./profile');
 
 
 
