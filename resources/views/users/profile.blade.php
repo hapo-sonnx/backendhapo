@@ -7,7 +7,7 @@
             <div class="col-lg-4 profile align-self-center">
                 <div class="avatar-user row justify-content-md-center">
                     @if (isset($user->logo_path))
-                        <img src="{{ $users->logo_path }}" alt="ava-user">
+                    <img src="{{ $users->logo_path }}" alt="ava-user">
                         <i class="fas fa-camera icon-upload-ava" id="icon-upload-ava"></i>
                         <input type="file" name="favauser" class="input-upload-ava" id="input-upload-ava">
                     @else
@@ -23,7 +23,7 @@
                 <hr>
                 <div class="description-user">
                     <img src="{{ asset('image/birthday.png') }}" alt="phone icon">
-                    <p class="txt-user">{{ $user->birthday }}</p>
+                    <p class="txt-user">{{ $user->date_of_birthday }}</p>
                 </div>
                 <hr>
                 <div class="description-user">

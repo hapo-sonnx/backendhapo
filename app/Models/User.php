@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -73,5 +74,10 @@ class User extends Authenticatable
     public function ducuments()
     {
         return $this->belongsToMany(Document::class, 'document_users', 'user_id', 'document_id');
+    }
+
+    public function getDateOfBirthdayAttribute()
+    {
+        return Carbon::parse($this['birthday'])->format('d/m/Y');
     }
 }
