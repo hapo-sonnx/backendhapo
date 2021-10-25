@@ -12,10 +12,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::students()->find(Auth::user()->id);
-        $brithday = Carbon::parse($users->brithday)->format('d/m/Y');
-        $courses = User::courseAttended()->get();
-        return view('users.profile', compact('users', 'brithday', 'courses'));
+        $user = User::find(Auth::user()->id);
+        return view('users.profile', compact('user'));
     }
 
     public function update(Request $request)
