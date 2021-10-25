@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    public function index()
+    public function show()
     {
         $user = User::find(Auth::user()->id);
         return view('users.profile', compact('user'));
@@ -23,7 +23,7 @@ class UserController extends Controller
         if ($request->favauser) {
             $image = $request->favauser;
             $fileName = $image->getClientOriginalName();
-            $data['logo_path'] =url('storage/'.$fileName);
+            $data['logo_path'] = url('storage/'.$fileName);
   
             Storage::disk('local')->put($fileName, file_get_contents($image->getRealPath()));
         }

@@ -35,7 +35,7 @@ Route::get('leave/{id}', [CoursesController::class, 'leave'])->middleware('login
 Route::get('courses/coursedetail/lesson/{id}', [LessonController::class, 'index']);
 Route::get('/view/{file}', [DocumentController::class, 'show']);
 Route::post('/learning', [DocumentController::class, 'learning']);
-Route::get('/profile', [UserController::class, 'index'])->middleware('login');
+Route::get('/profile', [UserController::class, 'show'])->middleware('login');
 Route::post('/profile/edit', [UserController::class, 'update'])->middleware('login');
 Route::post('/addreview', [CoursesController::class, 'addreview'])->name('review.course.store');
 Route::post('/addreviewlesson', [LessonController::class, 'addreviewlesson'])->name('review.lesson.store');

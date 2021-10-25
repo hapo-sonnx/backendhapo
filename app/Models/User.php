@@ -74,5 +74,4 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Document::class, 'document_users', 'user_id', 'document_id');
     }
-
 }
