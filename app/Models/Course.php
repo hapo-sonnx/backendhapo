@@ -84,29 +84,11 @@ class Course extends Model
         return ceil($this->reviews()->avg('rate'));
     }
 
-    public function getNumberRateFiveAttribute()
-    {
-        return $this->reviews()->where('rate', 5)->count();
-    }
-
-    public function getNumberRateFourAttribute()
-    {
-        return $this->reviews()->where('rate', 4)->count();
-    }
-
-    public function getNumberRateThreeAttribute()
-    {
-        return $this->reviews()->where('rate', 3)->count();
-    }
-
-    public function getNumberRateTwoAttribute()
-    {
-        return $this->reviews()->where('rate', 2)->count();
-    }
-
-    public function getNumberRateOneAttribute()
-    {
-        return $this->reviews()->where('rate', 1)->count();
+    public function getNumberRateAttribute(){
+        return $this->reviews()
+        ->selectRaw('count(*) as total, rate')
+        ->groupBy('rate')
+        ->get();
     }
 
     public function scopeTeacherOfCourse($query, $id)

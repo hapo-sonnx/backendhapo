@@ -18,86 +18,24 @@
                     </div>
                     <div class="col-lg-9 col-xs-12 col-md-6 star-five">
                         <div class="row rating-desc">
+                        @foreach($course->numberRate as $starRating)
                             <div class="col-lg-1 col-xs-3 col-md-3 text-right">
-                                <span class="glyphicon glyphicon-star">5stars</span>
+                                <span class="glyphicon glyphicon-star">{{ $starRating->rate }}</span>
                             </div>
                             <div class="col-lg-10 col-xs-8 col-md-9">
                                 <div class="progress progress-striped">
                                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
                                         aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ $course->number_review > 0 ? ($course->number_rate_five / $course->number_review) * 100 : 0 }}%">
+                                        style="width: {{ $course->number_review > 0 ? ($starRating->total / $course->number_review) * 100 : 0 }}%">
                                         <span class="sr-only"></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-1 col-xs-3 col-md-3 text-left">
-                                <span class="glyphicon glyphicon-star">{{ $course->numberratefive }}</span>
+                                <span class="glyphicon glyphicon-star">{{ $starRating->total }}</span>
                             </div>
-                            <!-- end 5 -->
-                            <div class="col-lg-1 col-xs-3 col-md-3 text-right">
-                                <span class="glyphicon glyphicon-star"></span>4stars
-                            </div>
-                            <div class="col-lg-10 col-xs-8 col-md-9">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                                        aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ $course->number_review > 0 ? ($course->number_rate_four / $course->number_review) * 100 : 0 }}%">
-                                        <span class="sr-only"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-1 col-xs-3 col-md-3 text-left">
-                                <span class="glyphicon glyphicon-star" ">{{ $course->number_rate_four }}</span>
-                            </div>
-                            <!-- end 4 -->
-                            <div class=" col-lg-1 col-xs-3 col-md-3 text-right">
-                                    <span class="glyphicon glyphicon-star"></span>3stars
-                            </div>
-                            <div class="col-lg-10 col-xs-8 col-md-9">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
-                                        aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ $course->number_review > 0 ? ($course->number_rate_three / $course->number_review) * 100 : 0 }}%">
-                                        <span class="sr-only">40%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-1 col-xs-3 col-md-3 text-left ">
-                                <span class="glyphicon glyphicon-star">{{ $course->number_rate_three }}</span>
-                            </div>
-                            <!-- end 3 -->
-                            <div class="col-lg-1 col-xs-3 col-md-3 text-right">
-                                <span class="glyphicon glyphicon-star"></span>2stars
-                            </div>
-                            <div class="col-lg-10 col-xs-8 col-md-9">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20"
-                                        aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ $course->number_review > 0 ? ($course->number_rate_two / $course->number_review) * 100 : 0 }}%">
-                                        <span class="sr-only">20%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-1 col-xs-3 col-md-3 text-left">
-                                <span class="glyphicon glyphicon-star">{{ $course->number_rate_two }}</span>
-                            </div>
-                            <!-- end 2 -->
-                            <div class="col-lg-1 col-xs-3 col-md-3 text-right">
-                                <span class="glyphicon glyphicon-star"></span>1stars
-                            </div>
-                            <div class="col-lg-10 col-xs-8 col-md-9">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
-                                        aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ $course->numbe_review > 0 ? ($course->number_rate_one / $course->number_review) * 100 : 0 }}%">
-                                        <span class="sr-only">15%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-1 col-xs-3 col-md-3 text-left">
-                                <span class="glyphicon glyphicon-star">{{ $course->number_rate_one }}</span>
-                            </div>
-                            <!-- end 1 -->
+                        @endforeach
+
                         </div>
                         <!-- end row -->
                     </div>
