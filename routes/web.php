@@ -26,13 +26,13 @@ use App\Http\Controllers\FacebookController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
-Route::get('allcourses', [CoursesController::class, 'index'])->name('courses');
+Route::get('courses', [CoursesController::class, 'index'])->name('courses');
 Route::get('search', [CoursesController::class, 'search'])->name('search');
-Route::get('allcourses/coursedetail/{id}', [CoursesController::class, 'detail'])->name('coursesdetail');
-Route::get('allcourses/coursedetail/{id}/search', [LessonController::class, 'search'])->name('filterdetail');
+Route::get('courses/coursedetail/{id}', [CoursesController::class, 'detail'])->name('coursesdetail');
+Route::get('courses/coursedetail/{id}/search', [LessonController::class, 'search'])->name('filterdetail');
 Route::get('insert/{id}', [CoursesController::class, 'join'])->middleware('login');
 Route::get('leave/{id}', [CoursesController::class, 'leave'])->middleware('login');
-Route::get('allcourses/coursedetail/lesson/{id}', [LessonController::class, 'index']);
+Route::get('courses/coursedetail/lesson/{id}', [LessonController::class, 'index']);
 Route::get('/view/{file}', [DocumentController::class, 'show']);
 Route::post('/learning', [DocumentController::class, 'learning']);
 Route::get('/profile', [UserController::class, 'index'])->middleware('login');

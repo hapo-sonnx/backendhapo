@@ -53,7 +53,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->title }}</h5>
                             <p class="card-text-new">{{ $item->description }}</p>
-                            <a href="/allcourses/coursedetail/{{ $item->id }}"
+                            <a href="/courses/coursedetail/{{ $item->id }}"
                                 class="btn btn-primary text-take take">Take This Course</a>
                         </div>
                     </div>
