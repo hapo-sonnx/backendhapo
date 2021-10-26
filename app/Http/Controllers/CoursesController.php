@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
-use App\Models\Feedback;
 use App\Models\Document;
 use App\Models\Tag;
 use App\Models\User;
@@ -15,6 +14,11 @@ use Illuminate\Http\Request;
 
 class CoursesController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $courses = Course::orderBy('id')->paginate(config('constants.pagination'));
@@ -22,19 +26,12 @@ class CoursesController extends Controller
         return view('courses.index', compact('courses', 'tags'));
     }
 
-    public function search(Request $request)
-    {
-        if ($request->has('key')) {
-            $keyword = $request->get('key');
-        } else {
-            $keyword = '';
-        }
-        $tags = Tag::all();
-        $courses = Course::filter($request->all())->paginate(config('constants.pagination'));
-        return view('courses.index', compact('courses', 'tags', 'keyword'));
-    }
-
-    public function detail($id)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
         $course = Course::find($id);
         $tags = Course::tagsCourse($id)->get();
@@ -72,6 +69,24 @@ class CoursesController extends Controller
         return view('courses.courses_detail', compact('course', 'lessons', 'teacher', 'tags', 'otherCourses', 'isJoined', 'reviews', 'userInfoMap', 'replies', 'totalDocuments', 'learnedPart'));
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        if ($request->has('key')) {
+            $keyword = $request->get('key');
+        } else {
+            $keyword = '';
+        }
+        $tags = Tag::all();
+        $courses = Course::filter($request->all())->paginate(config('constants.pagination'));
+        return view('courses.index', compact('courses', 'tags', 'keyword'));
+    }
+
     public function join($id)
     {
         $course = Course::find($id);
@@ -80,21 +95,10 @@ class CoursesController extends Controller
         return redirect()->route('coursesdetail', [$id]);
     }
 
-    public function addreview(Request $request)
-    {
-        return Feedback::create([
-            'content' => $request['content'],
-            'rate' => $request['rate'],
-            'course_id' => $request['course_id'],
-            'date_times' => date("Y-m-d H:i:s"),
-            'user_id' => Auth::id(),
-        ]);
-    }
-
     public function leave($id)
     {
         $course = Course::find($id);
         $course->users()->detach(Auth::id());
-        return redirect()->route('courses');
+        return redirect()->route('courses.index');
     }
 }

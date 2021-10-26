@@ -16,9 +16,13 @@ use function PHPUnit\Framework\isNull;
 
 class LessonController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index($id)
     {
-        
         $lessons = Lesson::find($id);
         $lessons->users()->attach(Auth::id());
         $course = Lesson::courseOfLesson($id)->first();
@@ -33,6 +37,17 @@ class LessonController extends Controller
         return view('lesson.index', compact('lessons', 'course', 'otherCourses', 'tags', 'numberStudent', 'teacher', 'documents', 'documentsLearned', 'percentage'));
     }
 
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function search(Request $request, $id)
     {
         $course = Course::find($id);

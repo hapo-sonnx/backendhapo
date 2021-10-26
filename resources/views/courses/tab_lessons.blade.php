@@ -1,5 +1,5 @@
 <div class="row ml-0 mr-0 detail-lessons-container">
-    <form class="row form-search-detail" action="{{ route('filterdetail', $course->id) }}" method="get">
+    <form class="row form-search-detail" action="{{ route('lesson.search', $course->id) }}" method="get">
         <div class="col-lg-8 detail-lessons">
             <input type="text" class="form-control search-lessons" name="key_detail_course" placeholder="Search"
                 aria-label="Search" @if (isset($keyword)) value={{ $keyword }} @endif>
@@ -28,19 +28,19 @@
                         @if ($totalDocuments->count() > 0)
                             @if ($totalDocuments[0]->lesson_id == $lesson->id)
                                 @if ($learnedPart == 0)
-                                    <a href="/courses/coursedetail/lesson/{{ $lesson->id }}">Learn</a>
+                                    <a href="/lesson/{{ $lesson->id }}">Learn</a>
                                 @elseif ($learnedPart > 0 && $learnedPart < 1) 
                                     <i class="fas fa-check-circle icon-check-learning"></i>
-                                    <a href="/courses/coursedetail/lesson/{{ $lesson->id }}">Learning</a>
+                                    <a href="/lesson/{{ $lesson->id }}">Learning</a>
                                 @elseif ($learnedPart == 1)
                                     <i class="fas fa-check-circle icon-check-learned"></i>
-                                    <a href="/courses/coursedetail/lesson/{{ $lesson->id }}">Learned</a>
+                                    <a href="/lesson/{{ $lesson->id }}">Learned</a>
                                 @endif
                             @else
-                                <a href="/courses/coursedetail/lesson/{{ $lesson->id }}">Learn</a>
+                                <a href="/lesson/{{ $lesson->id }}">Learn</a>
                             @endif
                         @else
-                        <a href="/courses/coursedetail/lesson/{{ $lesson->id }}" onsubmit="return false">Learn</a>
+                        <a href="/lesson/{{ $lesson->id }}" onsubmit="return false">Learn</a>
                         @endif
                     @endif
                 </div>
