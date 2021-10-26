@@ -6,8 +6,8 @@
             @csrf
             <div class="col-lg-4 profile align-self-center">
                 <div class="avatar-user row justify-content-md-center">
-                    @if (isset($user->logo_path))
-                    <img src="{{ $users->logo_path }}" alt="ava-user">
+                    @if (isset( $user->avatar ))
+                        <img src="{{ $user->avatar }}" alt="ava-user">
                         <i class="fas fa-camera icon-upload-ava" id="icon-upload-ava"></i>
                         <input type="file" name="favauser" class="input-upload-ava" id="input-upload-ava">
                     @else
@@ -23,7 +23,7 @@
                 <hr>
                 <div class="description-user">
                     <img src="{{ asset('image/birthday.png') }}" alt="phone icon">
-                    <p class="txt-user">{{ $user->date_of_birthday }}</p>
+                    <p class="txt-user">{{ $user->birthday }}</p>
                 </div>
                 <hr>
                 <div class="description-user">
@@ -65,12 +65,12 @@
                     <div class="row form-group">
                         <div class="col-lg-6">
                             <p class="edit-input-label">Name:</p>
-                            <input type="text" id="fname" class="form-control edit-input-profile" name="fname"
+                            <input type="text" id="fname" class="form-control edit-input-profile" name="name"
                                 placeholder="Your name..." value="{{ $user->name }}">
                         </div>
                         <div class="col-lg-6">
                             <p class="edit-input-label">Email:</p>
-                            <input type="text" id="femail" class="form-control edit-input-profile" name="femail"
+                            <input type="text" id="femail" class="form-control edit-input-profile" name="email"
                                 placeholder="Your email..." value="{{ $user->email }}">
                         </div>
                     </div>
@@ -82,29 +82,11 @@
                         </div>
                         <div class="col-lg-6">
                             <p class="edit-input-label">Phone:</p>
-                            <input type="text" id="fphone" class="form-control edit-input-profile" name="fphone"
+                            <input type="text" id="fphone" class="form-control edit-input-profile" name="phone"
                                 placeholder="Your phone number..." value="{{ $user->phone }}">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-lg-6">
                             <p class="edit-input-label">Address:</p>
-                            <input type="text" id="fadress" class="form-control edit-input-profile" name="faddress"
-                                placeholder="Your address..." value="{{ $user->address }}">
-                        </div>
-                        <div class="col-lg-6">
-                            <p class="edit-input-label">About me:</p>
-                            <textarea id="fabout" class="form-control edit-input-profile" name="fabout"
-                                placeholder="Your about me..." rows="5">{{ $user->about }}</textarea>
-                        </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <div class="col-lg-6">
-                            <input class="btn-save-profile" type="submit" value="Save">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </section>
-@endsection
+                            <input type="text" id="fadress" c
