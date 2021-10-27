@@ -19,11 +19,18 @@ class CoursesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $courses = Course::orderBy('id')->paginate(config('constants.pagination'));
         $tags = Tag::all();
-        return view('courses.index', compact('courses', 'tags'));
+        if ($request->has('key')) {
+            $keyword = $request->get('key');
+        } else {
+            $keyword = '';
+        }
+        $tags = Tag::all();
+        $courses = Course::filter($request->all())->paginate(config('constants.pagination'));
+        return view('courses.index', compact('courses', 'tags', 'keyword'));
     }
 
     /**
@@ -75,24 +82,13 @@ class CoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function search(Request $request)
-    {
-        if ($request->has('key')) {
-            $keyword = $request->get('key');
-        } else {
-            $keyword = '';
-        }
-        $tags = Tag::all();
-        $courses = Course::filter($request->all())->paginate(config('constants.pagination'));
-        return view('courses.index', compact('courses', 'tags', 'keyword'));
-    }
 
     public function join($id)
     {
         $course = Course::find($id);
         $course->users()->attach(Auth::id());
 
-        return redirect()->route('coursesdetail', [$id]);
+        return back();
     }
 
     public function leave($id)

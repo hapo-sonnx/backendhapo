@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="container-fluid p-0 show-all-courses">
-        <form class="form-inline" action="{{ route('courses.search') }}" method="GET">
+        <form class="form-inline" action="{{ route('courses.index') }}" method="GET">
             <div class="filter-and-search row">
                 <div class="filter-container">
                     <img class="filter-icon" src="{{ asset('image/filter.png') }} " alt="filter" data-toggle="collapse"

@@ -23,6 +23,11 @@ class LessonController extends Controller
      */
     public function index($id)
     {
+       
+    }
+
+    public function show($id)
+    {
         $lessons = Lesson::find($id);
         $lessons->users()->attach(Auth::id());
         $course = Lesson::courseOfLesson($id)->first();
@@ -35,11 +40,6 @@ class LessonController extends Controller
         $percentage = $documents->count() > 0 ? round($documentsLearned->count() / $documents->count() * 100) : 0;
 
         return view('lesson.index', compact('lessons', 'course', 'otherCourses', 'tags', 'numberStudent', 'teacher', 'documents', 'documentsLearned', 'percentage'));
-    }
-
-    public function show($id)
-    {
-        //
     }
 
     /**
