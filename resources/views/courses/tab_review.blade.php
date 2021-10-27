@@ -176,7 +176,7 @@
         </ul>
     </div>
     <div class="add-review my-3 text-centers">Leave a review</div>
-    <form method="POST" action="{{ route('review.course.store') }}" id="reviewForm">
+    <form method="POST" action="{{ route('review.course') }}" id="reviewForm">
         @csrf
         <div class="message-add-review my-3 text-centers">Message</div>
         <input type="hidden" name="course_id" value="{{ $course->id }}">
