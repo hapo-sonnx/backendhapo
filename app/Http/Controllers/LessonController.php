@@ -47,7 +47,7 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function addreviewlesson(Request $request)
+    public function reviewlesson(Request $request)
     {
         return Feedback::create([
             'content' => $request['content'],

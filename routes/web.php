@@ -30,7 +30,7 @@ Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 Route::resource('courses', CoursesController::class)->only(['index','show']);
 
 Route::resource('lessons', LessonController::class)->only(['show']);
-Route::post('lesson/review', [LessonController::class, 'addreviewlesson'])->name('review.lesson');
+Route::post('lesson/review', [LessonController::class, 'reviewlesson'])->name('review.lesson');
 
 Route::get('/view/{file}', [DocumentController::class, 'show']);
 Route::post('/learning', [DocumentController::class, 'learning']);
