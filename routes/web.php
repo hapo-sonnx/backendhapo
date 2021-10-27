@@ -31,8 +31,6 @@ Route::resource('courses', CoursesController::class)->only(['index','show']);
 
 Route::resource('lessons', LessonController::class)->only(['show']);
 
-Route::get('/view/{file}', [DocumentController::class, 'show']);
-
 Route::middleware(['auth'])->group(function () {
     Route::resource('user', UserController::class)->only(['update','show']);
     Route::get('/courses/{course}/join', [CoursesController::class, 'joincourse'])->name('courses.join');
@@ -41,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('course/review', [ReviewController::class, 'reviewcourse'])->name('review.course');
     Route::post('lesson/review', [LessonController::class, 'reviewlesson'])->name('review.lesson');
     Route::post('/learned', [DocumentController::class, 'learned']);
+    Route::get('/view/{file}', [DocumentController::class, 'show']);
 });
 
 Route::get('auth/google', [GoogleController::class, 'getGoogleSignInUrl'])->name('login.google');
