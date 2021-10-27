@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ReviewController extends Controller
 {
    
-    public function addreview(Request $request)
+    public function reviewcourse(Request $request)
     {
         return Feedback::create([
             'content' => $request['content'],

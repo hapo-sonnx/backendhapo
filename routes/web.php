@@ -39,8 +39,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('user', UserController::class)->only(['update','show']);
     Route::get('/courses/{course}/join', [CoursesController::class, 'join'])->name('courses.join');
     Route::get('/courses/{course}/leave', [CoursesController::class, 'leave'])->name('courses.leave');
-    Route::post('/replyreview', [ReplyReviewController::class, 'reply']);
-    Route::post('/addreview', [ReviewController::class, 'addreview'])->name('review.course');
+    Route::post('/replycourse', [ReplyReviewController::class, 'replycourse']);
+    Route::post('course/review', [ReviewController::class, 'reviewcourse'])->name('review.course');
 });
 Route::group(['middleware'], function () {
     Route::get('auth/google', [GoogleController::class, 'getGoogleSignInUrl'])->name('login.google');
