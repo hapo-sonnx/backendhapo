@@ -1,5 +1,5 @@
 <div class="row ml-0 mr-0 detail-lessons-container">
-    <form class="row form-search-detail" action="{{ route('lesson.search', $course->id) }}" method="get">
+    <form class="row form-search-detail" action="{{ route('courses.show', $course->id) }}" method="get">
         <div class="col-lg-8 detail-lessons">
             <input type="text" class="form-control search-lessons" name="key_detail_course" placeholder="Search"
                 aria-label="Search" @if (isset($keyword)) value={{ $keyword }} @endif>

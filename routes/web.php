@@ -30,7 +30,6 @@ Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 Route::resource('courses', CoursesController::class);
 
 Route::resource('lessons', LessonController::class);
-Route::get('courses/coursedetail/{id}/search', [LessonController::class, 'search'])->name('lesson.search');
 Route::post('lesson/review', [LessonController::class, 'addreviewlesson'])->name('review.lesson.store');
 
 Route::get('/view/{file}', [DocumentController::class, 'show']);

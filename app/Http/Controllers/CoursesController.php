@@ -38,13 +38,14 @@ class CoursesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $course = Course::find($id);
         $tags = Course::tagsCourse($id)->get();
         $otherCourses = Course::showOtherCourses($course->id)->get();
         $teacher = Course::teacherOfCourse($id)->get();
         $lessons = Course::inforLessons($id)->paginate(config('constants.pagination_lessons'));
+        $lessons = Lesson::search($request->all())->paginate(config('constants.pagination_lessons'));
         $isJoined = UserCourse::joined($id)->first() ? true : false;
         $reviews = Course::find($id)->reviews;
         $totalDocuments = Lesson::documentsOfLesson($lessons->first()->id)->get();
