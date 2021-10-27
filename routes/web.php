@@ -30,24 +30,22 @@ Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 Route::resource('courses', CoursesController::class)->only(['index','show']);
 
 Route::resource('lessons', LessonController::class)->only(['show']);
-Route::post('lesson/review', [LessonController::class, 'reviewlesson'])->name('review.lesson');
 
 Route::get('/view/{file}', [DocumentController::class, 'show']);
-Route::post('/learning', [DocumentController::class, 'learning']);
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('user', UserController::class)->only(['update','show']);
-    Route::get('/courses/{course}/join', [CoursesController::class, 'join'])->name('courses.join');
-    Route::get('/courses/{course}/leave', [CoursesController::class, 'leave'])->name('courses.leave');
-    Route::post('/replycourse', [ReplyReviewController::class, 'replycourse']);
+    Route::get('/courses/{course}/join', [CoursesController::class, 'joincourse'])->name('courses.join');
+    Route::get('/courses/{course}/leave', [CoursesController::class, 'leavecourse'])->name('courses.leave');
+    Route::post('/reply/review/course', [ReplyReviewController::class, 'replyreviewcourse']);
     Route::post('course/review', [ReviewController::class, 'reviewcourse'])->name('review.course');
+    Route::post('lesson/review', [LessonController::class, 'reviewlesson'])->name('review.lesson');
+    Route::post('/learned', [DocumentController::class, 'learned']);
 });
-Route::group(['middleware'], function () {
-    Route::get('auth/google', [GoogleController::class, 'getGoogleSignInUrl'])->name('login.google');
-    Route::get('auth/google/callback', [GoogleController::class, 'loginCallback']);
-});
-Route::group(['middleware'], function () {
-    Route::get('auth/facebook', [FacebookController::class, 'getFacebookSignInUrl'])->name('login.facebook');
-    Route::get('auth/facebook/callback', [FacebookController::class, 'loginfacebookCallback']);
-});
+
+Route::get('auth/google', [GoogleController::class, 'getGoogleSignInUrl'])->name('login.google');
+Route::get('auth/google/callback', [GoogleController::class, 'loginCallback']);
+
+Route::get('auth/facebook', [FacebookController::class, 'getFacebookSignInUrl'])->name('login.facebook');
+Route::get('auth/facebook/callback', [FacebookController::class, 'loginfacebookCallback']);
 Auth::routes();

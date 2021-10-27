@@ -84,7 +84,7 @@ class CoursesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function join($id)
+    public function joincourse($id)
     {
         $course = Course::find($id);
         $course->users()->attach(Auth::id());
@@ -92,7 +92,7 @@ class CoursesController extends Controller
         return back();
     }
 
-    public function leave($id)
+    public function leavecourse($id)
     {
         $course = Course::find($id);
         $course->users()->detach(Auth::id());

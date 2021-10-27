@@ -37,7 +37,7 @@
                             <a class="nav-link btn-x" href="/logout">LOGOUT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-x" href="{{ route('profile.show', Auth::user()->id) }}">PROFILE</a>
+                            <a class="nav-link btn-x" href="{{ route('user.show', Auth::user()->id) }}">PROFILE</a>
                         </li>
                     @endif
                 </ul>
