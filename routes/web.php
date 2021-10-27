@@ -28,7 +28,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('courses', [CoursesController::class, 'index'])->name('courses');
 Route::get('search', [CoursesController::class, 'search'])->name('search');
-Route::get('courses/coursedetail/{id}', [CoursesController::class, 'detail'])->name('coursesdetail');
+Route::get('courses/{id}', [CoursesController::class, 'detail'])->name('coursesdetail');
 Route::get('courses/coursedetail/{id}/search', [LessonController::class, 'search'])->name('filterdetail');
 Route::get('insert/{id}', [CoursesController::class, 'join'])->middleware('login');
 Route::get('leave/{id}', [CoursesController::class, 'leave'])->middleware('login');
