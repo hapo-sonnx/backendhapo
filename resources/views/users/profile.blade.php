@@ -2,7 +2,8 @@
 
 @section('content')
     <section class="container-fluid profile-container">
-        <form class="row main-profile" action="profile/edit" method="post" enctype="multipart/form-data">
+        <form class="row main-profile" action="{{ route('user.update', $users->id) }}" method="post" enctype="multipart/form-data">
+            @method('put')
             @csrf
             <div class="col-lg-4 profile align-self-center">
                 <div class="avatar-user row justify-content-md-center">

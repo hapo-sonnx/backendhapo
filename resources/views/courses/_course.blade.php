@@ -12,7 +12,7 @@
             </div>
             <div class="btn-more-rating row justify-content-between">
                 <div class="col-12 btn-more-container">
-                    <a class="btn-more" href="courses/coursedetail/{{ $course->id }}"
+                    <a class="btn-more" href="/courses/{{ $course->id }}"
                         class="btn btn-primary">More</a>
                 </div>
             </div>

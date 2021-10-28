@@ -51,10 +51,10 @@
                         <div class="text-with">
                             <p class="login-with">Login with</p>
                         </div>
-                        <a href="{{route('login_google')}}" class="text-gg"><i class="fab fa-google-plus-g fa-lg icon-gg"></i>Google</a>
+                        <a href="{{route('login.google')}}" class="text-gg"><i class="fab fa-google-plus-g fa-lg icon-gg"></i>Google</a>
                     <br>
                         <div class="facebook"> 
-                            <a href="{{route('login_facebook')}}" class="text-face"><i class="fab fa-facebook-f fa-lg icon-face"></i></i>Facebook</a>
+                            <a href="{{route('login.facebook')}}" class="text-face"><i class="fab fa-facebook-f fa-lg icon-face"></i></i>Facebook</a>
                         </div>
                     </div>
                 </div>

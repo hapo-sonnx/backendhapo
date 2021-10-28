@@ -84,7 +84,7 @@
                         <hr>
                         <div class="row row-detail">
                             <div class="col-lg 12 btn-leave-course">
-                                <a href="/leave/{{ $course->id }}">Leave the course</a>
+                                <a href="{{ route('courses.leave', $course->id) }}">Leave the course</a>
                             </div>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
                             </div>
                         @endforeach
                         <div class="col-kg-12 btn-view-all">
-                            <a href="/allcourses">View all ours courses</a>
+                            <a href="/courses">View all ours courses</a>
                         </div>
                     </div>
                 </div>
