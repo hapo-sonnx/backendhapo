@@ -80,9 +80,9 @@ class UserController extends Controller
         if ($request->favauser) {
             $image = $request->favauser;
             $fileName = $image->getClientOriginalName();
-            $data['logo_path'] = $fileName;
-
-            Storage::disk('ava_user')->put($fileName, file_get_contents($image->getRealPath()));
+            $data['logo_path'] = url('storage/'.$fileName);
+  
+            Storage::disk('local')->put($fileName, file_get_contents($image->getRealPath()));
         }
 
         if ($request->fname) {
