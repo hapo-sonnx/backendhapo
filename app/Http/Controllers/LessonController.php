@@ -47,14 +47,4 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function reviewlesson(Request $request)
-    {
-        return Feedback::create([
-            'content' => $request['content'],
-            'rate' => $request['rate'],
-            'lesson_id' => $request['lesson_id'],
-            'date_times' => date("Y-m-d H:i:s"),
-            'user_id' => Auth::id(),
-        ]);
-    }
 }

@@ -19,4 +19,15 @@ class ReviewController extends Controller
             'user_id' => Auth::id(),
         ]);
     }
+
+    public function reviewlesson(Request $request)
+    {
+        return Feedback::create([
+            'content' => $request['content'],
+            'rate' => $request['rate'],
+            'lesson_id' => $request['lesson_id'],
+            'date_times' => date("Y-m-d H:i:s"),
+            'user_id' => Auth::id(),
+        ]);
+    }
 }
