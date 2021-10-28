@@ -52,7 +52,7 @@ class UserController extends Controller
         if ($user['id'] == Auth::user()->id) {
             return view('users.profile', compact('user'));
         } else {
-            return view('home');
+            return 'You do not have access to this page. Please check your account';
         }
     }
 
