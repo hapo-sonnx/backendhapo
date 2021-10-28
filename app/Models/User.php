@@ -50,12 +50,6 @@ class User extends Authenticatable
         'female' => 0,
     ];
 
-    const ROLE = [
-        'teacher' => 1,
-        'student' => 0,
-    ];
-
-    
     public function courses()
     {
         return $this->belongsToMany(Course::class, 'user_courses', 'user_id', 'course_id');

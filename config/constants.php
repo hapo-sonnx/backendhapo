@@ -18,5 +18,10 @@ return [
             'two_star' => 2,
             'one_star' => 1
         ]
+        ],
+    
+    'role' => [
+        'teacher' => 1,
+        'student' => 0,
     ]
 ];

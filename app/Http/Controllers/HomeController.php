@@ -27,13 +27,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $mainCourses = Course::query()->mainCourse()->get();
-        $otherCourses = Course::query()->otherCourse()->get();
-        $totalUsers = User::all()->count();
-        $totalCourses = Course::all()->count();
-        $totalLessons = Lesson::all()->count();
-        $reviews = Feedback::reviewUser()->get();
+        $mainCourses = Course::mainCourse()->get();
+        $otherCourses = Course::otherCourse()->get();
+        $totalUsers = User::where('role', config('constants.role.student'))->count();
+        $totalCourses = Course::count();
+        $totalLessons = Lesson::count();
 
-        return view('home', compact('mainCourses', 'otherCourses', 'totalUsers', 'totalCourses', 'totalLessons', 'reviews'));
+        return view('home', compact('mainCourses', 'otherCourses', 'totalUsers', 'totalCourses', 'totalLessons'));
     }
 }

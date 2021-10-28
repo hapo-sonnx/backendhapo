@@ -29,7 +29,7 @@ class Course extends Model
 
     public function getNumberUserStudentAttribute()
     {
-        return $this->users()->where('role', User::ROLE['student'])->count();
+        return $this->users()->where('role', config('constants.role.student'))->count();
     }
 
     public function lessons()
@@ -95,7 +95,7 @@ class Course extends Model
     {
         $query->leftJoin('user_courses', 'courses.id', 'user_courses.course_id')
             ->leftJoin('users', 'user_courses.user_id', 'users.id')
-            ->where('users.role', User::ROLE['teacher'])
+            ->where('users.role',config('constants.role.teacher'))
             ->where('user_courses.course_id', $id);
     }
 
@@ -113,7 +113,7 @@ class Course extends Model
         if (isset($data['learner'])) {
             $query->withCount([
                 'users' => function ($subquery) {
-                    $subquery->where('role', User::ROLE['student']);
+                    $subquery->where('role',config('constants.role.student'));
                 }
             ]);
             ($data['learner'] == config('constants.options.ascending')) ? $query->orderBy('users_count') : $query->orderByDesc('users_count');
