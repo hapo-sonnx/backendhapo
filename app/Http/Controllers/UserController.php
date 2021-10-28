@@ -47,10 +47,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::find(Auth::user()->id);
-        return view('users.profile', compact('user'));
+        if ($user['id'] == Auth::user()->id) {
+            return view('users.profile', compact('user'));
+        } else {
+            return view('home');
+        }
     }
 
     /**
