@@ -117,7 +117,7 @@
                         </div>
                         @foreach ($otherCourses as $key => $item)
                             <div class="show-other-courses">
-                                <a href="{{ route('coursesdetail', $item->id) }}">{{ $key + 1 }}.
+                                <a href="{{ route('courses.show', $item->id) }}">{{ $key + 1 }}.
                                     {{ $item->title }}</a>
                             </div>
                         @endforeach

@@ -19,11 +19,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item btn-x ">
-                        <a class="nav-link btn-x  {{ Route::is('home') ? 'activer' : '' }}" href="/">HOME</a>
+                        <a class="nav-link btn-x  {{ Route::is('home') ? 'activer' : '' }}" href="{{ route('home')}}">HOME</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link  all btn-x {{ Route::is('courses*') ? 'activer' : '' }}"
-                            href="{{route('courses')}}">ALL COURSES</a>
+                            href="{{ route('courses.index')}}">ALL COURSES</a>
                     </li>
                     @if (!Auth::check())
                         <li class="nav-item">
@@ -37,7 +37,7 @@
                             <a class="nav-link btn-x" href="/logout">LOGOUT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-x" href="/profile">PROFILE</a>
+                            <a class="nav-link btn-x" href="{{ route('user.show', Auth::user()->id) }}">PROFILE</a>
                         </li>
                     @endif
                 </ul>

@@ -8,7 +8,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ReplyReviewController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\FacebookController;
 
@@ -23,29 +24,25 @@ use App\Http\Controllers\FacebookController;
 |
 */
 
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
-Route::get('courses', [CoursesController::class, 'index'])->name('courses');
-Route::get('search', [CoursesController::class, 'search'])->name('search');
-Route::get('courses/{id}', [CoursesController::class, 'detail'])->name('coursesdetail');
-Route::get('courses/coursedetail/{id}/search', [LessonController::class, 'search'])->name('filterdetail');
-Route::get('insert/{id}', [CoursesController::class, 'join'])->middleware('login');
-Route::get('leave/{id}', [CoursesController::class, 'leave'])->middleware('login');
-Route::get('courses/coursedetail/lesson/{id}', [LessonController::class, 'index']);
-Route::get('/view/{file}', [DocumentController::class, 'show']);
-Route::post('/learning', [DocumentController::class, 'learning']);
-Route::get('/profile', [UserController::class, 'index'])->middleware('login');
-Route::post('/profile/edit', [UserController::class, 'update'])->middleware('login');
-Route::post('/addreview', [CoursesController::class, 'addreview'])->name('review.course.store');
-Route::post('/addreviewlesson', [LessonController::class, 'addreviewlesson'])->name('review.lesson.store');
-Route::post('/replyreview', [ReplyReviewController::class, 'reply'])->middleware('login');
-Route::group(['middleware'], function () {
-    Route::get('/google-sign-in-url', [GoogleController::class, 'getGoogleSignInUrl'])->name('login_google');
-    Route::get('/callback', [GoogleController::class, 'loginCallback']);
+
+Route::resource('courses', CoursesController::class)->only(['index','show']);
+
+Route::resource('lessons', LessonController::class)->only(['show']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('user', UserController::class)->only(['update','show']);
+    Route::get('/courses/{course}/join', [CoursesController::class, 'join'])->name('courses.join');
+    Route::get('/courses/{course}/leave', [CoursesController::class, 'leave'])->name('courses.leave');
+    Route::post('/reply', [ReplyController::class, 'replyreview']);
+    Route::post('/review/course', [ReviewController::class, 'reviewcourse'])->name('review.course');
+    Route::post('/review/lesson', [ReviewController::class, 'reviewlesson'])->name('review.lesson');
+    Route::post('/learn', [DocumentController::class, 'learn']);
+    Route::get('/view/{file}', [DocumentController::class, 'show']);
 });
-Route::group(['middleware'], function () {
-    Route::get('/facebook-sign-in-url', [FacebookController::class, 'getFacebookSignInUrl'])->name('login_facebook');
-    Route::get('callback/facebook', [FacebookController::class, 'loginfacebookCallback']);
-});
+Route::get('auth/google', [GoogleController::class, 'getGoogleSignInUrl'])->name('login.google');
+Route::get('callback', [GoogleController::class, 'loginCallback']);
+Route::get('auth/facebook', [FacebookController::class, 'getFacebookSignInUrl'])->name('login.facebook');
+Route::get('auth/facebook/callback', [FacebookController::class, 'loginfacebookCallback']);
 Auth::routes();

@@ -16,7 +16,7 @@ class DocumentController extends Controller
         return view('material.show', compact('data'));
     }
 
-    public function learning(Request $request)
+    public function learn(Request $request)
     {
         $document = Document::find($request->documentID);
         DocumentUser::learned($document->id)->first() ? true : $document->users()->attach(Auth::id());
