@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="container-fluid profile-container">
-        <form class="row main-profile" action="{{ route('user.update', $users->id) }}" method="post" enctype="multipart/form-data">
+        <form class="row main-profile" action="{{ route('user.update', $user->id) }}" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="col-lg-4 profile align-self-center">
@@ -24,7 +24,7 @@
                 <hr>
                 <div class="description-user">
                     <img src="{{ asset('image/birthday.png') }}" alt="phone icon">
-                    <p class="txt-user">{{ $user->birthday }}</p>
+                    <p class="txt-user">{{ $user->date_of_birthday }}</p>
                 </div>
                 <hr>
                 <div class="description-user">
@@ -90,4 +90,22 @@
                     <div class="row form-group">
                         <div class="col-lg-6">
                             <p class="edit-input-label">Address:</p>
-                            <input type="text" id="fadress" c
+                            <input type="text" id="fadress" class="form-control edit-input-profile" name="faddress"
+                                placeholder="Your address..." value="{{ $user->address }}">
+                        </div>
+                        <div class="col-lg-6">
+                            <p class="edit-input-label">About me:</p>
+                            <textarea id="fabout" class="form-control edit-input-profile" name="fabout"
+                                placeholder="Your about me..." rows="5">{{ $user->about }}</textarea>
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-lg-6">
+                            <input class="btn-save-profile" type="submit" value="Save">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+@endsection
