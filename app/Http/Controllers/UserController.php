@@ -6,6 +6,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -74,41 +75,20 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        $data = User::find($request->fid);
-
+    public function update(Request $request, User $user)
+    {   
+        
         if ($request->favauser) {
             $image = $request->favauser;
             $fileName = $image->getClientOriginalName();
-            $data['avatar'] = url('storage/'.$fileName);
+            $data['logo_path'] = url('storage/'.$fileName);
   
-            Storage::disk('public')->put($fileName, file_get_contents($image->getRealPath()));
+            Storage::disk('local')->put($fileName, file_get_contents($image->getRealPath()));
+        } else {
+            $user->updateInfo($request, $user);
+
+            return back()->with('success', 'Successful update');
         }
-
-        if ($request->fname) {
-            $data->name = $request->fname;
-        }
-
-        if ($request->femail) {
-            $data->email = $request->femail;
-        }
-
-        if ($request->fphone) {
-            $data->phone = $request->fphone;
-        }
-
-        if ($request->faddress) {
-            $data->address = $request->faddress;
-        }
-
-        if ($request->fabout) {
-            $data->about = $request->fabout;
-        }
-
-        $data->save();
-
-        return back();
     }
 
     /**

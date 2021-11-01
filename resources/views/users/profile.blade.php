@@ -2,12 +2,13 @@
 
 @section('content')
     <section class="container-fluid profile-container">
-        <form class="row main-profile" action="{{ route('user.update', $user) }}" method="post" enctype="multipart/form-data">
+        <form class="row main-profile" action="{{ route('user.update', $user) }}" method="post"
+            enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="col-lg-4 profile align-self-center">
                 <div class="avatar-user row justify-content-md-center">
-                    @if (isset( $user->avatar ))
+                    @if (isset($user->avatar))
                         <img src="{{ $user->avatar }}" alt="ava-user">
                         <i class="fas fa-camera icon-upload-ava" id="icon-upload-ava"></i>
                         <input type="file" name="favauser" class="input-upload-ava" id="input-upload-ava">
@@ -62,40 +63,52 @@
                     <p>Edit profile</p>
                 </div>
                 <div class="edit-profile-input">
-                    <input type="hidden" name="fid" value="{{ $user->id }}">
                     <div class="row form-group">
                         <div class="col-lg-6">
                             <p class="edit-input-label">Name:</p>
-                            <input type="text" id="fname" class="form-control edit-input-profile" name="name"
-                                placeholder="Your name..." value="{{ $user->name }}">
+                            <input type="text" id="name"
+                                class="form-control edit-input-profile  @error('update_name') check-profile  @enderror"
+                                name="update_name" placeholder="Your name..." value="{{ $user->name }}">
+                            @error('update_name')
+                                <span class="check-register " role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="col-lg-6">
                             <p class="edit-input-label">Email:</p>
-                            <input type="text" id="femail" class="form-control edit-input-profile" name="email"
-                                placeholder="Your email..." value="{{ $user->email }}">
+                            <input type="text" id="email"
+                                class="form-control edit-input-profile @error('update_name') check-profile  @enderror"
+                                name="update_email" name="update_email" placeholder="Your email..."
+                                value="{{ $user->email }}">
+                            @error('update_email')
+                                <span class="check-register " role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row form-group ">
                         <div class="col-lg-6">
                             <p class="edit-input-label">Date of birthday:</p>
-                            <input placeholder="Select date" type="date" id="datepicker"
+                            <input placeholder="Select date" type="date" name="update_birthday"
                                 class="form-control edit-input-profile datepicker" value="{{ $user->brithday }}">
                         </div>
                         <div class="col-lg-6">
                             <p class="edit-input-label">Phone:</p>
-                            <input type="text" id="fphone" class="form-control edit-input-profile" name="phone"
+                            <input type="text" id="phone" class="form-control edit-input-profile" name="update_phone"
                                 placeholder="Your phone number..." value="{{ $user->phone }}">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-lg-6">
                             <p class="edit-input-label">Address:</p>
-                            <input type="text" id="fadress" class="form-control edit-input-profile" name="faddress"
-                                placeholder="Your address..." value="{{ $user->address }}">
+                            <input type="text" id="update_address" class="form-control edit-input-profile"
+                                name="update_address" placeholder="Your address..." value="{{ $user->address }}">
                         </div>
                         <div class="col-lg-6">
                             <p class="edit-input-label">About me:</p>
-                            <textarea id="fabout" class="form-control edit-input-profile" name="fabout"
+                            <textarea id="about" class="form-control edit-input-profile" name="about"
                                 placeholder="Your about me..." rows="5">{{ $user->about }}</textarea>
                         </div>
                     </div>

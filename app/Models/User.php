@@ -80,4 +80,15 @@ class User extends Authenticatable
     {
         return Carbon::parse($this['birthday'])->format('d/m/Y');
     }
+
+     public function updateInfo($data, $user) {
+        return $user->update([
+            'name' => $data['update_name'],
+            'email' => $data['update_email'],
+            'phone' => $data['update_phone'],
+            'about' => $data['update_about'],
+            'birthday' => $data['update_birthday'],
+            'address' => $data['update_address']
+        ]);
+     }
 }
