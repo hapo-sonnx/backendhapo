@@ -1,8 +1,8 @@
 $(function () {
-  $("#btn-reset-filter").on('click', function () {
-    $("#filter-search").val("");
-    $(".input-filter").val("");
-    $(".btn-latest").prop("checked", false);
-    $(".btn-oldest").prop("checked", false);
+  $("#btnResetFilter").on('click', function () {
+    $("#filterSearch").val("");
+    $(".inputFilter").val("");
+    $(".btnLatest").prop("checked", false);
+    $(".btnOldest").prop("checked", false);
   });
 });
