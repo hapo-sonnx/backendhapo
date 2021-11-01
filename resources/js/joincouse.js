@@ -1,6 +1,6 @@
 $(function () {
-  $('#btn-profile-header').on('click', function (e) {
-    if ($('#btn-regis-login').length > 0) {
+  $('#btnProfileHeader').on('click', function (e) {
+    if ($('#btnRegisLogin').length > 0) {
       e.preventDefault();
       $("#myModal").modal("show");
       $("#login").addClass("active");
@@ -8,8 +8,8 @@ $(function () {
     }
   });
 
-  $('#btn-join-course').on('click', function (e) {
-    if ($('#btn-regis-login').length > 0) {
+  $('#btnJoinCourse').on('click', function (e) {
+    if ($('#btnRegisLogin').length > 0) {
       e.preventDefault();
       $("#myModal").modal("show");
       $("#login").addClass("active");

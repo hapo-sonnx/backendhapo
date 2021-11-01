@@ -1,3 +1,3 @@
-$("#icon-upload-ava").click(function () {
-  $("#input-upload-ava").trigger('click');
+$("#iconUploadAva").click(function () {
+  $("#inputUploadAva").trigger('click');
 });

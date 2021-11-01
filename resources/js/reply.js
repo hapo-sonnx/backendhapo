@@ -1,6 +1,6 @@
 $(function () {
   $('.btn-reply').on('click', function () {
-    if ($('#btn-regis-login').length > 0) {
+    if ($('#btnRegisLogin').length > 0) {
       $("#myModal").modal("show");
       $("#login").addClass("active");
       $("#nav-login").addClass("active");
@@ -9,7 +9,7 @@ $(function () {
     var form = $(this).data('id');
 
     $('.form-reply-comment').each(function () {
-      if ($(this).hasClass(form) && $('#btn-regis-login').length == 0 || $(this).data('id') == form) {
+      if ($(this).hasClass(form) && $('#btnRegisLogin').length == 0 || $(this).data('id') == form) {
         if ($(this).css("display") == "none") {
           $(this).css({ "display": "block" })
         } else {

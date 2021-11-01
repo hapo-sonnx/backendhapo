@@ -10,7 +10,7 @@
                         aria-controls="multiCollapseExample1">
                 </div>
                 <div class="group-form col-8 col-sm-2 col-md-6 p-0 input-search-container">
-                    <input type="text" id="filter-search" class="form-control mr-sm-2 form-search" name="key"
+                    <input type="text" id="filterSearch" class="form-control mr-sm-2 form-search" name="key"
                         placeholder="Search" aria-label="Search" @if (isset($keyword)) value={{ $keyword }} @endif>
                     <i class="fas fa-search search-icon"></i>
                 </div>
@@ -29,15 +29,15 @@
                             <input type="radio" class="btn-check inp-filter"
                                 value="{{ config('constants.options.newest') }}" name="sort" id="success-outlined"
                                 {{ request('sort') == "config('constants.options.newest')" ? 'checked' : '' }}>
-                            <label class="btn btn-latest label-radio" for="success-outlined">Latest</label>
+                            <label class="btn btn-latest btnLatest label-radio" for="success-outlined">Latest</label>
 
                             <input type="radio" class="btn-check inp-filter"
                                 value="{{ config('constants.options.oldest') }}" name="sort" id="danger-outlined"
                                 {{ request('sort') == "config('constants.options.oldest')" ? 'checked' : '' }}>
-                            <label class="btn btn-oldest label-radio" for="danger-outlined">Oldest</label>
+                            <label class="btn btn-oldest btnOldest label-radio" for="danger-outlined">Oldest</label>
                         </div>
                         <div class="col-sm-2 select-filter">
-                            <select name="learner" id="select-learner" class="js-states form-control input-filter">
+                            <select name="learner" id="select-learner" class="js-states form-control inputFilter">
                                 <option value="">Learner</option>
                                 <option value="{{ config('constants.options.ascending') }}" @if (request('learner') == config('constants.options.ascending')) selected @endif>
                                     Ascending
@@ -48,7 +48,7 @@
                             </select>
                         </div>
                         <div class="col-sm-2 select-filter">
-                            <select name="times" id="select-time" class="js-states form-control input-filter">
+                            <select name="times" id="select-time" class="js-states form-control inputFilter">
                                 <option value="">Time</option>
                                 <option value="{{ config('constants.options.ascending') }}" @if (request('times') == config('constants.options.ascending')) selected @endif>
                                     Ascending
@@ -59,7 +59,7 @@
                             </select>
                         </div>
                         <div class="col-sm-2 select-filter">
-                            <select name="lessons" id="select-lessons" class="js-states form-control input-filter">
+                            <select name="lessons" id="select-lessons" class="js-states form-control inputFilter">
                                 <option value="">Lessons</option>
                                 <option value="{{ config('constants.options.ascending') }}" @if (request('lessons') == config('constants.options.ascending')) selected @endif>
                                     Ascending
@@ -73,7 +73,7 @@
                     <div class="row p-0 m-0 row-filter-2">
                         <div class="col-sm-1"></div>
                         <div class="col-sm-2 select-filter">
-                            <select name="tags" id="select-tags" class="js-states form-control input-filter">
+                            <select name="tags" id="select-tags" class="js-states form-control inputFilter">
                                 <option value="">Tags</option>
                                 @foreach ($tags as $item)
                                     <option value="{{ $item->id }}" @if ($item->id == request('tags')) selected
@@ -82,7 +82,7 @@
                             </select>
                         </div>
                         <div class="col-sm-2 select-filter">
-                            <select name="feedback" id="select-feedback" class="js-states form-control input-filter">
+                            <select name="feedback" id="select-feedback" class="js-states form-control inputFilter">
                                 <option value="">Feedback</option>
                                 <option value="{{ config('constants.options.ascending') }}" @if (request('feedback') == config('constants.options.ascending')) selected @endif>
                                     Ascending
@@ -93,7 +93,7 @@
                             </select>
                         </div>
                         <div class="col-sm-2">
-                            <input class="btn btn-reset-filter" id="btn-reset-filter" type="button" value="Reset">
+                            <input class="btn btn-reset-filter" id="btnResetFilter" type="button" value="Reset">
                         </div>
                     </div>
                 </div>

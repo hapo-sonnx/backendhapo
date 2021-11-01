@@ -251,8 +251,8 @@
 
     <div class="img-mess"><img class="" src=" {{ asset('image/messenger.png') }}" alt="logo mess">
     </div>
-    <div class="text-mess">
-        <div class="close-button"><i class="fas fa-times"></i></div>
+    <div class="text-mess textMess">
+        <div class="close-button closeButton"><i class="fas fa-times"></i></div>
         <div class="hapolearn-text">HapoLearn</div>
         <div class="message-from-hapolearn">
             <img class="hapo-logo" src="{{ asset('image/logo_hapo.png') }} " alt="logo mess">
