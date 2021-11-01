@@ -9,12 +9,12 @@
                 <div class="avatar-user row justify-content-md-center">
                     @if (isset($user->logo_path))
                     <img src="{{ $users->logo_path }}" alt="ava-user">
-                        <i class="fas fa-camera icon-upload-ava" id="icon-upload-ava"></i>
-                        <input type="file" name="favauser" class="input-upload-ava" id="input-upload-ava">
+                        <i class="fas fa-camera icon-upload-ava" id="iconUploadAva"></i>
+                        <input type="file" name="favauser" class="input-upload-ava" id="inputUploadAva">
                     @else
                         <img src="{{ asset('image/avatar_user.png') }}" alt="ava-user">
-                        <i class="fas fa-camera icon-upload-ava" id="icon-upload-ava"></i>
-                        <input type="file" name="favauser" class="input-upload-ava" id="input-upload-ava">
+                        <i class="fas fa-camera icon-upload-ava" id="iconUploadAva"></i>
+                        <input type="file" name="favauser" class="input-upload-ava" id="inputUploadAva">
                     @endif
                 </div>
                 <div class="profile-user row justify-content-md-center">

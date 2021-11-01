@@ -15,7 +15,7 @@
                         <div class="progress p-0 col-lg-9 align-self-center">
                             <div class="progress-bar" id="progress" role="progressbar" aria-valuenow="{{ $percentage }}"
                                 aria-valuemin="0" aria-valuemax="100" style="width:{{ $percentage }}%">
-                                <span id="show-percentage">{{ $percentage }}%</span>
+                                <span id="showPercentage">{{ $percentage }}%</span>
                             </div>
                         </div>
                     </div>

@@ -2,8 +2,8 @@ const { countBy } = require("lodash");
 
 $(function () {
   var $i = 0;
-  $(".btn-preview").each(function (index) {
-    $tag = $($(".btn-preview")[index])
+  $(".btnPreview").each(function (index) {
+    $tag = $($(".btnPreview")[index])
       .text()
       .trim().length;
     if ($tag == 0) {
@@ -11,7 +11,7 @@ $(function () {
     }
   });
 
-  $(".btn-preview").on("click", function () {
+  $(".btnRreview").on("click", function () {
     $.ajaxSetup({
       headers: {
         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
@@ -28,7 +28,7 @@ $(function () {
       dataType: "json",
       success: function (result) {
         result.number.forEach(number => {
-          $(".btn-preview").each(function (index) {
+          $(".btnPreview").each(function (index) {
             var data_id = $(this).attr("data-id");
             if (number.document_id == data_id) {
               $(this).text("Learned");
@@ -38,7 +38,7 @@ $(function () {
         console.log(result.number);
         var width = result.percentage;
         $("#progress").css({ "width": width + "%" });
-        $('#show-percentage').text(width + "%")
+        $('#showPercentage').text(width + "%")
       }
     });
   });
