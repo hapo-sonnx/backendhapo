@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -75,18 +76,19 @@ class User extends Authenticatable
         return $this->belongsToMany(Document::class, 'document_users', 'user_id', 'document_id');
     }
 
-    public function scopeStudents($query)
+    public function getDateOfBirthdayAttribute()
     {
-        $query->where('role', User::ROLE['student']);
+        return Carbon::parse($this['birthday'])->format('d/m/Y');
     }
 
-    public function scopeCourseAttended($query)
-    {
-        $query->join('user_courses', 'users.id', 'user_courses.user_id')
-            ->join('courses', 'user_courses.course_id', 'courses.id')
-            ->where('users.id', '=', Auth::user()->id)
-            ->limit(5)
-            ->orderByDesc('course_id')
-            ->get('courses.*');
-    }
+     public function updateInfo($data, $user) {
+        return $user->update([
+            'name' => $data['update_name'],
+            'email' => $data['update_email'],
+            'phone' => $data['update_phone'],
+            'about' => $data['update_about'],
+            'birthday' => $data['update_birthday'],
+            'address' => $data['update_address']
+        ]);
+     }
 }
