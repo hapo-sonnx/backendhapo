@@ -20,7 +20,7 @@
         <a href="" class="title">{{ $item->description }}</a>
     </div>
     <div class="col-lg-8 button-preview-container text-right align-self-center">
-        <a href="{{ url('view', $item->id) }}" data-id="{{ $item->id }}" class="btnPreview" target="_blank"
+        <a href="{{ url('view', $item->id) }}" data-id="{{ $item->id }}" class="btn-preview" target="_blank"
             rel="noopener norefer">
             @foreach ($documentsLearned as $dcm)
                 @if ($dcm->document_id == $item->id)

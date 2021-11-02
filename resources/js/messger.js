@@ -1,8 +1,8 @@
 $(document).ready(function () {
-  $(".closeButton").click(function () {
-    $(".textMess").hide();
+  $(".close-utton").click(function () {
+    $(".text-mess").hide();
   });
   $(".img-mess").click(function () {
-    $(".textMess").show();
+    $(".text-mess").show();
   });
 });

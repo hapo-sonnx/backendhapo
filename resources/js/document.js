@@ -2,8 +2,8 @@ const { countBy } = require("lodash");
 
 $(function () {
   var $i = 0;
-  $(".btnPreview").each(function (index) {
-    $tag = $($(".btnPreview")[index])
+  $(".btn-preview").each(function (index) {
+    $tag = $($(".btn-preview")[index])
       .text()
       .trim().length;
     if ($tag == 0) {
@@ -11,33 +11,38 @@ $(function () {
     }
   });
 
-  $(".btnRreview").on("click", function () {
+  function baseAjaxSetup(url, type, data, dataType) {
     $.ajaxSetup({
+      url : url,
+      type :type,
+      data: data,
+      dataType : dataType,
       headers: {
-        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-      }
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+          }
     });
-    var documentID = $(this).data("id");
+  }
+
+  $(".btn-preview").click (function () {
+    var ajaxSetup = baseAjaxSetup(
+      '/learn',
+      'POST',
+      { documentID: $(this).data("id")},
+      'json',
+
+    );
     $.ajax({
-      url: "/learning",
-      method: "POST",
-      data: {
-        documentID: documentID
-      },
-      dataType: "json",
       success: function (result) {
         result.number.forEach(number => {
-          $(".btnPreview").each(function (index) {
+          $(".btn-preview").each(function (index) {
             var data_id = $(this).attr("data-id");
             if (number.document_id == data_id) {
               $(this).text("Learned");
             }
           });
         });
-        console.log(result.number);
-        var width = result.percentage;
-        $("#progress").css({ "width": width + "%" });
-        $('#showPercentage').text(width + "%")
+        $("#progress").css({ "width": result.percentage + "%" });
+        $('#showPercentage').text(result.percentage + "%")
       }
     });
   });

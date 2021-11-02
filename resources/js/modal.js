@@ -1,5 +1,5 @@
 $(function () {
-  if ($(".inputRegister").hasClass("check-register")) {
+  if ($(".input-register").hasClass("check-register")) {
     $("#myModal").modal("show");
     $("#login").removeClass("active");
     $("#nav-login").removeClass("active");
@@ -7,7 +7,7 @@ $(function () {
     $("#nav-register").addClass("active");
   }
 
-  if ($(".inputLogin").hasClass("check-login")) {
+  if ($(".input-login").hasClass("check-login")) {
     $("#myModal").modal("show");
     $("#register").removeClass("active");
     $("#nav-register").removeClass("active");

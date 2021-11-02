@@ -20,7 +20,7 @@
                             @csrf
                             <label class="label-username">Username:</label>
                             <br>
-                            <input class="text-username inputLogin @error('email') check-login @enderror"
+                            <input class="text-username input-login @error('email') check-login @enderror"
                                 placeholder="E-mail" name="email" type="email">
                             @error('email')
                                 <span class="text-danger">
@@ -29,7 +29,7 @@
                             @enderror
                             <label class="label-passwords pass">Password:</label>
                             <br>
-                            <input class="text-username inputLogin  @error('password') check-login @enderror"
+                            <input class="text-username input-login  @error('password') check-login @enderror"
                                 placeholder="Password" name="password" type="password">
                             @error('password')
                                 <span class="text-danger">
@@ -64,7 +64,7 @@
                         @csrf
                         <div class="form-group">
                             <label class="label-usernamee">Username:</label>
-                            <input class="text-usernamee inputRegister @error('name') check-register  @enderror"
+                            <input class="text-usernamee input-register" @error('name') check-register  @enderror"
                                 id="name" name="name" type="text">
                             @error('name')
                                 <span class="check-register " role="alert">
@@ -75,7 +75,7 @@
                         <div class="form-group">
                             <label class="label-usernamee">Email:</label>
                             <br>
-                            <input class="text-usernamee  inputRegister @error('email_user') check-register  @enderror"
+                            <input class="text-usernamee  input-register" @error('email_user') check-register  @enderror"
                                 id="email" name="email_user" type="text">
                             @error('email_user')
                                 <span class="check-register " role="alert">
@@ -87,7 +87,7 @@
                             <label class="label-password ">Password:</label>
                             <br>
                             <input
-                                class="text-usernamee  inputRegister @error('password_register') is-invalid @enderror"
+                                class="text-usernamee  input-register" @error('password_register') is-invalid @enderror"
                                 name="password_register" type="text">
                             @error('password_register')
                                 <span class="is-invalid" role="alert">
@@ -99,7 +99,7 @@
                             <label class="label-usernamee">Repeat Password:</label>
                             <br>
                             <input
-                                class="text-usernamee  inputRegister @error('password_confirmation') is-invalid @enderror"
+                                class="text-usernamee  input-register" @error('password_confirmation') is-invalid @enderror"
                                 id="password-confirm" name="password_confirmation" type="text">
                             @error('password_confirmation')
                                 <span class="is-invalid" role="alert">

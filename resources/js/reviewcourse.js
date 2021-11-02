@@ -36,16 +36,6 @@ function getRate(number) {
     for (let i = 0; i < 5 - number; i++) {
       html += '<i class="fa fa-star-o"></i>';
     }
-  } else if (number == "") {
-    for (let i = 0; i < 5; i++) {
-      html += '<i class="fa fa-star-o"></i>';
-    }
-  } else {
-    for (let i = 0; i < 5; i++) {
-      html += '<i class="fa fa-star"></i>';
-    }
   }
-
-
   return html;
 }
