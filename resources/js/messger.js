@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".close-utton").click(function () {
+  $(".close-button").click(function () {
     $(".text-mess").hide();
   });
   $(".img-mess").click(function () {

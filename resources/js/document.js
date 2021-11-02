@@ -10,28 +10,15 @@ $(function () {
       $(this).text("Preview");
     }
   });
-
-  function baseAjaxSetup(url, type, data, dataType) {
-    $.ajaxSetup({
-      url : url,
-      type :type,
-      data: data,
-      dataType : dataType,
-      headers: {
-            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-          }
-    });
-  }
-
+  
   $(".btn-preview").click (function () {
-    var ajaxSetup = baseAjaxSetup(
-      '/learn',
-      'POST',
-      { documentID: $(this).data("id")},
-      'json',
-
-    );
     $.ajax({
+      url: "/learning",
+      method: "POST",
+      data: {
+        documentID: $(this).data("id")
+      },
+      dataType: "json",
       success: function (result) {
         result.number.forEach(number => {
           $(".btn-preview").each(function (index) {

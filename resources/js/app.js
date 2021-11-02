@@ -1,5 +1,6 @@
 require('./bootstrap');
 
+require('./ajax_setup');
 require('./popover');
 require('./modal');
 require('./resetfilter');

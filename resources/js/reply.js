@@ -34,11 +34,6 @@ $(function () {
   });
   $('.form-reply-comment').submit(function (e) {
     e.preventDefault();
-    $.ajaxSetup({
-      headers: {
-        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-      }
-    });
     var reply;
     var reviewId;
     $('.input-reply-comment').each(function () {
@@ -50,7 +45,7 @@ $(function () {
     var userId = $('.user-id-reply').first().val();
     if (reply != null && reviewId != null && userId != null) {
       $.ajax({
-        url: "/replyreview",
+        url: "/reply",
         method: "POST",
         data: {
           reply: reply,
