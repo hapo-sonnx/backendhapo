@@ -9,13 +9,11 @@ $(function () {
     });
     dataObj['rate'] = $('input[name="rate"]:checked').val();
 
-    // console.log(dataObj);/
     $.ajax({
       type: "POST",
       url: endpoint,
       data: dataObj,
       success: function (res) {
-        // console.log(res)
         let html = `<li>
               <p class="name-user-cmt text-centers">`+ userName + ` <span>` + getRate(dataObj['rate']) + `</span></p>
               <p class="row pl-0 reply-comment-body">`+ dataObj['content'] + `</p>
@@ -38,16 +36,6 @@ function getRate(number) {
     for (let i = 0; i < 5 - number; i++) {
       html += '<i class="fa fa-star-o"></i>';
     }
-  } else if (number == "") {
-    for (let i = 0; i < 5; i++) {
-      html += '<i class="fa fa-star-o"></i>';
-    }
-  } else {
-    for (let i = 0; i < 5; i++) {
-      html += '<i class="fa fa-star"></i>';
-    }
   }
-
-
   return html;
 }

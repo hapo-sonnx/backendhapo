@@ -7,9 +7,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ReplyReviewController extends Controller
+class ReplyController extends Controller
 {
-    public function replyreviewcourse(Request $request)
+    public function replyreview(Request $request)
     {
         if ($request->userId == Auth::user()->id) {
             $reply = new ReplyReview();

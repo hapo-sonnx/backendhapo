@@ -27,7 +27,7 @@
                     </li>
                     @if (!Auth::check())
                         <li class="nav-item">
-                            <a class="nav-link btn-x" id="btn-regis-login" href="#" data-toggle="modal"
+                            <a class="nav-link btn-x" id="btnRegisLogin" href="#" data-toggle="modal"
                                 data-target="#myModal">LOGIN/REGISTER</a>
                         </li>
                     @endif

@@ -12,7 +12,7 @@
         @if (Auth::check() && $isJoined == true)
             <a href="#" class="btn-join-course" id="btn-joined-course">Joined the course</a>
         @else
-            <a href="{{ route('courses.join', $course->id) }}" class="btn-join-course"  id="btn-join-course">Join the course</a>
+            <a href="{{ route('courses.join', $course->id) }}" class="btn-join-course"  id="btnJoinCourse">Join the course</a>
         @endif
     </div>
 </div>
