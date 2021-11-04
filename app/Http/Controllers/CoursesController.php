@@ -62,17 +62,4 @@ class CoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-    public function join(Course $course)
-    {
-        $course->users()->attach(Auth::id());
-
-        return back();
-    }
-
-    public function leave(Course $course)
-    {
-        $course->users()->detach(Auth::id());
-        return redirect()->route('courses.index');
-    }
 }

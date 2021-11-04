@@ -9,13 +9,15 @@
         </div>
     </form>
     <div class="col-lg-4 pr-0 align-self-center btn-join-container">
-        @if ($course->is_joined)
-            <a href="{{ route('courses.join', $course) }}" class="btn-join-course" id="btn-joined-course">Joined the
-                course</a>
-        @else
-            <a href="{{ route('courses.join', $course) }}" class="btn-join-course" id="btnJoinCourse">Join the
-                course</a>
-        @endif
+        <form method="post" action="{{ route('courses.users.store', $course) }}">
+            @csrf
+            <input type="hidden" name="course_id" value="{{ $course->id }}">
+            @if($course->is_joined)
+                <button type="submit" class="btn-join-course" id="btnJoinedCourse"">Joined</button>
+            @else
+                <button type="submit" class="btn-join-course" id="btnJoinCourse">Join in the course</button>
+            @endif
+        </form>
     </div>
 </div>
 <div class="row m-0 show-lessons-container">

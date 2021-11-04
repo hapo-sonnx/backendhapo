@@ -84,7 +84,11 @@
                         <hr>
                         <div class="row row-detail">
                             <div class="col-lg 12 btn-leave-course">
-                                <a href="{{ route('courses.leave', $course->id) }}">Leave the course</a>
+                                <form method="post"
+                                    action="{{ route('courses.users.destroy', [$course, Auth::user()->id ?? null]) }}">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="w-30 btn btn-leave-course">Leave this course</button>
                             </div>
                         </div>
                     </div>
@@ -115,7 +119,7 @@
                                 @include('lesson.lesson_info', [$lessons])
                             </div>
                             <div id="teacher" class="tab-pane">
-                                @include('courses.tab_teacher')
+                                {{-- @include('courses.tab_teacher') --}}
                             </div>
                             <div id="documents" class="tab-pane">
                                 @include('lesson.document', $documents)
