@@ -19,7 +19,7 @@
         <div class="col-lg-1 title-container">
             <p class="title">Tags</p>
         </div>
-        @foreach ($tags as $tag)
+        @foreach ($course->tags as $tag)
             <div class="col-lg-1 pl-0 content-container">
                 <p class="content tags"> #{{ $tag->content }} </p>
             </div>

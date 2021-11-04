@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 class Course extends Model
 {
@@ -27,6 +28,11 @@ class Course extends Model
         return $this->belongsToMany(User::class, 'user_courses', 'course_id', 'user_id');
     }
 
+    public function getIsJoinedAttribute()
+    {
+        return $this->users->contains(Auth::user()->id ?? null);
+    }   
+
     public function getNumberUserStudentAttribute()
     {
         return $this->users()->where('role', User::ROLE['student'])->count();
@@ -42,11 +48,11 @@ class Course extends Model
         return $this->lessons()->count();
     }
 
-    public function scopeInforLessons($query, $id)
+    public function scopeInforLessons($query, $course)
     {
         $query->join('lessons', 'courses.id', '=', 'lessons.course_id')
             ->select('lessons.*')
-            ->where('lessons.course_id', '=', $id);
+            ->where('lessons.course_id', '=', $course->id);
     }
 
     public function getCourseTimeAttribute()
@@ -60,13 +66,6 @@ class Course extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'tag_courses', 'course_id', 'tag_id');
-    }
-
-    public function scopeTagsCourse($query, $id)
-    {
-        $query->leftJoin('tag_courses', 'courses.id', 'tag_courses.course_id')
-            ->leftJoin('tags', 'tag_courses.tag_id', 'tags.id')
-            ->where('tag_courses.course_id', $id);
     }
 
     public function reviews()
@@ -91,12 +90,9 @@ class Course extends Model
         ->get();
     }
 
-    public function scopeTeacherOfCourse($query, $id)
+    public function getTeachersOfCourseAttribute()
     {
-        $query->leftJoin('user_courses', 'courses.id', 'user_courses.course_id')
-            ->leftJoin('users', 'user_courses.user_id', 'users.id')
-            ->where('users.role', User::ROLE['teacher'])
-            ->where('user_courses.course_id', $id);
+        return $this->users()->where('users.role', User::ROLE['teacher'])->get();
     }
 
     public function scopeFilter($query, $data)
@@ -155,7 +151,6 @@ class Course extends Model
         ])->orderByDesc('users_count')->limit(3);
     }
 
-        
     public function scopeOtherCourse($query)
     {
         $query->orderByDesc('id')->limit(3);

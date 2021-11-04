@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Document;
 use App\Models\Tag;
-use App\Models\User;
 use App\Models\Lesson;
 use App\Models\ReplyReview;
 use App\Models\UserCourse;
@@ -28,7 +27,6 @@ class CoursesController extends Controller
         } else {
             $keyword = '';
         }
-        $tags = Tag::all();
         $courses = Course::filter($request->all())->paginate(config('constants.pagination'));
         return view('courses.index', compact('courses', 'tags', 'keyword'));
     }
@@ -38,43 +36,24 @@ class CoursesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show(Request $request, Course $course)
     {
-        $course = Course::find($id);
-        $tags = Course::tagsCourse($id)->get();
-        $otherCourses = Course::showOtherCourses($course->id)->get();
-        $teacher = Course::teacherOfCourse($id)->get();
-        $lessons = Course::inforLessons($id)->paginate(config('constants.pagination_lessons'));
-        $lessons = Lesson::search($request->all())->paginate(config('constants.pagination_lessons'));
-        $isJoined = UserCourse::joined($id)->first() ? true : false;
-        $reviews = Course::find($id)->reviews;
+        $lessons = $course->lessons()->WHERE('title', 'like', '%' . $request['key_detail_course'] . '%')->paginate(config('constants.pagination_lessons'));
+        $reviews = $course->reviews()->get();
         $totalDocuments = Lesson::documentsOfLesson($lessons->first()->id)->get();
-        $userIds = [];
-        if (!empty($reviews)) {
-            foreach ($reviews as $review) {
-                $userIds[] = $review['user_id'];
-            }
-        }
-        $userInfos = User::whereIn('id', $userIds)->select('name', 'id')->get();
-        $userInfoMap = [];
-        if (!empty($userInfos)) {
-            foreach ($userInfos as $userInfo) {
-                $userInfoMap[$userInfo->id] = $userInfo;
-            }
-        }
+        $courseOthers = Course::OtherCourse()->get();
         if (Auth::check()) {
             $documentsLearned = Document::documentLearned($lessons->first()->id)->get();
         } else {
             $documentsLearned = 0;
         }
-
         if (Auth::check() && $documentsLearned->count() != 0 && $totalDocuments->count() != 0) {
             $learnedPart = $documentsLearned->count() / $totalDocuments->count();
         } else {
             $learnedPart = 0;
         }
         $replies = ReplyReview::inforReply()->get();
-        return view('courses.courses_detail', compact('course', 'lessons', 'teacher', 'tags', 'otherCourses', 'isJoined', 'reviews', 'userInfoMap', 'replies', 'totalDocuments', 'learnedPart'));
+        return view('courses.courses_detail', compact('course', 'lessons', 'reviews', 'replies', 'courseOthers','totalDocuments', 'learnedPart'));
     }
 
     /**
@@ -84,17 +63,15 @@ class CoursesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function join($id)
+    public function join(Course $course)
     {
-        $course = Course::find($id);
         $course->users()->attach(Auth::id());
 
         return back();
     }
 
-    public function leave($id)
+    public function leave(Course $course)
     {
-        $course = Course::find($id);
         $course->users()->detach(Auth::id());
         return redirect()->route('courses.index');
     }
