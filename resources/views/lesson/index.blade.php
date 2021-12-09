@@ -66,7 +66,7 @@
                                 <p>Tags :</p>
                             </div>
                             <div class="col-lg-7 pl-0 align-self-center col-txt col-txt-tags">
-                                <p>@foreach ($tags as $tag) {{ $tag->content }} @endforeach</p>
+                                {{-- <p>@foreach ($tags as $tag) {{ $tag->content }} @endforeach</p> --}}
                             </div>
                         </div>
                         <hr>
@@ -84,7 +84,11 @@
                         <hr>
                         <div class="row row-detail">
                             <div class="col-lg 12 btn-leave-course">
-                                <a href="{{ route('courses.leave', $course->id) }}">Leave the course</a>
+                                <form method="post"
+                                    action="{{ route('courses.users.destroy', [$course, Auth::user()->id ?? null]) }}">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="w-30 btn btn-leave-course">Leave this course</button>
                             </div>
                         </div>
                     </div>
@@ -112,10 +116,10 @@
                     <div class="lessons-teacher-reiews-container">
                         <div class="tab-content">
                             <div id="descriptions" class="tab-pane active">
-                                @include('lesson.lesson_info', [$lessons, $tags])
+                                @include('lesson.lesson_info', [$lessons])
                             </div>
                             <div id="teacher" class="tab-pane">
-                                @include('courses.tab_teacher', $teacher)
+                                {{-- @include('courses.tab_teacher') --}}
                             </div>
                             <div id="documents" class="tab-pane">
                                 @include('lesson.document', $documents)

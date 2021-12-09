@@ -40,13 +40,6 @@ class Lesson extends Model
         return $this->hasMany(Feedback::class, 'lesson_id');
     }
 
-    public function scopeSearch($query, $data)
-    {
-        if (isset($data['key_detail_course'])) {
-            $query->where('title', 'like', '%' . $data['key_detail_course'] . '%');
-        }
-    }
-
     public function documents()
     {
         return $this->hasMany(Document::class, 'course_id');

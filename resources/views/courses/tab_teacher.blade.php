@@ -3,7 +3,7 @@
         <p>Main Teachers</p>
     </div>
     <div class="col-lg-12">
-        @foreach ($teacher as $item)
+        @foreach ($course->teachers_of_course as $item)
             <div class="row row-infor-mentor">
                 <div class="col-lg-2 pr-0 col-ava-mentor">
                     <img src="{{ asset('image/Gruop.png') }}" alt="anh">

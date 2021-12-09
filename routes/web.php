@@ -12,6 +12,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\FacebookController;
+use App\Http\Controllers\CourseUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +34,7 @@ Route::resource('lessons', LessonController::class)->only(['show']);
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('user', UserController::class)->only(['update','show']);
-    Route::get('/courses/{course}/join', [CoursesController::class, 'join'])->name('courses.join');
-    Route::get('/courses/{course}/leave', [CoursesController::class, 'leave'])->name('courses.leave');
+    Route::resource('courses.users', CourseUserController::class)->only(['store','destroy']);
     Route::post('/reply', [ReplyController::class, 'replyreview']);
     Route::post('/review/course', [ReviewController::class, 'reviewcourse'])->name('review.course');
     Route::post('/review/lesson', [ReviewController::class, 'reviewlesson'])->name('review.lesson');

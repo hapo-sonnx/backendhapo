@@ -38,10 +38,10 @@
                     <div class="lessons-teacher-reiews-container">
                         <div class="tab-content">
                             <div id="lessons" class="tab-pane active">
-                                @include('courses.tab_lessons', [ $lessons, $course, $isJoined , $totalDocuments ,$learnedPart ])
+                                @include('courses.tab_lessons', [ $lessons, $course , $totalDocuments ,$learnedPart ])
                             </div>
                             <div id="teacher" class="tab-pane">
-                                @include('courses.tab_teacher', $teacher)
+                                @include('courses.tab_teacher')
                             </div>
                             <div id="reviews" class="tab-pane">
                                 @include('courses.tab_review', $replies)
@@ -95,7 +95,7 @@
                                 <p>Tags :</p>
                             </div>
                             <div class="col-lg-4 pl-0 align-self-center col-txt col-txt-tags">
-                                <p>@foreach ($tags as $tag) #{{ $tag->content }} @endforeach</p>
+                                <p>@foreach ($course->tags as $tag) #{{ $tag->content }} @endforeach</p>
                             </div>
                         </div>
                         <hr>
@@ -115,10 +115,10 @@
                         <div class="txt-show-other-courses">
                             <p>Other Courses</p>
                         </div>
-                        @foreach ($otherCourses as $key => $item)
+                        @foreach ($courseOthers as $key => $items)
                             <div class="show-other-courses">
-                                <a href="{{ route('courses.show', $item->id) }}">{{ $key + 1 }}.
-                                    {{ $item->title }}</a>
+                                <a href="{{ route('courses.show', $items->id) }}">{{ $key + 1 }}.
+                                    {{ $items->title }}</a>
                             </div>
                         @endforeach
                         <div class="col-kg-12 btn-view-all">

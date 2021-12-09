@@ -18,24 +18,23 @@
                     </div>
                     <div class="col-lg-9 col-xs-12 col-md-6 star-five">
                         <div class="row rating-desc">
-                        @foreach($course->numberRate as $starRating)
-                            <div class="col-lg-1 col-xs-3 col-md-3 text-right">
-                                <span class="glyphicon glyphicon-star">{{ $starRating->rate }}</span>
-                            </div>
-                            <div class="col-lg-10 col-xs-8 col-md-9">
-                                <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                                        aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ $course->number_review > 0 ? ($starRating->total / $course->number_review) * 100 : 0 }}%">
-                                        <span class="sr-only"></span>
+                            @foreach ($course->numberRate as $starRating)
+                                <div class="col-lg-1 col-xs-3 col-md-3 text-right">
+                                    <span class="glyphicon glyphicon-star">{{ $starRating->rate }}</span>
+                                </div>
+                                <div class="col-lg-10 col-xs-8 col-md-9">
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-success" role="progressbar"
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                            style="width: {{ $course->number_review > 0 ? ($starRating->total / $course->number_review) * 100 : 0 }}%">
+                                            <span class="sr-only"></span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-1 col-xs-3 col-md-3 text-left">
-                                <span class="glyphicon glyphicon-star">{{ $starRating->total }}</span>
-                            </div>
-                        @endforeach
-
+                                <div class="col-lg-1 col-xs-3 col-md-3 text-left">
+                                    <span class="glyphicon glyphicon-star">{{ $starRating->total }}</span>
+                                </div>
+                            @endforeach
                         </div>
                         <!-- end row -->
                     </div>
@@ -48,14 +47,13 @@
 <div class="m-3">
     <div class="review-content">
         <ul id="commentArea">
-            @foreach ($reviews as $review)
+            @foreach ($course->reviews as $review)
                 <div>
                     <div class="user-info">
-                        <div class="avatar" style="url('{{ $userInfoMap[$review->user_id]->avatar }}')">
+                        <div class="avatar" style="url('{{ $review->users->avatar }}')">
                         </div>
                         <p class="text-centers">
-                            {{ $userInfoMap[$review->user_id]->name }}<span class="star"
-                                style="margin-left: 1rem">
+                            {{ $review->users->name }}<span class="star" style="margin-left: 1rem">
                                 <div class="star-user-rating ">
                                     @for ($i = 0; $i < $review->rate; $i++)
                                         <i class="fas fa-star checked"></i>
